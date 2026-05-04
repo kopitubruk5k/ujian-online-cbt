@@ -147,6 +147,8 @@ Project ini menggunakan lisensi **MIT License**
 
 **Muhammad Mus'ab**
 
+email: mm240@ums.ac.id
+
 ---
 
 ## ⭐ Support
