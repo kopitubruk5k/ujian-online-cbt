@@ -1,5 +1,4 @@
 # 🧠 Ujian Online CBT
-
 ![GitHub repo size](https://img.shields.io/github/repo-size/kopitubruk5k/ujian-online-cbt)
 ![GitHub stars](https://img.shields.io/github/stars/kopitubruk5k/ujian-online-cbt?style=social)
 ![GitHub forks](https://img.shields.io/github/forks/kopitubruk5k/ujian-online-cbt?style=social)
@@ -39,15 +38,14 @@
 
 ## 🖥️ Demo
 
-> Tambahkan link demo jika tersedia  
-> Contoh: https://your-demo-link.com
+> Link demo: https://ujian-cbt.sdumsgc.com/
 
 ---
 
 ## 📸 Screenshots
 
-> Tambahkan screenshot aplikasi di sini  
-> (Dashboard, halaman ujian, hasil nilai, dll)
+<img width="500" height="500" alt="image" src="https://github.com/user-attachments/assets/d8386f85-6241-46df-bc08-3d1aae79d4b6" />
+> Dashboard halaman ujian
 
 ---
 
@@ -147,7 +145,7 @@ Project ini menggunakan lisensi **MIT License**
 
 ## 👨‍💻 Author
 
-**kopitubruk5k**
+**Muhammad Mus'ab**
 
 ---
 
