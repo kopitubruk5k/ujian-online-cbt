@@ -1,0 +1,1596 @@
+{
+    "pedagogik": [
+        {
+            "id": "pedagogik_7f529aa7",
+            "kategori": "pedagogik",
+            "tipe": "single",
+            "soal": "Pada aktivitas pembelajaran di kelas, guru memberikan soal pada peserta didiknya sebagai berikut: jika suatu persegi panjang memiliki panjang sisi 15 cm dan lebar 10 cm, tentukan keliling persegi panjang tersebut. Jawaban siswa adalah 150cm2, dengan alasan keliling persegi panjang adalah panjang dikalikan lebar. Penanganan yang tepat untuk mengatasi kesulitan peserta didik tersebut adalah memberikan ....",
+            "pilihan": [
+                "A. Penjelasan ulang bahwa rumus keliling persegi panjang adalah panjang dikalikan lebar",
+                "B. Pertanyaan pancingan terkait dengan rumus luas persegi panjang",
+                "C. Scaffolding kepada peserta didik, cara menentukan keliling bangun persegi panjang",
+                "D. Soal lebih sulit tentang menentukan keliling bangun persegi panjang",
+                "E. Hukuman pada peserta didik yang mengalami kesalahan dalam menjawab"
+            ],
+            "jawaban": "B",
+            "gambar": ""
+        },
+        {
+            "id": "pedagogik_6d1bf2cb",
+            "kategori": "pedagogik",
+            "tipe": "multi",
+            "soal": "Seorang guru melakukan pembelajaran di kelas untuk membuat peserta didiknya kompeten tentang rumus luas segitiga. Untuk mencapai harapannya tersebut, guru melakukan pengelolaan kelas yang berpusat pada peserta didik. Pertanyaan di bawah merupakan pengelolaan kelas yang berpusat pada peserta didik. Pilihlah jawaban yang benar dengan memberi tanda centang (V)! Jawab benar lebih dari satu.",
+            "pilihan": [
+                "A. Guru membagi peserta didik menjadi lima kelompok, tiap kelompok diberi soal menentukan luas segitiga. Setiap peserta diminta untuk menyelesaikan soal yang diberikan. Setelah pekerjaan selesai, semua peserta didik diminta untuk mengumpulkan jawabannya.",
+                "B. Guru membagi peserta didik menjadi lima kelompok, tiap kelompok diberi soal menentukan luas segitiga. Setiap kelompok diminta untuk berdiskusi menyelesaikan soal yang diberikan. Setelah diskusi selesai, salah satu kelompok diminta untuk presentasi dan kelompok lain untuk menanggapi. Terakhir, guru memberikan penguatan materi.",
+                "C. Guru menjelaskan rumus luas segitiga. Semua peserta didik diberi latihan untuk menghitung luas segitiga. Semua peserta didik diminta untuk mengumpulkan hasil pekerjaannya.",
+                "D. Guru membagi peserta didik menjadi lima kelompok, tiap kelompok diberi lembar kerja menentukan luas segitiga. Setiap kelompok diminta untuk berdiskusi lembar kerja yang diberikan. Setelah diskusi selesai, salah satu kelompok diminta untuk presentasi dan kelompok lain untuk menanggapi. Terakhir, guru memberikan penguatan materi.",
+                "E. Guru meminta peserta didik bekerja secara berpasangan untuk menentukan luas segitiga. Setelah selesai kerja berpasangan, salah seorang peserta didik diminta untuk mempresentasikan hasil kerja pasangannya, siswa lain diminta untuk memberikan tanggapan. Setelah presentasi selesai, guru memberikan penegasan."
+            ],
+            "jawaban": [
+                "B",
+                "D",
+                "E"
+            ],
+            "gambar": ""
+        },
+        {
+            "id": "pedagogik_c8be8a7f",
+            "kategori": "pedagogik",
+            "tipe": "single",
+            "soal": "Ibu Wati guru SD akan membelajarkan materi tentang penerapan luas lingkaran dalam kehidupan sehari- hari. Ibu Wati merencanakan kegiatan pembelajaran secara kolaboratif bersama peserta didik. Kegiatan ini dimaksudkan agar peserta didik memiliki tanggung jawab, kemandirian, mampu bekerjasama dengan anggota kelompoknya dengan baik tanpa ada bullying, tidak ada pemaksaan kehendak. Dalam perencanaan itu dibicarakan tentang aturan yang harus dilaksanakan oleh peserta didik dalam kegiatan, aktivitas pendukung, alat dan bahan yang dapat di akses, cara dan langkah kerja untuk menyelesaikan rencana kegiatan secara kolaboratif. Model pembelajaran yang dipraktekkan oleh Ibu Wati mencerminkan pemberian kesempatan peserta didik....",
+            "pilihan": [
+                "A. Merasa aman dan nyaman dalam pembelajaran.",
+                "B. Patuh melaksanakan ajaran agama dan rukun dengan pemeluk agama lain",
+                "C. Menjadi pribadi yang jujur dan bersikap tidak menyontek",
+                "D. Serius dan sungguh-sungguh dalam belajar baik di kelas maupun di rumah",
+                "E. Menempatkan kepentingan orang lain di atas kepentingan pribadi"
+            ],
+            "jawaban": "A",
+            "gambar": ""
+        },
+        {
+            "id": "pedagogik_954c4919",
+            "kategori": "pedagogik",
+            "tipe": "single",
+            "soal": "Seorang guru SD merancang desain pembelajaran matematika yang terstruktur sebagai berikut: Guru mengajak peserta didik mengamati gambar suatu segitiga yang berasal dari setengah persegi panjang beserta ukurannya. Kemudian guru mengajak peserta didik untuk menemukan tinggi segitiga tersebut. Setelah tinggi segitiga ditemukan, guru mengajak peserta didik untuk membandingkan luas segitiga dengan luas persegi panjang. Kegiatan pembelajaran yang direncanakan guru tersebut bertujuan untuk menemukan.....",
+            "pilihan": [
+                "A. Rumus luas persegi panjang",
+                "B. Rumus garis tinggi segitiga",
+                "C. Panjang salah sama sisi segitiga",
+                "D. Rumus luas segitiga",
+                "E. Rumus keliling segitiga"
+            ],
+            "jawaban": "D",
+            "gambar": ""
+        },
+        {
+            "id": "pedagogik_5d303a96",
+            "kategori": "pedagogik",
+            "tipe": "single",
+            "soal": "Seorang guru SD mengajar di sekolah yang lingkungan sekitarnya adalah peternakan ikan yang diternakkan di kolam. Pada pertemuan yang akan datang guru mengajak peserta didiknya belajar menentukan volume balok. Desain pembelajaran yang dilakukan guru tersebut yang sesuai dengan kondisi lingkungan peserta didik adalah.....",
+            "pilihan": [
+                "A. Guru mengajak peserta didik belajar di luar mengamati kolam ikan yang berbentuk balok dan meminta peserta didik untuk mengukur panjang dan lebar serta kedalaman kolam ikan dan meminta peserta didik menghitung volume dari kolam ikan tersebut",
+                "B. Guru menjelaskan cara menentukan volume balok, kemudian meminta semua peserta didiknya mengerjakan soal latihan",
+                "C. Guru menampilkan slide presentasi bangun balok dan contoh menghitung volume balok",
+                "D. Guru mengajak peserta didik berdiskusi di kelas tentang soal-soal luas permukaan balok",
+                "E. Guru mengajak peserta didiknya melihat tayangan video permainan renang di aplikasi streaming video dan mengajak peserta didik menghitung volume kolam renang"
+            ],
+            "jawaban": "A",
+            "gambar": ""
+        },
+        {
+            "id": "pedagogik_ae3ea353",
+            "kategori": "pedagogik",
+            "tipe": "single",
+            "soal": "Tujuan pembelajaran yang ingin dicapai guru di SD Sukaria adalah peserta didik dapat menyebutkan contoh hak dan kewajiban warga negara dalam Undang-undang Dasar Negara Republik Indonesia Tahun 1945. Guru tersebut ingin menunjukkan contoh pelaksanaan hak dan kewajiban dalam kehidupan sehari-hari. Media berbasis ICT yang cocok digunakan dalam pembelajaran tersebut adalah.....",
+            "pilihan": [
+                "A. Gambar di web tentang orang yang sedang membayar pajak",
+                "B. Bagan tentang hak dan kewajiban warga negara yang diambil dari internet",
+                "C. Infografis tentang hak dan kewajiban warga negara menurut undang-undang dasar negara republik indonesia tahun 1945",
+                "D. Video yang menggambarkan pelaksanaan hak dan kewajiban warga negara dalam kehidupan di masyarakat",
+                "E. Buku cerita yang diambil dari web tentang hak dan kewajiban warga negara menurut undang- undang Dasar Negara Republik Indonesia Tahun 1945"
+            ],
+            "jawaban": "D",
+            "gambar": ""
+        },
+        {
+            "id": "pedagogik_1550e5a4",
+            "kategori": "pedagogik",
+            "tipe": "single",
+            "soal": "Rumusan tujuan pembelajaran berbunyi, \"Melalui penggunaan media pembelajaran, peserta didik dapat menentukan jaring-jaring balok\". Media yang tepat untuk mencapai tujuan tersebut adalah....",
+            "pilihan": [
+                "A. Media presentasi yang menayangkan berbagai macam jaring-jaring balok",
+                "B. Gambar berbagai jenis jaring-jaring balok pada papan tulis",
+                "C. Gambar berbagai jenis jaring-jaring balok pada kertas berpetak",
+                "D. Kerangka balok yang terbuat dari kawat",
+                "E. Balok dari kertas yang dapat dibuka membentuk jaring-jaring balok"
+            ],
+            "jawaban": "E",
+            "gambar": ""
+        },
+        {
+            "id": "pedagogik_fd9fbdf3",
+            "kategori": "pedagogik",
+            "tipe": "single",
+            "soal": "Seorang guru kelas IV SD akan membelajarkan mata pelajaran Pendidikan Pancasila dengan tujuan pembelajarannya peserta didik mampu menerapkan nilai Pancasila dalam kehidupan sehari-hari. Dalam rangka mencapai tujuan tersebut, guru mengembangkan media pembelajaran yang kreatif dan inovatif. Media yang cocok yang digunakan guru tersebut adalah....",
+            "pilihan": [
+                "A. Menggunakan papan tulis untuk menjelaskan nilai-nilai Pancasila dalam kehidupan sehari-hari",
+                "B. Menggunakan bagan yang menjelaskan materi menerapkan nilai Pancasila dalam kehidupan sehari- hari",
+                "C. Menggunakan video yang menunjukkan penerapan nilai-nilai Pancasila dalam kehidupan sehari-hari",
+                "D. Menggunakan gim untuk mendorong peserta didik berpartisipasi aktif dalam pembelajaran",
+                "E. Menggunakan kuis agar peserta didik terlibat secara aktif dalam kegiatan pembelajaran"
+            ],
+            "jawaban": "C",
+            "gambar": ""
+        },
+        {
+            "id": "pedagogik_5eed2544",
+            "kategori": "pedagogik",
+            "tipe": "single",
+            "soal": "Seorang guru SD berharap peserta didiknya mampu menjelaskan dan membuktikan teorema Pythagoras dan tripel Pythagoras. Dalam salah satu langkah pembelajaran di kelas, peserta didik diminta untuk menganalisis langkah- langkah pembuktian teorema Pythagoras dengan berbagai cara. Langkah pembelajaran tersebut ditujukan untuk menumbuhkan kemampuan berpikir.....",
+            "pilihan": [
+                "A. Representasi matematis",
+                "B. Kreatif matematis",
+                "C. Kritis matematis",
+                "D. Komunikasi matematis",
+                "E. Algoritmis matematis"
+            ],
+            "jawaban": "B",
+            "gambar": ""
+        },
+        {
+            "id": "pedagogik_2861280f",
+            "kategori": "pedagogik",
+            "tipe": "single",
+            "soal": "Seorang guru akan mengajarkan keterampilan menulis teks naratif sederhana. Tujuan pembelajarannya yaitu peserta didik menyampaikan gagasan dan imajinasi secara indah dan menarik dalam bentuk prosa dengan penggunaan kosakata secara kreatif. Berikut desain pembelajaran yang dirancang oleh guru tersebut: (1). Guru menyediakan beberapa alternatif tema, peserta didik memilih satu tema. (2) Peserta didik mengeksplorasi berbagai kosakata yang berkaitan dengan tema yang dipilih. (3) Peserta didik menyusun kerangka teks narasi sesuai tema. (4) Peserta didik mengembangkan kerangka menjadi teks naratif utuh. (5)\tPeserta didik melakukan pair editing bersama rekan sejawat setelah teks naratif selesai. Untuk menstimulus kreativitas peserta didik ketika menulis teks naratif sederhana, strategi manakah yang dapat ditambahkan dalam desain pembelajaran?",
+            "pilihan": [
+                "A. Sebelum mengeksplorasi kosakata, peserta didik mendaftar peristiwa menarik di lingkungan sekitar untuk menjadi pilihan tema menulis.",
+                "B. Ketika melakukan pair editing, peserta didik dianjurkan menggunakan daftar panduan checklist agar hasil tulisan akhir menjadi baik.",
+                "C. Pada saat mengembangkan kerangka hingga menjadi teks naratif, peserta didik memerhatikan unsur intrinsik, bagian alur, dan ilustrasi sebagai pelengkap.",
+                "D. Kegiatan eksplorasi kosakata yang berkaitan dengan tema dilakukan dengan studi multiliterasi, mulai dari buku cetak, website, hingga buku elektronik.",
+                "E. Proses editing dapat dilakukan dengan revisi berantai yaitu semua peserta didik wajib memberikan revisi untuk produk teks naratif yang dibuat seseorang."
+            ],
+            "jawaban": "A",
+            "gambar": ""
+        },
+        {
+            "id": "pedagogik_fb683568",
+            "kategori": "pedagogik",
+            "tipe": "single",
+            "soal": "Bu Riri guru di SD Suka Pintar merencanakan pembelajaran dengan kunjungan ke lingkungan sekitar sekolah. Peserta didik akan diajak mengamati tanaman di halaman sekolah yang dalam kondisi layu. Melihat fenomena tersebut, strategi yang tepat untuk melatih kemampuan menyelesaikan masalah dan berpikir kritis pada peserta didik adalah....",
+            "pilihan": [
+                "A. Mengidentifikasi masalah terlebih dahulu",
+                "B. Membuat rencana penyelesaian",
+                "C. Menyelesaikan masalah tanaman yang layu",
+                "D. Menganalisis solusi menyuburkan kembali",
+                "E. Membuat satu kesimpulan mengapa tanaman bisa layu"
+            ],
+            "jawaban": "A",
+            "gambar": ""
+        },
+        {
+            "id": "pedagogik_114ec560",
+            "kategori": "pedagogik",
+            "tipe": "multi",
+            "soal": "Seorang guru sedang mengajarkan keterampilan berbicara. Peserta didik diminta untuk menceritakan kembali kisah \"Kelinci Kecil dan Burung Pipit dengan menggunakan kata-kata sendiri. Selama proses belajar berlangsung, guru juga ingin memotret komentar peserta didik lain ketika teman sejawatnya bercerita di depan kelas. Asesmen yang sesuai dengan kebutuhan guru tersebut adalah asesmen.... Pilihlah jawaban yang benar dengan memberi tanda centang (V)! Jawaban benar bisa lebih dari satu.",
+            "pilihan": [
+                "A. Antarteman dengan lembar checklist performa bercerita",
+                "B. Tertulis dengan soal pilihan ganda dan esai tentang cerita",
+                "C. Portofolio dengan menilai penugasan terbaik peserta didik",
+                "D. Proyek dengan indikator proses persiapan hingga presentasi",
+                "E. Kinerja dengan skala penilaian yang diisi semua peserta didik"
+            ],
+            "jawaban": [
+                "A",
+                "E"
+            ],
+            "gambar": ""
+        },
+        {
+            "id": "pedagogik_407cc575",
+            "kategori": "pedagogik",
+            "tipe": "single",
+            "soal": "Pak Rico seorang guru kelas IV di SD Cut Nyak Dien. Dalam pembelajaran yang dilakukan, Pak Rico berusaha agar peserta didik terlibat aktif dalam pembelajaran. Pak Rico melakukan asesmen dengan memberi tugas esai pada peserta didik agar peserta didik dapat mengembangkan argumentasi dan mencari sumber-sumber yang terpercaya untuk mendukung argumen yang dimilikinya. Bentuk asesmen yang dilakukan Pak Rico dalam rangka mencapai tujuan pembelajaran adalah.....",
+            "pilihan": [
+                "A. Formatif",
+                "B. Sumatif",
+                "C. Portofolio dengan menilai penugasan terbaik peserta didik",
+                "D. Diagnostik",
+                "E. Proyek"
+            ],
+            "jawaban": "A",
+            "gambar": ""
+        },
+        {
+            "id": "pedagogik_4a563211",
+            "kategori": "pedagogik",
+            "tipe": "single",
+            "soal": "Setelah membelajarkan peserta didik, guru ingin mengetahui apakah materi yang dipelajari selama dua jam pelajaran sudah dipahami atau belum. Cara yang paling objektif mengetahui pemahaman peserta didik pada saat pembelajaran berlangsung yakni diberikan.....",
+            "pilihan": [
+                "A. Tes tulis menjawab soal uraian",
+                "B. Tes tulis menjawab soal pilihan ganda",
+                "C. Tes tulis menjawab pertanyaan reflektif",
+                "D. Tes tulius dengan cara mencongak (langsung ditulis jawabannya)",
+                "E. Tes tulis menjawab soal uraian terbuka"
+            ],
+            "jawaban": "E",
+            "gambar": ""
+        },
+        {
+            "id": "pedagogik_969a817c",
+            "kategori": "pedagogik",
+            "tipe": "multi",
+            "soal": "Seorang guru sedang mengajarkan keterampilan berbicara dengan tujuan peserta didik dapat membaca suku kata yang diawali dengan huruf 'b'. Setelah pembelajaran selesai, sebagian besar peserta didik mencapai tujuan pembelajaran tersebut. Berdasarkan hasil tersebut, umpan balik yang tepat dari guru ke peserta didik adalah .... Pilihlah jawaban yang benar dengan memberi tanda centang (V)! Jawaban benar bisa lebih dari satu.",
+            "pilihan": [
+                "A. Menginformasikan pada peserta didik untuk mengikuti lomba",
+                "B. Mengonfirmasi bahwa jawaban peserta didik benar atau salah",
+                "C. Memotivasi peserta didik untuk mempelajari materi selanjutnya",
+                "D. Menambahkan alternatif strategi berbicara yang baik dan benar",
+                "E. Memberikan apresiasi atau pujian terhadap pencapaian tersebut"
+            ],
+            "jawaban": [
+                "C",
+                "D",
+                "E"
+            ],
+            "gambar": ""
+        },
+        {
+            "id": "pedagogik_8f0bfb03",
+            "kategori": "pedagogik",
+            "tipe": "single",
+            "soal": "Apabila tujuan pembelajaran untuk melatih keterampilan menyajikan laporan dengan presentasi tentang makna kebhinekaan dalam masyarakat, maka instrumen penilaian yang tepat adalah.....",
+            "pilihan": [
+                "A. Melakukan pengamatan diskusi",
+                "B. Membuat rubrik penilaian laporan",
+                "C. Membuat rubrik penilaian presentasi",
+                "D. Melakukan wawancara terkait hasil presentasi",
+                "E. Mengembangkan rubrik penilaian diskusi"
+            ],
+            "jawaban": "C",
+            "gambar": ""
+        },
+        {
+            "id": "pedagogik_3b24b497",
+            "kategori": "pedagogik",
+            "tipe": "single",
+            "soal": "Bu Ani, guru bahasa Indonesia SD kelas III, ingin mengetahui kemampuan peserta didiknya dalam menanggapi informasi penting dari teks yang dibaca. Rancangan asesmen yang tepat adalah...",
+            "pilihan": [
+                "A. Tes tulis, dengan memberikan beberapa pertanyaan terkait yang dibaca.",
+                "B. Tes kinerja yang meminta peserta didik untuk menuliskan informasi penting dari teks yang dibaca.*",
+                "C. Proyek, dengan mengumpulkan data informasi penting tentang teks yang dibaca.",
+                "D. Portofolio, dengan meminta peserta didik mengumpulkan bahan bacaan lain terkait teks yang dibaca.",
+                "E. Penugasan, dengan memberikan tugas pada peserta didik untuk mencatat informasi penting dari teks yang dibaca."
+            ],
+            "jawaban": "B",
+            "gambar": ""
+        },
+        {
+            "id": "pedagogik_6e1f0d6f",
+            "kategori": "pedagogik",
+            "tipe": "single",
+            "soal": "Pada fase A, seorang guru sedang mengajarkan keterampilan membaca dasar. Melalui pembelajaran tersebut, peserta didik diharapkan mampu memaknai kosakata baru dari tayangan yang dipirsa dengan bantuan ilustrasi. Fokus pembelajaran pada hari itu adalah mengenal kata yang berawalan \"h'. Pada awal pembelajaran, guru memutarkan video lagu anak-anak yang memuat kata \"hati-hati\". Setelah itu, peserta didik belajar mengeja kata 'hati-hati' dan dilanjutkan dengan melafalkan bunyi huruf 'h' dengan benar. Selesai berlatih melafalkan, guru menampilkan gambar binatang yang berawalan 'h'. Peserta didik secara bergantian menyebutkan nama binatang sesuai gambar yang ditunjuk. Peserta didik kemudian mendapat penugasan mencatat benda di sekitar yang berawalan 'h'. Berdasarkan ilustrasi tersebut, mengapa alur pengetahuan yang didesain guru tersebut sesuai dengan perkembangan kognitif anak usia sekolah dasar?",
+            "pilihan": [
+                "A. Pengetahuan yang diajarkan sesuai dengan kebutuhan belajar peserta didik.",
+                "B. Materi disusun mulai dari hal konkret dan berdasarkan pengalaman kontekstual.",
+                "C. Peserta didik diminta untuk mengamati terlebih dahulu sebelum mempraktikannya.",
+                "D. Pembelajaran mengeja dihubungkan dengan kemampuan membaca awal anak-anak.",
+                "E. Kegiatan belajar didukung dengan audio, video, dan ilustrasi untuk memudahkan anak."
+            ],
+            "jawaban": "B",
+            "gambar": ""
+        },
+        {
+            "id": "pedagogik_359f85ec",
+            "kategori": "pedagogik",
+            "tipe": "single",
+            "soal": "Bu Intan guru kelas III di SD Sukamakmur menjelaskan materi tentang Pancasila merupakan dasar negara Republik Indonesia dan nilai-nilai dalam sila Pancasila merupakan pedoman berbangsa dan bernegara bagi rakyat Indonesia. Dengan mengamalkan sila-sila Pancasila, rakyat Indonesia diharapkan dapat hidup secara rukun, damai, dan sejahtera. Tujuan pembelajaran untuk ranah sikap yang relevan dengan materi tersebut adalah....",
+            "pilihan": [
+                "A. Melalui kegiatan pengamatan lingkungan sekitar, peserta didik dapat menganalisis nilai-nilai Pancasila dalam kehidupan sehari-hari dengan benar",
+                "B. Melalui kegiatan diskusi, peserta didik dapat menyajikan nilai-nilai Pancasila dalam kehidupan sehari-hari dengan benar",
+                "C. Melalui pengamatan lingkungan sekitar, peserta didik dapat menunjukkan sikap saling menghargai sesuai dengan nilai-nilai Pancasila dalam kehidupan sehari-hari",
+                "D. Melalui pengamatan lingkungan sekitar, peserta didik dapat menjelaskan sikap yang sesuai dengan nilai-nilai Pancasila sila pertama dalam kehidupan sehari-hari dengan benar",
+                "E. Melalui media gambar, peserta didik dapat menganalisis nilai-nilai Pancasila dalam kehidupan sehari-hari dengan benar"
+            ],
+            "jawaban": "C",
+            "gambar": ""
+        },
+        {
+            "id": "pedagogik_fe85691e",
+            "kategori": "pedagogik",
+            "tipe": "single",
+            "soal": "Elemen fase B yakni \"mendeskripsikan keragaman budaya dan upaya pelestariannya\". Tujuan pembelajaran yang relevan dengan isi elemen tersebut adalah....",
+            "pilihan": [
+                "A. Peserta didik mampu menguraikan macam-macam seni tari di Indonesia",
+                "B. Peserta didik mampu membandingkan kebudayaan di Indonesia",
+                "C. Peserta didik mampu menggambar keragaman budaya di sekitar tempat tinggal",
+                "D. Peserta didik mampu menciptakan sebuah tari baru sesuai corak budayanya",
+                "E. Peserta didik mampu memberikan sikap untuk menghargai keragaman budaya"
+            ],
+            "jawaban": "A",
+            "gambar": ""
+        },
+        {
+            "id": "pedagogik_a4a756a8",
+            "kategori": "pedagogik",
+            "tipe": "multi",
+            "soal": "Ibu Neni seorang guru di SD Bagimu Negeriku. Bu Neni akan memberikan materi tentang arti pentingnya menjaga kebersamaan dan persatuan. Salah satu hal yang harus dilakukan adalah merumuskan tujuan pembelajaran. Berikut ini merupakan tujuan pembelajaran yang mengembangkan ranah sikap. Pilihlah jawaban yang benar dengan memberi tanda centang (V)! Jawaban benar bisa lebih dari satu",
+            "pilihan": [
+                "A. Peserta didik dapat menyimpulkan materi tentang hubungan antara satu sila Pancasila dengan sila yang lainnya melalui diskusi kelompok.",
+                "B. Peserta didik mampu menunjukkan menghargai pendapat teman melalui kegiatan diskusi tentang arti pentingnya menjaga kebersamaan dan persatuan.",
+                "C. Peserta didik dapat membuat laporan tentang arti pentingnya kebersamaan dan persatuan melalui penelusuran materi di internet.",
+                "D. Peserta didik dapat membuat laporan tentang arti pentingnya menjaga kebersamaan dan persatuan melalui penelusuran materi di internet.",
+                "E. Peserta didik dapat menunjukkan perilaku mandiri melalui bermain peran tentang arti pentingnya menjaga kebersamaan dan persatuan."
+            ],
+            "jawaban": [
+                "B",
+                "E"
+            ],
+            "gambar": ""
+        },
+        {
+            "id": "pedagogik_346766e0",
+            "kategori": "pedagogik",
+            "tipe": "single",
+            "soal": "Seorang guru kelas IV mengajar mata pelajaran Pendidikan Pancasila dengan elemennya UUD Negara Republik Indonesia Tahun 1945, materi yang akan disampaikan pada elemen ini adalah hak dan kewajiban peserta didik di rumah dan di sekolah. Dalam konteks pembelajaran berbasis proyek, tindakan yang dilakukan oleh guru adalah....",
+            "pilihan": [
+                "A. Memilih proyek yang relevan dengan tahap perkembangan dan minat peserta didik",
+                "B. Menilai proyek berdasarkan pada kesamaan hasil dari proyek yang dibuat peserta didik",
+                "C. Memberikan proyek yang didasarkan pada keinginan dari peserta didik",
+                "D. Memberikan proyek yang didasarkan pada lembar kerja peserta didik yang telah ditetapkan",
+                "E. Melaksanakan proyek sesuai dengan perencanaan yang telah ditetapkan peserta didik"
+            ],
+            "jawaban": "A",
+            "gambar": ""
+        },
+        {
+            "id": "pedagogik_7a018741",
+            "kategori": "pedagogik",
+            "tipe": "single",
+            "soal": "Pak Putra guru kelas IV di SD Antasari akan membelajarkan materi keragaman budaya di Indonesia. Dalam mengajar, Pak Putra menciptakan pembelajaran yang berpusat pada peserta didik. Di kelas Pak Putra terdapat dua golongan gaya belajar, yaitu gaya belajar auditori dan kinestetik. Untuk memfasilitasi semua peserta didiknya dalam belajar, Pak Putra mengembangkan materi keragaman budaya yang.....",
+            "pilihan": [
+                "A. Memudahkan guru dalam mengevaluasi peserta didik",
+                "B. Memudahkan guru dalam melaksanakan pembelajaran pada peserta didik",
+                "C. Menyediakan lebih banyak informasi dalam waktu yang singkat pada peserta didik",
+                "D. Memenuhi berbagai gaya belajar peserta didik dan membuat pembelajaran lebih menarik",
+                "E. Memastikan penyampaian materi lebih cepat dan lebih mudah dipahami oleh peserta didik"
+            ],
+            "jawaban": "D",
+            "gambar": ""
+        },
+        {
+            "id": "pedagogik_905dc648",
+            "kategori": "pedagogik",
+            "tipe": "single",
+            "soal": "Seorang guru sedang merancang modul pembelajaran IPA untuk peserta didik kelas V SD dengan latar belakang kebutuhan belajar yang berbeda. Peserta didik A memiliki minat dalam sains alam, sementara peserta didik B lebih tertarik pada aspek lingkungan. Cara guru supaya dapat merancang modul pembelajaran IPA yang dapat memenuhi kebutuhan belajar kedua peserta didik ini adalah .....",
+            "pilihan": [
+                "A. Mengabaikan minat peserta didik dan menggunakan materi standar",
+                "B. Menyediakan modul terpisah untuk peserta didik a dan b",
+                "C. Mengintegrasikan konsep sains alam dan lingkungan dalam satu modul pembelajaran",
+                "D. Meminta peserta didik a untuk mengajari peserta didik b",
+                "E. Mengurangi tingkat kesulitan materi agar sesuai untuk kedua peserta didik"
+            ],
+            "jawaban": "C",
+            "gambar": ""
+        },
+        {
+            "id": "pedagogik_997ae6e8",
+            "kategori": "pedagogik",
+            "tipe": "single",
+            "soal": "Bu Novita yang akan mengajarkan materi IPA di kelas V SD menghadapi kelas dengan peserta didik yang memiliki gaya belajar yang berbeda. Toni lebih suka belajar melalui mendengarkan penjelasan, Sekar lebih memahami melalui visualisasi, dan Jajat belajar lebih baik dengan melakukan eksperimen langsung. Sebagai seorang guru SD, bagaimana cara guru supaya dapat mengembangkan konten pembelajaran IPA SD yang dapat memfasilitasi ketiga gaya belajar peserta didik tersebut? Pilihlah cara yang benar dengan memberi tanda centang (\u221a)! Jawaban benar bisa lebih dari satu.",
+            "pilihan": [
+                "A. Memberikan penjelasan lisan dengan detail.",
+                "B. Menggunakan gambar dan diagram tanpa penjelasan verbal.",
+                "C. Menyediakan LKPD untuk melakukan eksperimen dengan memanfaatkan media audio dan visual.",
+                "D. Mengintegrasikan penjelasan lisan, visualisasi, dan eksperimen dalam konten pembelajaran.",
+                "E. Memberikan tugas tulis panjang kepada siswa sebagai metode evaluasi."
+            ],
+            "jawaban": "D",
+            "gambar": ""
+        },
+        {
+            "id": "pedagogik_1dd35589",
+            "kategori": "pedagogik",
+            "tipe": "single",
+            "soal": "Pada saat pembelajaran memahami ide pokok teks informatif, anak kelas III yang memiliki kemampuan kognitif di bawah rata-rata mengalami ketertinggalan. Salah satu perlakuan guru yang tepat untuk mengatasi kondisi anak tersebut adalah.....",
+            "pilihan": [
+                "A. Pengayaan",
+                "B. Percepatan",
+                "C. Pemadatan",
+                "D. Pemodelan",
+                "E. Komunikatif"
+            ],
+            "jawaban": "E",
+            "gambar": ""
+        },
+        {
+            "id": "pedagogik_7f3a79c2",
+            "kategori": "pedagogik",
+            "tipe": "multi",
+            "soal": "Dalam satu kelas terdapat tiga peserta didik dengan kebutuhan khusus, yakni tuna netra. Salah satu tindakan yang perlu dilakukan oleh guru kelas tersebut dalam hal konten belajar yakni.... Pilihlah jawaban yang benar dengan memberi tanda centang (\u221a)! Jawaban benar bisa lebih dari satu.",
+            "pilihan": [
+                "A. Menyediakan materi berupa audio book untuk ketiga anak tersebut",
+                "B. Membuat rangkuman materi dalam format huruf yang dapat dibaca oleh mereka",
+                "C. Memindahkan materi pada aplikasi yang dapat diakses oleh ketiga anak tersebut",
+                "D. Menggunakan media pembelajaran yang berasal dari luar negeri untuk ketiga anak tersebut",
+                "E. Memberikan pemahaman terlebih dahulu kepada tiga anak tersebut kemudian melaksanakan pembelajaran untuk yang lain"
+            ],
+            "jawaban": [
+                "B",
+                "D"
+            ],
+            "gambar": ""
+        },
+        {
+            "id": "pedagogik_c1798b1a",
+            "kategori": "pedagogik",
+            "tipe": "single",
+            "soal": "Seorang guru IPA kelas V SD akan mengimplementasikan teknologi dalam pembelajaran, termasuk penggunaan platform daring, aplikasi pembelajaran, dan perangkat lunak interaktif dalam mengajarkan materi dengan tujuan merefleksikan bagaimana perubahan kondisi alam di permukaan bumi terjadi akibat faktor alam maupun perbuatan manusia. Dalam konteks penggunaan teknologi dalam pembelajaran, rancangan penggunaan teknologi berikut tepat untuk dapat memberikan kemudahan bagi proses belajar adalah....",
+            "pilihan": [
+                "A. Menyalin catatan dari layar proyektor ke buku catatan siwa",
+                "B. Menggunakan aplikasi papan virtual yang dapat berbagi tentang materi, contoh, dan kuis",
+                "C. Menonton video di sosial media dan menyalin ke buku tulis",
+                "D. Mencetak semua materi pembelajaran dalam bentuk pdf untuk dibaca secara fisik",
+                "E. Menyimpan semua materi di layanan penyimpanan daring dan menyampaikan tautannya pada siswa"
+            ],
+            "jawaban": "B",
+            "gambar": ""
+        },
+        {
+            "id": "pedagogik_5661b8f3",
+            "kategori": "pedagogik",
+            "tipe": "single",
+            "soal": "Sebuah modul ajar IPAS di sekolah dasar kelas V mencakup konsep tentang struktur dan fungsi tumbuhan. Indikator soal dengan level kognitif C4 yang dapat disusun oleh guru untuk mengukur ketercapaian konten tentang struktur dan fungsi tumbuhan dalam modul ajar IPAS tersebut adalah peserta didik dapat....",
+            "pilihan": [
+                "A. Menggambar tumbuhan dengan benar dengan detail",
+                "B. Menyebutkan nama-nama tumbuhan dengan detail",
+                "C. Menganalisis bagian tumbuhan dan menjelaskan fungsinya dengan detail",
+                "D. Menanam tumbuhan di kebun sekolah dengan baik",
+                "E. Menuliskan manfaat tumbuhan bagi lingkungan dengan detail"
+            ],
+            "jawaban": "C",
+            "gambar": ""
+        },
+        {
+            "id": "pedagogik_a2a00019",
+            "kategori": "pedagogik",
+            "tipe": "single",
+            "soal": "Pengembangan kurikulum dilakukan dengan melibatkan pemangku ( stakeholders ) untuk menjamin relevansi pendidikan dengan kebutuhan kehidupan, termasuk di dalamnya kehidupan kemasyarakatan, dunia usaha\/industri dan dunia kerja. Pernyataan tersebut diatas sesuai dengan prinsip pengembangan kurikulum :",
+            "pilihan": [
+                "A. Tanggap terhadap perkembangan ilmu pengetahuan, teknologi,dan seni",
+                "B. Relevan dengan kebutuhan kehidupan",
+                "C. Menyeluruh dan berkesinambungan",
+                "D. Beragam dan terpadu",
+                "E. terpadu"
+            ],
+            "jawaban": "C",
+            "gambar": ""
+        },
+        {
+            "id": "pedagogik_e890f7ad",
+            "kategori": "pedagogik",
+            "tipe": "single",
+            "soal": "Upaya merancang pengayaan bagi peserta didik yang mencapai ketuntasan belajar optimal tampak dalam kegiatan guru sebagai berikut \u2026\u2026\u2026\u2026\u2026",
+            "pilihan": [
+                "A. Memberikan tambahan materi berupa sumber ajar dari pengarang yang berbeda",
+                "B. Memberikan tes tambahan dengan tingkat kesukaran yang lebih tinggi",
+                "C. Memberikan tambahan sumber bahan tambahan yang lebih mendalam dan tingkat variasi yang tinggi berikut instrument tesnya yang sesuai",
+                "D. Memberikan tambahan materi berupa sumber ajar dari penerbit yang berbeda",
+                "E. Memberikan tambahan materi"
+            ],
+            "jawaban": "C",
+            "gambar": ""
+        },
+        {
+            "id": "pedagogik_455eb71e",
+            "kategori": "pedagogik",
+            "tipe": "single",
+            "soal": "Alangkah bingungnya Pak Dani ketika mengajar pada dua jam terakhir. Bagaimana tidak bingung, peserta didik ditanya hanya diam. Mereka sama sekali tidak berani berucap sepatah kata pun. Mereka hanya saling melirik ke teman satu dan lainnya. Tindakan Pak Dani yang tepat adalah.....",
+            "pilihan": [
+                "A. Meminta peserta didik keluar untuk mencuci muka",
+                "B. Memberikan kesempatan peserta didik untuk bertanya",
+                "C. Menyebut nama peserta didik untuk menjawab secara bergantian",
+                "D. Meminta peserta didik untuk menuliskan pertanyaannya",
+                "E. Membentuk kelompok dan peserta didik diminta untuk diskusi kelompok"
+            ],
+            "jawaban": "B",
+            "gambar": ""
+        },
+        {
+            "id": "pedagogik_aeabc98c",
+            "kategori": "pedagogik",
+            "tipe": "multi",
+            "soal": "Seorang guru akan mengajarkan kompetensi menganalisis pengaruh letak geografi Indonesia terhadap kondisi alam dan lingkungan. Guru tersebut juga berupaya mengembangkan kemampuan literasi peserta didiknya. Agar kedua tujuan tersebut dapat dicapai, langkah literat yang dapat dilakukan oleh guru untuk peserta didik adalah... Pilihlah jawaban yang benar dengan memberi tanda centang (\u221a)! Jawaban benar lebih dari satu.",
+            "pilihan": [
+                "A. Memberikan waktu kepada peserta didik selama 15 menit untuk membaca buku apapun dan meringkas hasil bacaannya.",
+                "B. Melakukan diskusi untuk melakukan laporan tertulis hasil identifikasi letak geografis Indonesia dan mengomunikasikannya di depan kelas.",
+                "C. Menyiapkan instrumen pengukuran pemahaman peserta didik tentang letak geografis dan pengaruhnya pada alam dan lingkungan.",
+                "D. Peserta didik diminta mencari informasi dalam berbagai moda tentang letak geografis Indonesia dan pengaruhnya terhadap alam dan lingkungan alam.",
+                "E. Peserta didik diminta untuk berdiskusi tentang informasi yang didapatkan dari hasil membaca beragam referensi tentang letak geografis Indonesia dan pengaruhnya terhadap alam dan lingkungan alam."
+            ],
+            "jawaban": [
+                "B",
+                "C",
+                "D",
+                "E"
+            ],
+            "gambar": ""
+        },
+        {
+            "id": "pedagogik_56358828",
+            "kategori": "pedagogik",
+            "tipe": "multi",
+            "soal": "Dalam upaya mengembangkan kemampuan numerasi peserta didik, seorang guru SD perlu merancang strategi pembelajaran yang mendukung pemahaman konsep matematika. Terdapat beberapa cara supaya guru dapat menciptakan lingkungan belajar yang memfasilitasi perkembangan numerasi yang optimal. Cara yang dapat dilakukan guru untuk menciptakan lingkungan belajar yang mendukung perkembangan numerasi peseta didik adalah..... Pilihlah jawaban cara yang benar dengan memberi tanda centang (V)! Jawaban benar bisa lebih dari satu.",
+            "pilihan": [
+                "A. Menyajikan materi hanya dalam bentuk teks visual yang jelas",
+                "B. Memanfaatkan alat peraga untuk memvisualisasikan konsep numerasi",
+                "C. Menyiapkan lkpd untuk mengakomodasi perbedaan kemampuan numerasi antar peserta didik",
+                "D. Menggunakan sumber belajar buku teks yang disediakan sekolah",
+                "E. Menggunakan penjelasan klasikal dengan meminimalisir penjelasan konsep numerasi"
+            ],
+            "jawaban": [
+                "B",
+                "C"
+            ],
+            "gambar": ""
+        },
+        {
+            "id": "pedagogik_ca3e5ad7",
+            "kategori": "pedagogik",
+            "tipe": "single",
+            "soal": "Dalam upaya mengembangkan kemampuan numerasi peserta didik, seorang guru SD perlu memilih konten materi yang tepat untuk memfasilitasi pemahaman konsep matematika secara menyeluruh. Materi yang paling efektif dalam mengembangkan pemahaman numerasi peserta didik adalah....",
+            "pilihan": [
+                "A. Mengajarkan rumus matematika yang abstraksi",
+                "B. Memberikan latihan hitungan berulang tanpa variasi supaya lebih fokus",
+                "C. Mendahulukan kemampuan literasi dibanding numerasi",
+                "D. Memperkenalkan berbagai metode penyelesaian masalah matematika",
+                "E. Memberikan penjelasan tentang pentingnya numerasi"
+            ],
+            "jawaban": "D",
+            "gambar": ""
+        },
+        {
+            "id": "pedagogik_37f73823",
+            "kategori": "pedagogik",
+            "tipe": "single",
+            "soal": "Seorang guru sedang mengajar di kelas dan mendapati seorang peserta didik yang terus menerus mengganggu proses pembelajaran. Guru tersebut tahu bahwa peserta didik ini memiliki masalah di rumah yang mempengaruhi perilakunya di sekolah. Sebagai guru yang ingin menerapkan makna, tujuan, dan pandangan hidupnya berdasarkan prinsip moral dan keyakinannya terhadap Tuhan Yang Maha Esa, tindakan yang sebaiknya Anda lakukan jika menjadi guru tersebut adalah....",
+            "pilihan": [
+                "A. Mengajak peserta didik tersebut berbicara secara pribadi setelah kelas selesai untuk memahami masalah yang dihadapinya dan mencari solusi Bersama.",
+                "B. Meminta peserta didik tersebut untuk keluar dari kelas sejenak untuk merenungkan perbuatannya dan meminta kembali belajar setelah berjanji untuk tidak melakukan hal tersebut lagi.",
+                "C. Memberikan teguran keras di depan seluruh kelas agar peserta didik tersebut tidak mengulangi lagi perbuatan tersebut.",
+                "D. Menyampaikan perilaku peserta didik tersebut kepada kepala sekolah dan orang tua untuk menemukan akar permasalahannya.",
+                "E. Memaklumi perilaku peserta didik tersebut dan melanjutkan pembelajaran seperti biasanya serta mengajak peserta didik lain untuk memahaminya."
+            ],
+            "jawaban": "A",
+            "gambar": ""
+        },
+        {
+            "id": "pedagogik_4c9d7276",
+            "kategori": "pedagogik",
+            "tipe": "single",
+            "soal": "Anda adalah seorang guru di sebuah sekolah dasar. Suatu hari, Anda mengetahui bahwa salah satu rekan kerja Anda, yang juga seorang guru, memberikan nilai yang tidak adil kepada beberapa peserta didik karena alasan pribadi. Anda tahu bahwa tindakan ini melanggar kode etik guru. Sebagai rekan kerja sekaligus guru, yang harus Anda lakukan untuk menangani situasi ini dengan tetap menerapkan kode etik guru dalam bekerja dan pembelajaran adalah.....",
+            "pilihan": [
+                "A. Mengabaikan masalah ini karena tidak ingin terlibat konflik dengan rekan kerja dan fokus pada pekerjaan Anda sendiri",
+                "B. Mengumpulkan bukti-bukti dan melaporkan rekan kerja tersebut secara anonim ke komite etik sekolah untuk ditindaklanjuti",
+                "C. Mengajak rekan kerja tersebut berbicara secara pribadi untuk memahami alasannya dan menasihatinya agar memperbaiki nilai peserta didik sesuai dengan kinerja mereka",
+                "D. Mendiskusikan masalah ini dengan kepala sekolah dan meminta agar kepala sekolah menindaklanjuti sesuai dengan prosedur yang ada.",
+                "E. Menegur rekan kerja tersebut secara langsung di depan guru-guru lain agar dia merasa malu dan tidak mengulangi"
+            ],
+            "jawaban": "D",
+            "gambar": ""
+        },
+        {
+            "id": "pedagogik_c0700adc",
+            "kategori": "pedagogik",
+            "tipe": "single",
+            "soal": "Setelah mengajar satu semester, Anda menyadari bahwa beberapa metode pengajaran yang Anda gunakan tidak memberikan hasil yang maksimal bagi perkembangan peserta didik. Anda ingin meningkatkan efektivitas pengajaran Anda di semester berikutnya. Bentuk refleksi dan perencanaan kebutuhan pengembangan diri yang berpusat pada peserta didik yang bisa Anda buat adalah.....",
+            "pilihan": [
+                "A. Merefleksi diri sendiri atas hasil yang kurang memuaskan dan mencoba menemukan metode pengajaran baru tanpa melibatkan peserta didik",
+                "B. Mendiagnosa metode pengajaran yang mereka anggap efektif dan merencanakan strategi baru berdasarkan masukan dari peserta didik dan rekan sejawat",
+                "C. Merasa metode pengajaran sudah efektif dilakukan, hasil refleksi yang ada belum tentu menunjukkan hasil yang sebenarnya",
+                "D. Menggunakan hasil refleksi menjadi bahan renungan diri agar menjadi semester berikutnya menjadi lebih baik lagi",
+                "E. Mengikuti pelatihan profesional secara mandiri dan mengujicobakan penerapan semua metode yang dipelajari pada peserta didiknya"
+            ],
+            "jawaban": "B",
+            "gambar": ""
+        },
+        {
+            "id": "pedagogik_113939aa",
+            "kategori": "pedagogik",
+            "tipe": "single",
+            "soal": "Setelah mengikuti berbagai pelatihan pengembangan diri, Anda mendapatkan banyak metode baru yang dapat digunakan dalam pembelajaran. Cara yang bisa Anda gunakan untuk menerapkan hasil pengembangan diri ini agar kualitas pembelajaran meningkat adalah...",
+            "pilihan": [
+                "A. Menyimpan metode baru yang dipelajari untuk digunakan di masa depan, karena merasa saat ini sudah memiliki metode yang cukup baik",
+                "B. Mengidentifikasi kebutuhan spesifik peserta didik, kemudian memilih dan menyesuaikan metode yang paling relevan sebelum menerapkannya di kelas",
+                "C. Mengikuti pelatihan profesional secara mandiri dan mengujicobakan penerapan semua metode yang dipelajari pada peserta didiknya",
+                "D. Menerapkan semua metode baru secara bersamaan tanpa menyesuaikannya dengan karakteristik dan kebutuhan peserta didik",
+                "E. Memilih beberapa metode yang dianggap paling inovatif dan menerapkannya di kelas tanpa melakukan evaluasi sebelumnya"
+            ],
+            "jawaban": "B",
+            "gambar": ""
+        },
+        {
+            "id": "pedagogik_7f27b7c3",
+            "kategori": "pedagogik",
+            "tipe": "single",
+            "soal": "Seorang guru menyadari bahwa beberapa peserta didik di kelasnya mengalami kesulitan dalam memahami materi pelajaran dan kurang berpartisipasi aktif dalam pembelajaran. Guru tersebut ingin meningkatkan interaksi aktif dan empatik dalam kelas untuk memastikan pembelajaran yang berpusat pada peserta didik. Tindakan yang harus Anda ambil jika menjadi guru tersebut adalah....",
+            "pilihan": [
+                "A. Memberikan tugas kelompok yang mendorong kolaborasi antar peserta didik, sambil aktif berkeliling kelas untuk memberikan bantuan dan dorongan saat diperlukan",
+                "B. Memberikan kuis singkat di awal setiap pelajaran untuk mengecek pemahaman peserta didik, namun tetap fokus pada metode pengajaran tradisional",
+                "C. Menambahkan sesi tanya jawab di akhir setiap pelajaran, memberikan poin tambahan bagi peserta didik yang aktif bertanya atau menjawab pertanyaan",
+                "D. Mengatur waktu khusus di luar jam pelajaran untuk sesi bimbingan individu dengan peserta didik yang mengalami kesulitan, mendengarkan masalah mereka, dan memberikan bantuan tambahan secara personal",
+                "E. Menggunakan metode ceramah dengan memberikan contoh-contoh praktis yang relevan dengan kehidupan sehari-hari peserta didik dan sesekali mengajukan pertanyaan untuk memastikan perhatian peserta didik"
+            ],
+            "jawaban": "D",
+            "gambar": ""
+        },
+        {
+            "id": "pedagogik_c216e0ea",
+            "kategori": "pedagogik",
+            "tipe": "single",
+            "soal": "Seorang guru mengamati bahwa beberapa peserta didik sering terlibat dalam kegiatan bermain yang berisiko saat istirahat, seperti memanjat pagar dan berlari di sekitar area yang licin. Guru khawatir hal ini dapat membahayakan keselamatan mereka. Tindakan yang seharusnya guru tersebut lakukan untuk menerapkan kepedulian terhadap keselamatan dan keamanan peserta didik adalah....",
+            "pilihan": [
+                "A. Mengarahkan peserta didik untuk bermain di area yang aman dan memperkenalkan permainan alternatif yang lebih aman dan menyenangkan",
+                "B. Mengabaikan kegiatan tersebut, dengan anggapan bahwa peserta didik akan belajar dari kesalahan mereka sendiri dan memahami risiko",
+                "C. Mengarahkan peserta didik untuk bermain di area yang aman dan memperkenalkan permainan alternatif yang lebih aman dan menyenangkan",
+                "D. Mengadakan pertemuan dengan orang tua peserta didik untuk mendiskusikan kekhawatiran tentang keselamatan dan meminta mereka untuk memberi tahu anak-anak mereka tentang bahaya bermain di tempat berisiko",
+                "E. Memberikan teguran keras dan hukuman kepada peserta didik yang terlibat dalam kegiatan berisiko untuk menekankan pentingnya keselamatan"
+            ],
+            "jawaban": "D",
+            "gambar": ""
+        },
+        {
+            "id": "pedagogik_ed734d5b",
+            "kategori": "pedagogik",
+            "tipe": "single",
+            "soal": "Seorang guru di sekolah Anda mengamati bahwa hasil belajar peserta didik dalam mata pelajaran tertentu menurun secara signifikan. Sekolah memutuskan untuk membentuk tim kerja yang terdiri dari beberapa guru untuk mencari solusi dan strategi yang dapat meningkatkan hasil belajar peserta didik. Inisiatif yang seharusnya Anda berikan untuk mencapai tujuan bersama dalam peningkatan pembelajaran adalah.....",
+            "pilihan": [
+                "A. Menunggu instruksi lebih lanjut dari ketua tim sebelum mengambil tindakan atau mengajukan ide strategi meningkatkan hasil belajar",
+                "B. Mengusulkan untuk mengadakan rapat mingguan tim guna membahas kemajuan dan tantangan yang dihadapi, serta berbagi ide-ide baru untuk meningkatkan pembelajaran",
+                "C. Menyusun rencana pembelajaran individu dan menerapkannya di kelas sendiri tanpa melibatkan anggota tim lain",
+                "D. Mengumpulkan data dari peserta didik melalui survei atau wawancara untuk memahami penyebab menurunnya hasil belajar dan membagikan temuan tersebut kepada tim",
+                "E. Memberikan masukan hanya ketika diminta oleh anggota tim lain atau oleh ketua tim mengenai strategi meningkatkan hasil belajar"
+            ],
+            "jawaban": "B",
+            "gambar": ""
+        },
+        {
+            "id": "pedagogik_00f25974",
+            "kategori": "pedagogik",
+            "tipe": "single",
+            "soal": "Seorang guru menyadari bahwa beberapa peserta didik mengalami kesulitan dalam mengikuti pelajaran karena kurangnya dukungan pembelajaran di rumah. Guru tersebut ingin membantu orang tua\/wali agar dapat lebih efektif mendukung pembelajaran anak-anak mereka di rumah. Tindakan yang seharusnya guru lakukan adalah",
+            "pilihan": [
+                "A. Menyusun modul pembelajaran yang bisa diakses oleh orang tua\/wali secara online tanpa adanya komunikasi langsung",
+                "B. Mengadakan pertemuan rutin dengan orang tua\/wali untuk memberikan panduan dan strategi pembelajaran di rumah, serta mendengarkan umpan balik mereka",
+                "C. Memberikan tugas tambahan kepada peserta didik untuk dikerjakan di rumah dengan harapan orang tua\/wali akan terlibat dalam proses pembelajaran",
+                "D. Mengirimkan pesan singkat melalui aplikasi pesan setiap minggu untuk mengingatkan orang tua\/wali tentang tugas-tugas yang harus diselesaikan oleh anak-anak mereka",
+                "E. Mengundang orang tua\/wali untuk datang ke sekolah saat acara khusus dan memberikan penjelasan singkat tentang pentingnya keterlibatan mereka dalam pembelajaran di rumah"
+            ],
+            "jawaban": "B",
+            "gambar": ""
+        },
+        {
+            "id": "pedagogik_eb1de694",
+            "kategori": "pedagogik",
+            "tipe": "single",
+            "soal": "Seorang guru ingin melibatkan orang tua\/wali dan masyarakat dalam proses pembelajaran untuk memperkaya pengalaman belajar peserta didik dan membuat pembelajaran lebih berpusat pada peserta didik. Tindakan yang seharusnya guru lakukan adalah .....",
+            "pilihan": [
+                "A. Mengundang orang tua\/wali untuk datang ke kelas hanya saat acara-acara tertentu seperti pameran karya peserta didik, tanpa melibatkan mereka secara rutin dalam pembelajaran",
+                "B. Menyusun modul pembelajaran yang sepenuhnya disusun oleh guru, kemudian meminta orang tua\/wali untuk memastikan anak-anak mereka menyelesaikan tugas- tugas di rumah",
+                "C. Mengirimkan survei kepada orang tua\/wali untuk mengetahui minat mereka dalam berpartisipasi dalam pembelajaran, namun tidak menindaklanjutinya dengan tindakan konkret",
+                "D. Mengadakan sesi wawancara dengan orang tua\/wali untuk memahami keahlian dan pengalaman mereka yang bisa dibagikan dalam kelas, lalu menyusun jadwal kunjungan atau sesi berbagi di kelas",
+                "E. Menyusun program pembelajaran yang melibatkan proyek-proyek berbasis komunitas, namun tidak berkonsultasi terlebih dahulu dengan orang tua\/wali dan masyarakat tentang kontribusi mereka"
+            ],
+            "jawaban": "D",
+            "gambar": ""
+        },
+        {
+            "id": "pedagogik_dcc74442",
+            "kategori": "pedagogik",
+            "tipe": "single",
+            "soal": "Seorang guru baru bergabung dengan sebuah organisasi profesi guru yang aktif mengadakan berbagai kegiatan untuk meningkatkan kualitas pembelajaran. Guru tersebut ingin berpartisipasi secara efektif dalam organisasi tersebut dan membantu memecahkan masalah pembelajaran. Tindakan yang seharusnya guru lakukan adalah.....",
+            "pilihan": [
+                "A. Menghadiri setiap pertemuan dan kegiatan organisasi, serta menawarkan diri untuk menjadi pemimpin dalam proyek-proyek yang membutuhkan penyelesaian masalah",
+                "B. Menghadiri pertemuan organisasi secara pasif, hanya mendengarkan diskusi tanpa berkontribusi ide atau solusi",
+                "C. Menghadiri beberapa pertemuan dan memilih proyek yang sesuai dengan keahliannya, kemudian berkontribusi dengan ide-ide dan solusi yang relevan",
+                "D. Menghadiri kegiatan organisasi ketika memiliki waktu luang, namun tidak terlibat dalam diskusi atau proyek yang sedang berjalan",
+                "E. Menjadi anggota organisasi tersebut sebagai wujud kontribusi sebagai guru, tanpa berpartisipasi aktif dalam kegiatan atau diskusi apapun"
+            ],
+            "jawaban": "C",
+            "gambar": ""
+        },
+        {
+            "id": "pedagogik_58c37b25",
+            "kategori": "pedagogik",
+            "tipe": "single",
+            "soal": "Sebagai pengelola dana BOS, Bu Ana diminta oleh kepala sekolah membuat kuitansi kosong. Belakangan Bu Ana tahu jika kepala sekolahnya membeli laptop baru dan menggunakan kuitansi kosong yang pernah dibuatnya untuk kegiatan yang sebenarnya tidak pernah ada. Yang akan Anda lakukan jika Anda menjadi Bu Ana adalah....",
+            "pilihan": [
+                "A. Merasa menyesal dan menyampaikan kepada kepala sekolah ketidaknyamanan yang dirasakan atas praktik tidak baik tersebut",
+                "B. Membiarkan saja dan memilih untuk tidak bereaksi, biarlah menjadi urusan kepala sekolah saja yang tidak jujur",
+                "C. Membuat tulisan lepas di media sosial agar kepala sekolah tersebut mendapatkan sanksi sosial",
+                "D. Membicarakannya dengan sesama kolega guru karena bingung harus berbuat apa di tengah situasi yang tidak benar ini",
+                "E. Menyesal telah menuruti perintah kepala sekolah tanpa mencoba melakukan sesuatu"
+            ],
+            "jawaban": "A",
+            "gambar": ""
+        },
+        {
+            "id": "pedagogik_43e5beea",
+            "kategori": "pedagogik",
+            "tipe": "single",
+            "soal": "Pak Rio mendapati di sekolah tempat mutasinya rekan kerja yang tidak ramah dan suka mengusik. Suatu hari rekan kerja sesama guru tersebut membicarakan hal-hal buruk tentang Pak Rio di belakangnya dan Pak Rio mendengar hal tersebut. Jika menjadi Pak Rio, maka yang akan Anda lakukan adalah .....",
+            "pilihan": [
+                "A. Melaporkan perbuatan rekan tersebut ke kepala sekolah agar segera ditegur",
+                "B. Menegur secara personal dan mengajak rekan tersebut bicara dari hati ke hati",
+                "C. Menegur dengan kasar karena sudah tidak tahan dengan perlakuan rekan tersebut",
+                "D. Mendiamkannya dan tidak menghiraukan nama baiknya difitnah",
+                "E. Membalasnya dengan ikut membicarakan hal buruk tentang rekan guru tersebut"
+            ],
+            "jawaban": "B",
+            "gambar": ""
+        },
+        {
+            "id": "pedagogik_0df3323b",
+            "kategori": "pedagogik",
+            "tipe": "single",
+            "soal": "Pak Putera membuat rancangan pembelajaran esok hari dengan media digital yang kontennya disesuaikan dengan materi membaca denah. Di tengah proses membuat bahan ajarnya, Pak Putera diminta kepala sekolah untuk membantu menyelesaikan nilai rapot yang belum selesai dientri. Jika saya sebagai Pak Putera maka yang akan saya lakukan adalah.....",
+            "pilihan": [
+                "A. Memutuskan menyusun konten media digital materi membaca denah sebagai prioritas karena merasa bahwa konten media digital materi membaca denah merupakan bagian penting dalam perangkat pembelajaran, sedangkan tugas mengentri nilai rapot bisa dikembalikan ke kepala sekolah",
+                "B. Memutuskan untuk merespon tugas mengentri nilai rapot karena diminta langsung oleh kepala sekolah dan berpikir bahwa penyusunan konten media digital materi membaca denah untuk peserta didik bisa dibatalkan",
+                "C. Memutuskan meminta bantuan orang lain untuk mengentri nilai rapot, kemudian mengerjakan penyusunan konten media digital materi membaca denah karena kedua tugas tersebut sama-sama penting dan harus diselesaikan",
+                "D. Memutuskan menyusun konten media digital materi membaca denah sebagai prioritas karena merasa bahwa membuat konten media digital materi membaca denah merupakan salah satu tugas utamanya sebagai pendidik dalam mendesain pembelajaran yang efektif, bermakna, & menyenangkan, sedangkan mengentri nilai rapot bisa dikerjakan di waktu jeda.",
+                "E. Memutuskan mengentri nilai rapot sebagai prioritas karena merupakan tugas langsung dari kepala sekolah, sedangkan membuat perangkat pembelajaran berupa bahan ajar bisa diganti dengan hanya menggunakan buku pegangan yang sudah disediakan oleh pemerintah"
+            ],
+            "jawaban": "D",
+            "gambar": ""
+        },
+        {
+            "id": "pedagogik_5c06a6a9",
+            "kategori": "pedagogik",
+            "tipe": "single",
+            "soal": "Salah satu kode etik guru adalah menghargai dan menghormati hak asasi manusia serta keanekaragaman budaya. Seorang rekan guru di tempat Anda bekerja senang sekali menertawakan logat bahasa siswa yang berasal dari suku tertentu. Sebagai rekan sejawat yang memahami prinsip etika guru Indonesia, yang bisa Anda lakukan adalah....",
+            "pilihan": [
+                "A. Melaporkan sikap tidak etis tersebut ke kepala sekolah agar dibahas di rapat guru",
+                "B. Menegur secara personal dan mengajak rekan guru tersebut untuk kembali kepada kode etik guru Indonesia",
+                "C. Membalas menirukan logat rekan tersebut agar dia tahu bahwa hal tersebut tidak menyenangkan",
+                "D. Membiarkan sikap rekan guru tersebut karena bukan urusan kita",
+                "E. Membiarkan"
+            ],
+            "jawaban": "B",
+            "gambar": ""
+        },
+        {
+            "id": "pedagogik_f9cbc93c",
+            "kategori": "pedagogik",
+            "tipe": "single",
+            "soal": "Berdasarkan analisis hasil diagnostic assessment ditemukan siswa yang heterogen kemampuanya. Anda sebagai seorang guru mengamati selama proses pembelajaran berlangsung, terdapat 3 kelompok kemampuan siswa yaitu pandai, sedang, kurang. Tindakan yang Anda lakukan agar pembelajaran berdiferensiasi bisa berjalan dengan efektif adalah ....",
+            "pilihan": [
+                "A. Mengelompokkan siswa berdasarkan diferensiasinya, dimana setiap kelompok terdiri dari kombinasi siswa yang pandai, sedang, dan kurang supaya bisa saling membantu dan berkolaborasi dalam diskusi di masing-masing kelompoknya",
+                "B. Mengelompokkan siswa berdasarkan diferensiasinya, dimana setiap kelompok terdiri dari siswa yang pandai, sedang, dan kurang sehingga terjadi saling asah, asih, asuh dan guru tidak memberikan pendampingan karena siswa sudah diskusi mandiri dalam kelompoknya",
+                "C. Mengelompokkan siswa berdasarkan diferensiasinya, setiap kelompok terdiri dari siswa yang pandai, sedang, dan kurang sehingga terjadi saling asah, asih, asuh dimana guru memberikan fasilitasi pendampingan bimbingan ke setiap kelompok secara menyeluruh",
+                "D. Memberikan kebebasan kepada semua siswa untuk memilih teman yang cocok dan sesuai keinginannya dalam membentuk kelompoknya masing-masing, supaya peserta didik merasa nyaman dan tanpa beban",
+                "E. Mengelompokan siswa sesuai kemampuannya, siswa yang pandai kedalam kelompok sesama yang pandai demikian juga terhadap siswa yang sedang dan kurang supaya perta didik bisa diskusi sesuai level kemampuanya."
+            ],
+            "jawaban": "C",
+            "gambar": ""
+        }
+    ],
+    "profesional": [
+        {
+            "id": "profesional_e0982b0f",
+            "kategori": "profesional",
+            "tipe": "single",
+            "soal": "1) Warna batunya merah menyala seperti api, bila terkena sinar matahari akan menyilaukan mata.\r\n2)\tAyah memiliki batu akik yang sangat-sangat ia sukai.\r\n3)\tBatu akik ini sungguh ajaib karena seakan menyala saat lampu mati.\r\n4)\tTidak salah jika Ayah sangat suka dengan batu akiknya ini.\r\nUrutan kalimat-kalimat di atas agar menjadi paragraf yang padu adalah ...",
+            "pilihan": [
+                "A. 1 \u2013 4 \u2013 2 \u2013 3",
+                "B. 1 \u2013 3 \u2013 2 \u2013 4",
+                "C. 2 \u2013 1 \u2013 3 \u2013 4",
+                "D. 2 \u2013 3 \u2013 4 \u2013 1",
+                "E. "
+            ],
+            "jawaban": "C",
+            "gambar": "",
+            "gambar_pilihan": []
+        },
+        {
+            "id": "profesional_66e15fc9",
+            "kategori": "profesional",
+            "tipe": "single",
+            "soal": "Sastra Indonesia terbagi menjadi beberapa jenis, yaitu ...",
+            "pilihan": [
+                "A. Puisi, prosa, sajak",
+                "B. Puisi, pantun, drama",
+                "C. Puisi, prosa, drama",
+                "D. Puisi, drama, sajak",
+                "E. "
+            ],
+            "jawaban": "C",
+            "gambar": "",
+            "gambar_pilihan": []
+        },
+        {
+            "id": "profesional_7fbf3cd8",
+            "kategori": "profesional",
+            "tipe": "single",
+            "soal": "Pagiku hilang sudah melayang\r\nHari mudaku sudah pergi\r\nSekarang petang datang membayang \r\n( ... )\r\nLarik bermajas yang tepat untuk melengkapi puisi diatas yaitu ...",
+            "pilihan": [
+                "A. Batang usiaku sudah tinggi",
+                "B. Aku telah menjelang ajal",
+                "C. Aku lalai di hari pagi",
+                "D. Akhh, untuk apa ku sesalkan",
+                "E. "
+            ],
+            "jawaban": "A",
+            "gambar": "",
+            "gambar_pilihan": []
+        },
+        {
+            "id": "profesional_7fa451e1",
+            "kategori": "profesional",
+            "tipe": "single",
+            "soal": "Pada suatu pagi, beberapa anak burung berkumpul di tengah hutan sambil bergurau. Mereka adalah burung Merak, Burung Beo, Burung Murai Batu, Burung Elang, dan Burung Gereja.\r\nBurung Merak, Burung Beo, Burung Murai Batu, dan Burung Elang memamekan diri kepada Burung Gereja. Burung Merak memamerkan bulunya yang indah. Burung Beo memarkan suaranya yang indah. Burung Murai Batu memamerkan kicauannya yang merdu. Burung Elang memamerkan kegagahannya.\r\nBurung Gereja sedih. Tak ada dalam dirinya yang bisa dibanggakan. Bulunya tidak indah. Suaranya juga tidak merdu. Badannya pun tidak gagah. Lalu, burung Gereja pulang ke rumah dan bertemu dengan ibunya. Ia menceritakan kesedihannya. Ibu burung Gereja menghibur anaknya.\r\nSuatu hari, burung Gereja berjalan-jalan ke hutan. Ia ingin sekali menemui teman- temannya. Tetapi tidak satupun temannya yang terlihat. Ia lalu berjalan ke tepi hutan. Di tempat Pak Tani, Burung Gereja melihat Burung Merak, Burung Beo, Burung Murai Batu, dan Burung Elang dalam perangkap Pak Tani. Mereka bercerita hendak dijual ke\r\n \r\nkota. Burung Merak, Burung Beo, Burung Murai Batu, dan Burung Elang sedih. Mereka menyesali kesombongannya.\r\n\r\nAmanat yang dapat kita petik dari cerita tersebut adalah ...",
+            "pilihan": [
+                "A. Kita tidak boleh menyombongkan kelebihan yang kita miliki.",
+                "B. Kita tidak boleh memamerkan kekurangan kita.",
+                "C. Kesabaran dan ketabahan hati akan mendatangkan kebaikan.",
+                "D. Kita harus membanggakan diri sendiri supaya percaya diri.",
+                "E. "
+            ],
+            "jawaban": "A",
+            "gambar": "",
+            "gambar_pilihan": []
+        },
+        {
+            "id": "profesional_50a11957",
+            "kategori": "profesional",
+            "tipe": "single",
+            "soal": "Perhatikan cuplikan dialog berikut !\r\nBu guru : \u201c Ibu mint kalian berdua jujur ! Kenapa isi tugas kalian bisa sama persis, bahkan titik dan komanya sekalipun \u201c\r\nAline\t: \u201c Saya mengerjakan karya tulis itu sendiri bu.\u201d Chelsea : \u201c Saya juga mengerjakan karya tulus saya sendiri.\u201d\r\nBu guru : \u201d Lalu, bagaimana dengan ulangan tadi. Mengapa isi dari jawaban ulangan kalian tidak sama dengan isi karya tulis kalian? Bisa menjelaskan ke ibu?\r\n( lama Aline dan Chelsea terdiam )\r\nBu guru : \u201c Baiklah kalau kalian tidak mau mengaku, ibu anggap kalian tidak mengerjakan tugas karya tulis dan tidak mengikuti ulangan tadi.\u201d\r\nKarakter Bu Guru dalam drama di atas adalah ...",
+            "pilihan": [
+                "A. Galak",
+                "B. Tegas",
+                "C. Pemaaf",
+                "D. Bijaksana",
+                "E. "
+            ],
+            "jawaban": "B",
+            "gambar": "",
+            "gambar_pilihan": []
+        },
+        {
+            "id": "profesional_a7a3efde",
+            "kategori": "profesional",
+            "tipe": "single",
+            "soal": "Berapakah FPB dan KPK dari 126 dan 198 ...",
+            "pilihan": [
+                "A. 9 dan 1386",
+                "B. 18 dan 1386",
+                "C. 18 dan 1368",
+                "D. 9 dan 1368",
+                "E. "
+            ],
+            "jawaban": "B",
+            "gambar": "",
+            "gambar_pilihan": []
+        },
+        {
+            "id": "profesional_db16c5a7",
+            "kategori": "profesional",
+            "tipe": "single",
+            "soal": "Diketahui fungsi f : dan fungsi f ditentukan dengan rumus f (x) = x2 + 1, jika f (a) = 10, hitunglah nilai a yang mungkin.",
+            "pilihan": [
+                "A. a = 3 atau a = -3",
+                "B. a = -3 atau a = 3",
+                "C. a = -3 atau a = -3",
+                "D. a = 3 atau a = 3",
+                "E. "
+            ],
+            "jawaban": "B",
+            "gambar": "",
+            "gambar_pilihan": []
+        },
+        {
+            "id": "profesional_669596ce",
+            "kategori": "profesional",
+            "tipe": "single",
+            "soal": "Nilai x yang memenuhi sistem persamaan $\\frac{1}{x} + \\frac{1}{y} = 10$ dan $\\frac{5}{x} - \\frac{2}{y} = 26$ adalah ...",
+            "pilihan": [
+                "A. $-\\frac{2}{3}$",
+                "B. $-\\frac{1}{6}$",
+                "C. $\\frac{1}{7}$",
+                "D. $\\frac{1}{2}$",
+                "E. "
+            ],
+            "jawaban": "C",
+            "gambar": "",
+            "gambar_pilihan": []
+        },
+        {
+            "id": "profesional_a07b92cf",
+            "kategori": "profesional",
+            "tipe": "single",
+            "soal": "Harga 2 koper dan 5 tas adalah Rp 600.000,00, sedangkan harga 3 koper dan 2 tas adalah Rp 570.000,00. Harga sebuah koper dan tas adalah ...",
+            "pilihan": [
+                "A. Rp 240.000,00",
+                "B. Rp 270.000,00",
+                "C. Rp 330.000,00",
+                "D. Rp 390.000,00",
+                "E. "
+            ],
+            "jawaban": "B",
+            "gambar": "",
+            "gambar_pilihan": []
+        },
+        {
+            "id": "profesional_6bddb57d",
+            "kategori": "profesional",
+            "tipe": "single",
+            "soal": "Nugraha membeli 3kg jeruk dan 2kg jambu dan ia harus membayar Rp. 16.000 sedangkan Dewi membeli 6kg mangga dan 1kg jambu dengan harga Rp. 26.000. Berapakah harga 10kg jeruk dan 5kg?",
+            "pilihan": [
+                "A. Rp. 30.000",
+                "B. Rp. 32.000",
+                "C. Rp. 40.000",
+                "D. Rp. 50.000",
+                "E. "
+            ],
+            "jawaban": "D",
+            "gambar": "",
+            "gambar_pilihan": []
+        },
+        {
+            "id": "profesional_95c48fda",
+            "kategori": "profesional",
+            "tipe": "single",
+            "soal": "Jumlah dua buah bilangan sama dengan 20. Jika hasil kali kedua bilangan itu sama dengan 75, maka bilangan-bilangan tersebut adalah ...",
+            "pilihan": [
+                "A. 4 dan 16",
+                "B. 5 dan 15",
+                "C. 6 dan 14",
+                "D. 8 dan 12",
+                "E. "
+            ],
+            "jawaban": "B",
+            "gambar": "",
+            "gambar_pilihan": []
+        },
+        {
+            "id": "profesional_44f45428",
+            "kategori": "profesional",
+            "tipe": "single",
+            "soal": "Jika besar sudut a adalah 70 derajat maka besar sudut e adalah \u2026 derajat",
+            "pilihan": [
+                "A. 90",
+                "B. 100",
+                "C. 110",
+                "D. 120",
+                "E. "
+            ],
+            "jawaban": "C",
+            "gambar": "q_69d33f9b93b20f49.png",
+            "gambar_pilihan": []
+        },
+        {
+            "id": "profesional_238b77f5",
+            "kategori": "profesional",
+            "tipe": "single",
+            "soal": "Perhatikan sifat-sifat bangun datar berikut !\r\n1)\tmempunyai dua pasang sisi yang sama panjang\r\n2)\tmempunyai diagonal yang saling tegak lurus\r\n3)\tmempunyai sudut siku-siku\r\n4)\tmempunyai 2 pasang sisi sejajar\r\n5)\tmempunyai sepasang sudut sama besar\r\nDari sifat-sifat di atas yang merupakan sifat laying-layang adalah \u2026.",
+            "pilihan": [
+                "A. 1), 2), 3)",
+                "B. 1), 3), 4)",
+                "C. 1), 3), 5)",
+                "D. 1), 2), 5)",
+                "E. "
+            ],
+            "jawaban": "D",
+            "gambar": "",
+            "gambar_pilihan": []
+        },
+        {
+            "id": "profesional_abb069de",
+            "kategori": "profesional",
+            "tipe": "single",
+            "soal": "Hasil pencerminan terhadap garis x dari bangun di bawah ini adalah \u2026.",
+            "pilihan": [
+                "A. ",
+                "B. ",
+                "C. ",
+                "D. ",
+                "E. "
+            ],
+            "jawaban": "B",
+            "gambar": "q_134bbce17cc06928.png",
+            "gambar_pilihan": []
+        },
+        {
+            "id": "profesional_5d0f985d",
+            "kategori": "profesional",
+            "tipe": "single",
+            "soal": "Novi mengendarai mobil dari Kota Semarang menuju Blora dengan kecepatan 40 km\/jam, sedangkan Ima mengendarai mobil dari Blora menuju Semarang dengan kecepatan 60 km\/jam. Jika jarak Kota Semarang dengan Blora adalah 125 km dan mereka berangkat pada pukul 07.00 maka pada pukul berapa mereka akan berpapasan?",
+            "pilihan": [
+                "A. 08.00",
+                "B. 08.15",
+                "C. 08.25",
+                "D. 08.30",
+                "E. "
+            ],
+            "jawaban": "B",
+            "gambar": "",
+            "gambar_pilihan": []
+        },
+        {
+            "id": "profesional_e1b6f69b",
+            "kategori": "profesional",
+            "tipe": "single",
+            "soal": "Data nilai siswa kelas VI berturut turut adalah 8, 7, 6, 5, 6, 7, 8, 9, 10, 7. Dari data tersebut berapakah mediannya?",
+            "pilihan": [
+                "A. 8",
+                "B. 7.5",
+                "C. 7",
+                "D. 6.5",
+                "E. "
+            ],
+            "jawaban": "C",
+            "gambar": "",
+            "gambar_pilihan": []
+        },
+        {
+            "id": "profesional_880129ca",
+            "kategori": "profesional",
+            "tipe": "single",
+            "soal": "Bus Trans Jakarta berisi penumpang berangkat dari terminal ke pasar, di halte pertama turun 4 orang, di halte kedua naik 2 orang sampai di pasar ternyata ada 15 orang. Berapa banyak penumpang yang naik pada terminal?",
+            "pilihan": [
+                "A. 17",
+                "B. 15",
+                "C. 13",
+                "D. 11",
+                "E. "
+            ],
+            "jawaban": "A",
+            "gambar": "",
+            "gambar_pilihan": []
+        },
+        {
+            "id": "profesional_41f4fefe",
+            "kategori": "profesional",
+            "tipe": "single",
+            "soal": "Suatu lapangan berbentuk persegi panjang dengan luas 120 m2. Panjang lapangan tersebut adalag 12 m. Berapakah kelilingnya?",
+            "pilihan": [
+                "A. 22 m",
+                "B. 24 m",
+                "C. 42 m",
+                "D. 44 m",
+                "E. "
+            ],
+            "jawaban": "D",
+            "gambar": "",
+            "gambar_pilihan": []
+        },
+        {
+            "id": "profesional_3cc62b58",
+            "kategori": "profesional",
+            "tipe": "single",
+            "soal": "Suku ke-4 dan suku ke-9 suatu barisan aritmatika berturut-turut adalah 110 dan 150. Suku ke 30 barisan tersebut adalah \u2026.",
+            "pilihan": [
+                "A. 308",
+                "B. 318",
+                "C. 326",
+                "D. 344",
+                "E. "
+            ],
+            "jawaban": "B",
+            "gambar": "",
+            "gambar_pilihan": []
+        },
+        {
+            "id": "profesional_52cc1b85",
+            "kategori": "profesional",
+            "tipe": "single",
+            "soal": "$\\frac{4}{3a} \\times \\frac{ab}{2}$ = ...",
+            "pilihan": [
+                "A. $\\frac{2b}{3}$",
+                "B. $\\frac{b}{3}$",
+                "C. $\\frac{2b}{3a}$",
+                "D. $\\frac{4b}{3}$",
+                "E. "
+            ],
+            "jawaban": "A",
+            "gambar": "",
+            "gambar_pilihan": []
+        },
+        {
+            "id": "profesional_a59e0b34",
+            "kategori": "profesional",
+            "tipe": "single",
+            "soal": "Menerapkan pengetahuan, konseptual, prosedural, danketerkaitankeduanya dalam konteksmateri Geometri\r\nDari barisan geometri diketahui bahwa U3 = 4 dan U9 = 256, maka tentukan U12!",
+            "pilihan": [
+                "A. 2048",
+                "B. 2049",
+                "C. 2047",
+                "D. 2046",
+                "E. "
+            ],
+            "jawaban": "A",
+            "gambar": "",
+            "gambar_pilihan": []
+        },
+        {
+            "id": "profesional_1e2bfce0",
+            "kategori": "profesional",
+            "tipe": "single",
+            "soal": "Menerapkan pengetahuankonseptual, prosedural, danketerkaitankeduanya dalam konteksmateri pengukuran\r\nSebuah bak mandi diisi air mulai pukul 07.20 sampai dengan pukul 07.50 dengan debit air 10 liter\/menit. Berapa liter volume air dalam bak mandi tersebut?",
+            "pilihan": [
+                "A. 3000 liter",
+                "B. 300 liter",
+                "C. 30 liter",
+                "D. 30000 liter",
+                "E. "
+            ],
+            "jawaban": "A",
+            "gambar": "",
+            "gambar_pilihan": []
+        },
+        {
+            "id": "profesional_325f6b37",
+            "kategori": "profesional",
+            "tipe": "single",
+            "soal": "Menggunakan pengetahuankonseptual, prosedural, danketerkaitankeduanya dalam konteksmateri Statistika\r\nNilai rata-rata ulangan matematika dari 7 siswa adalah 6,50. Ketika nilai satu orang siswa ditambahkan, maka rata-ratanya menjadi 6,70. Nilai siswa yang ditambahkan adalah \u2026.",
+            "pilihan": [
+                "A. 9.10",
+                "B. 8.10",
+                "C. 7.10",
+                "D. 6.10",
+                "E. "
+            ],
+            "jawaban": "B",
+            "gambar": "",
+            "gambar_pilihan": []
+        },
+        {
+            "id": "profesional_2bcfbbfb",
+            "kategori": "profesional",
+            "tipe": "single",
+            "soal": "Menggunakan pengetahuankonseptual, prosedural, danketerkaitankeduanya dalam konteks materi Logika\/Penalaran Matematika\r\nDari pernyataanberikutini, manakah yang merupakaningkarandaripernyataanJakarta Ibukota RI.",
+            "pilihan": [
+                "A. Jakarta bukanibukota RI",
+                "B. Jakarta adalah ibukota RI",
+                "C. Benar bahwa Jakarta Ibukota Jakarta",
+                "D. Benarbahwa Jakarta bukan Ibukota dari RI",
+                "E. "
+            ],
+            "jawaban": "A",
+            "gambar": "",
+            "gambar_pilihan": []
+        },
+        {
+            "id": "profesional_9e4719f0",
+            "kategori": "profesional",
+            "tipe": "single",
+            "soal": "Menentukan alat peragadalam pembelajarannbilangan\r\nBu Ani ingin mengajarkan kepada anak \u2013 anak kelas 1 tentang nilai tempat suatu bilangan (satuan, puluhan, ratusan, dan ribuan), Media yang tepat digunakan Bu Ani dalam Pembelajaran tersebut adalah\u2026",
+            "pilihan": [
+                "A. Kartu bilangan",
+                "B. Blok dienes",
+                "C. Loncat katak",
+                "D. Papan berpaku",
+                "E. "
+            ],
+            "jawaban": "B",
+            "gambar": "",
+            "gambar_pilihan": []
+        },
+        {
+            "id": "profesional_8c54264f",
+            "kategori": "profesional",
+            "tipe": "single",
+            "soal": "Mengklasifikasikan alatperaga dalam pembelajaranGeometri dan pengukuran Pak Arief ingin mengajarkan cara mengukur luas halaman sekolah dengan satuan meter.Alat peraga yang sebaiknya digunakan supaya pembelajaran menarik adalah\u2026",
+            "pilihan": [
+                "A. Pita garis bilangan, mistar, tangga garis",
+                "B. Blok dienes, mistar, pita garis bilangan",
+                "C. Mistar, uang logam, blok dienes",
+                "D. Tangga garis, blok dienes, tangga garis",
+                "E. "
+            ],
+            "jawaban": "A",
+            "gambar": "",
+            "gambar_pilihan": []
+        },
+        {
+            "id": "profesional_956c0829",
+            "kategori": "profesional",
+            "tipe": "single",
+            "soal": "Menentukan alat ukur dalam pembelajaranbgeometri dan pengukuran Ketidakpastian yang ada pada pengukuran tunggal ditetapkan sama dengan setengah skala terkecil dari alat ukur yang digunakan.Jika kita menggunakan mistar atau penggaris, maka ketidakpastiannya adalah sama dengan\u2026.",
+            "pilihan": [
+                "A. 0.05 cm",
+                "B. 0.01 cm",
+                "C. 0.1 cm",
+                "D. 1 cm",
+                "E. "
+            ],
+            "jawaban": "A",
+            "gambar": "",
+            "gambar_pilihan": []
+        },
+        {
+            "id": "profesional_e96255d0",
+            "kategori": "profesional",
+            "tipe": "single",
+            "soal": "Memecahkan PembelajaranIPS SD (diberikan kasus dalam pembelajaran, peserta dapat menyimpulkan pembelajaran dalam kasus tersebut\r\nBu,fitri adalah guru SD Negeri 2 Sukamakmur ,mengajar di kelas Beliau memberikan pelajaran IPS,dengan materi \u201c Menceritakan Pengalaman Diri. Sebelum memulai pelajaran, anak \u2013 anakberbaris di depan kelas,kemudian diperiksa kebersihannya, terutama kuku tangan dan telinga.Sambil diperiksa anak masuk kedalam kelas satu persatu. Anak - anak diajak berdoa dan kemudian mengucapkan salam.\r\nSebelum memberikan materi, memberi motivasi kepada anak, saya bertanya \u201csiapa tadi yangtidak mandi\u201d anak \u2013 anak terdiam. Mari kita nyanyikan lagu bangun tidur ku terus mandi,tidak lupa menggosok gigi, habis mandi kutolong ibu, membersihkan tempat tidurku. Kesimpulan dari pembelajaran IPS yang dilakukan bu Fitri adalah .......",
+            "pilihan": [
+                "A. Guru kurang memotivasi anak dalam pembelajaran",
+                "B. Guru mengajak siswa bernyanyi untuk memotivasi anak",
+                "C. Anak \u2013 anak hanya diam saja saat diberi pertanyaan dalam pembelajaran karena guru kurang memotivasi anak",
+                "D. Guru memberikan motivasi kepada siswa dalam pembelajaran",
+                "E. "
+            ],
+            "jawaban": "C",
+            "gambar": "",
+            "gambar_pilihan": []
+        },
+        {
+            "id": "profesional_fbfd7989",
+            "kategori": "profesional",
+            "tipe": "single",
+            "soal": "Menegaskan Fokus utamakajian pembelajaran IPS diSD (diberikan kasus contoh Hari selasa, saat pelajaran IPS pak Sunarto akan memberikan materi pada anak- anak tentang silsilah keluarga. Waktu pelajaran adalah 2 x 35 menit. Setelah mengutarakan tujuan yang akan dibahas hari ini, pak Sunarto mengajukan pertanyaan pada para siswa untuk mengawali pelajaran.\r\n\u201c Anak- anak tentunya kalian mempunyai keluaga di rumahkan,,?\u201d \u201c iya pak, punya.\u201d Jawab semua siswa srentak.\r\n\u201c Coba kalian sebutkan siapa saja yang dirumah kalian yang masuk dalam anggota keluarga !\u201d\r\n\u201c Ada ayah, ibu, adik, kakak, kakek, nenek\u201d Jawab para siswa bersahut- sahutan. Kemudian pak Sunarto menempelkan bagan dan foto silsilah keluarga. Anak- anak mengamati sambil menyimak penjelasam dari pak sunarto. Sesekali pak sunarto melemparkan pertanyaan kepada siswa dan pertanyaan dijawab dengan benar.\tPak Sunarto mengakhiri penjelasan dengan memberikan pertanyaan pada siswa \u201c apakah kalian sudah mengerti semua tentang silsilah keluarga yang sudah bapak jelaskan,,?\u201d Tanya pak Sunarto.\r\n\u201c Sudah pak\u201d, jawab anak- anak serentak.\r\n\u201c kalau masih ada yang kurang jelas atau bingung, anak- anak boleh bertanya \u201d \u201c tiadak ada pak\u201d, jawab anak- anak lagi secara serentak.\r\nPak sunarto memberikan tugas kepada siswa agar dikerjakan sendiri- sendiri. Pak sunarto yakin, pasti nialai anak- anak memuaskan karena anak- anak berhasil menjawab pertanyaan yang tadi di lemparkan. Tugas yang diberikan juga sama dengan tugas yang di jelaskan pak sunarto, hanya saja diganti nama- nama pada bagan silsilah keluarrga.\r\nSetelah semuanya selesai, pekerjaaan di kumpulkan dan setelah di koreksi ternyata hasilnya mengecewakan, hampir 60% siswa mendapatkan nilai hasil evaluasinya di bawah rata- rata.\r\nApa kelemahan pembelajaran yang dilakukan pak sunarto, kecuali\u2026..",
+            "pilihan": [
+                "A. Pemakaian metode pembelajaran terkesan masih bersifat Konvesional (ceramah dan penugasan",
+                "B. Alat peraga kurang lengkap sehingga membingngungkan siswa",
+                "C. Penyampaian materi kurang jelas",
+                "D. Guru sudah menyampaikan tujuan pembelajaran",
+                "E. "
+            ],
+            "jawaban": "D",
+            "gambar": "",
+            "gambar_pilihan": []
+        },
+        {
+            "id": "profesional_d659caf9",
+            "kategori": "profesional",
+            "tipe": "single",
+            "soal": "Membedakan pengertian IPSdan Ilmu social\r\nApa perbedaan antara Ilmu-Ilmu Sosial (IIS) dengan Ilmu Pengetahuan Sosial (IPS) dilihat dari tujuannya (purposes) ?",
+            "pilihan": [
+                "A. Ilmu-Ilmu sosial menetapkan kebenaran Ilmiah sebagai focus tujuanya, sedangkan pada Ilmu Pengetahuan Sosial mengarah pada penanaman BASK (Behavior, attitude, Skill, dan Knowledge).",
+                "B. Ilmu Pengetahuan Sosial menetapkan kebenaran Ilmiah sebagai focus tujuanya, sedangkan pada Ilmu-Ilmu sosial mengarah pada penanaman BASK (Behavior, attitude, Skill, dan Knowledge).",
+                "C. Ilmu-Ilmu Sosial adalah bersifat disipliner sesuai dengan kehidupan yang menjadi obyek studi berdasrkan bidang Ilmu masing-masing, sedangkan pada pendekatan Ilmu Pengetahuan Sosial bersifat intensdisipliner",
+                "D. Ilmu-Ilmu Sosial (IIS) diberikan di tingkat perguruan tinggi\/universitas, sedang Ilmu Pengetahuan Sosial (IPS) diberikan di tingkat sekolah.",
+                "E. "
+            ],
+            "jawaban": "D",
+            "gambar": "",
+            "gambar_pilihan": []
+        },
+        {
+            "id": "profesional_b710860b",
+            "kategori": "profesional",
+            "tipe": "single",
+            "soal": "Mengurutkan ruang lingkup pembelajaran IPS SD\r\nRuang lingkup pembelajaran IPS SD yaitu. . .",
+            "pilihan": [
+                "A. Masyarakat, Norma, Budaya, Waktu",
+                "B. Manusia, Waktu, Sistem Sosial dan Budaya, Perilaku Ekonomi dan Kesejahteraan",
+                "C. Manusia, Kerja, Nilai dan Norma, Peningkatan Kesejahteraan",
+                "D. Masyarakat, Kerja, Perilaku Ekonomi dan Kesejahteraan, Waktu",
+                "E. "
+            ],
+            "jawaban": "B",
+            "gambar": "",
+            "gambar_pilihan": []
+        },
+        {
+            "id": "profesional_26b6494a",
+            "kategori": "profesional",
+            "tipe": "single",
+            "soal": "Mengklasifikasikan tujuan IPS dalam pembelajaran di SD\r\nApa tujuan IPS dalam pembelajaran di SD?",
+            "pilihan": [
+                "A. Menolong siswa untuk mengembangkan bakatnya",
+                "B. Membantu siswa dalam menentukan cita-cita yang ingin diraihnya di masa mendatang",
+                "C. Menyediakan kesempatan kepada siswa untuk berekspresi lingkungan masyarakat",
+                "D. Memberikan kepada Siswa pengetahuan tentang pengalaman manusia dalam kehidupan bermasyarakat pada masa lalu, sekarang dan masa akan datang",
+                "E. "
+            ],
+            "jawaban": "D",
+            "gambar": "",
+            "gambar_pilihan": []
+        },
+        {
+            "id": "profesional_f03843f3",
+            "kategori": "profesional",
+            "tipe": "single",
+            "soal": "Menganalisis nilai kegunaan mempelajari sejarah bagi siswa\r\nBagi siswa mempelajari sejarah memiliki beberapa manfaat. Berikut yang bukan merupakan manfaat mempelajari sejarah bagi siswa yaitu. . .",
+            "pilihan": [
+                "A. Membangun kesadaran peserta didik tentang pentingnya waktu dan tempat yang merupakan proses dari masa lampau, masa kini, dan masa depan",
+                "B. Menumbuhkan pemahaman peserta didik terhadap landasan sikap yang akan ditempuhnya",
+                "C. Melatih daya kritis peserta didik untuk memahami fakta sejarah secara benar dengan didasarkan pada pendekatan ilmiah dan metodologi keilmuan",
+                "D. Menumbuhkan apresisasi dan penghargaan peserta didik terhadap peninggalan sejarah sebagai bukti peradaban bangsa Indonesia di masa lampau",
+                "E. "
+            ],
+            "jawaban": "B",
+            "gambar": "",
+            "gambar_pilihan": []
+        },
+        {
+            "id": "profesional_288d59c0",
+            "kategori": "profesional",
+            "tipe": "single",
+            "soal": "Mengurutkan perkembangaran sejarah di Indonesia\r\nBagaimana keadaan Indonesia setelah adanya perjanjian KMB?",
+            "pilihan": [
+                "A. Indonesia terbagi menjadi 8 provinsi",
+                "B. Ibukota negara Indonesia dipindahkan ke Yogyakarta",
+                "C. Indonesia menjadi negara serikat (RIS)",
+                "D. Irian Barat berintegrasi dengan Indonesia",
+                "E. "
+            ],
+            "jawaban": "C",
+            "gambar": "",
+            "gambar_pilihan": []
+        },
+        {
+            "id": "profesional_488840ae",
+            "kategori": "profesional",
+            "tipe": "single",
+            "soal": "Menjelaskan hubungan pembelajaran sejarah dengan antropologi. (diberikan soal kasus)\r\nAntropologi sebagai salah satu dari ilmu sosial memiliki kaitan dan sumbangan kepada ilmu sejarah begitu juga sebaliknya. Dalam penulisan sejarah, sejarawan tidak jarang menggunakan teori dan konsep antropologi. Berikut konsep antropologi yang sering digunakan sejarawan, kecuali. . .",
+            "pilihan": [
+                "A. Enkulturasi",
+                "B. Primitif",
+                "C. Folklore",
+                "D. Prasasti",
+                "E. "
+            ],
+            "jawaban": "D",
+            "gambar": "",
+            "gambar_pilihan": []
+        },
+        {
+            "id": "profesional_a3370b0b",
+            "kategori": "profesional",
+            "tipe": "single",
+            "soal": "Menemukan makna Bhineka Tunggal Ikka dalam kehidupan sehari-hari\r\nEko adalah siswa kelas V SD Bumi Pertiwi. Pada suatu hari Pak Guru membagi kelas menjadi beberapa kelompok. Eko mendapat kelompok dengan Togar, Lusi, Intan dan Rully. Bagaiman sebaiknya sikap Eko?",
+            "pilihan": [
+                "A. Eko bersedia satu kelompok dengan Togar karena Togar orang Batak sedangkan di orang Jawa",
+                "B. Eko tidak bersedia satu kelompok dengan Rully karena Rully bukan teman dekatnya",
+                "C. Eko bersedia berkelompok dengan mereka karena mereka semua pandai",
+                "D. Eko bersedia berkelompok dengan siapun karena semua adalah teman",
+                "E. "
+            ],
+            "jawaban": "D",
+            "gambar": "",
+            "gambar_pilihan": []
+        },
+        {
+            "id": "profesional_05344643",
+            "kategori": "profesional",
+            "tipe": "single",
+            "soal": "Mengemukakan suku bangsa yang ada di Indonesia.(diberikan kasus salah satu suku bangsa di Indonesia)\r\nBangsa Indonesia memiliki ratusan suku bangsa beserta adat dan budayanya. Masing- masing suku mempunyai keunikan tersendiri yang merupakan kekayaan budaya nasional. Berikutciri-cirisalahsatusuku yang ada di pulauJawa :\r\n-\tTidakdiperkenankanmenggunakankendaraanuntuksaranatransportasi\r\n-\tTidakdiperkenankanmenggunakan alas kaki\r\n-\tLaranganmenggunakanalatelektronik\r\n-\tPinturumahharusmenghadaputara\/selatan Sukutersebutadalah. . .",
+            "pilihan": [
+                "A. Suku Asmat",
+                "B. Suku Bugis",
+                "C. Suku Badui",
+                "D. Suku Dayak",
+                "E. "
+            ],
+            "jawaban": "C",
+            "gambar": "",
+            "gambar_pilihan": []
+        },
+        {
+            "id": "profesional_bbb02a99",
+            "kategori": "profesional",
+            "tipe": "single",
+            "soal": "Menggali pengalaman butir-butir Pancasila\r\nMengembangkan perbuatan yang luhur, yang mencerminkan sikap dan suasana kekeluargaan dan kegotongroyongan, merupakan pengalaman Pancasila sila ke- . . .",
+            "pilihan": [
+                "A. Satu",
+                "B. Dua",
+                "C. Tiga",
+                "D. Lima",
+                "E. "
+            ],
+            "jawaban": "D",
+            "gambar": "",
+            "gambar_pilihan": []
+        },
+        {
+            "id": "profesional_27850228",
+            "kategori": "profesional",
+            "tipe": "single",
+            "soal": "Membuktikan potensi sumber daya alam di Indonesia. (diberikan soal kasus) Negara Indonesia memiliki sumber daya alam yang melimpah, salah satunya yaitu timah. Daerah yang menghasilkan lebih dari 20% produksi timah putih dunia adalah . . .",
+            "pilihan": [
+                "A. Pulau Bangka, Belitung, dan Singkep",
+                "B. Kepulauan Natuna",
+                "C. Pulau Bali, Lombok, Nusa Penida",
+                "D. Pulau Kalimantan",
+                "E. "
+            ],
+            "jawaban": "A",
+            "gambar": "",
+            "gambar_pilihan": []
+        },
+        {
+            "id": "profesional_a8430f41",
+            "kategori": "profesional",
+            "tipe": "single",
+            "soal": "Merencanakan penggunaan ICT dalam pembelajaran IPS SD\r\nPada pemebelajaran IPS kelas V dengan materi Perjuangan Bangas Indonesia Melawan Penjajah, Pak Ridwan ingin menyajikan pemebelajaran yang menyenangkan dan mudah diingat serta dimengerti oleh anak didiknya. Media apa yang harus digunakan pak Ridwan?",
+            "pilihan": [
+                "A. Video",
+                "B. Slide",
+                "C. Corel draw",
+                "D. Radio",
+                "E. "
+            ],
+            "jawaban": "A",
+            "gambar": "",
+            "gambar_pilihan": []
+        },
+        {
+            "id": "profesional_60814460",
+            "kategori": "profesional",
+            "tipe": "single",
+            "soal": "Mempelajari sejarah setiap masyarakat menjadi lebih baik. Pernyataan tersebut adalah manfaat mempelajari sejarah dalam hal ...",
+            "pilihan": [
+                "A. Sejarah dapat memberikan kesenangan dan kegembiraan",
+                "B. Sejarah dapat digunakan sebagai pedoman bagi suatu bangsa",
+                "C. Sejarah dapat dijadikan sebagai profesi",
+                "D. Sejarah dapat mengetahui kejadian masa lampau",
+                "E. "
+            ],
+            "jawaban": "B",
+            "gambar": "",
+            "gambar_pilihan": []
+        },
+        {
+            "id": "profesional_fa6d1db9",
+            "kategori": "profesional",
+            "tipe": "single",
+            "soal": "Apakah persamaan hubungan antara sejarah dengan antropologi..",
+            "pilihan": [
+                "A. Menempatkan manusia sebagai subyek dan obyek dalam kajiannya",
+                "B. Keduanya menunjukkan proses yang mencakup keterlibatan para pelaku",
+                "C. Terlibat dalam faktor-faktor eksternal yang bersifat sosiologis",
+                "D. Berorientasi terhadap pandangan hidup para pelakunya",
+                "E. "
+            ],
+            "jawaban": "A",
+            "gambar": "",
+            "gambar_pilihan": []
+        },
+        {
+            "id": "profesional_bb01fe1b",
+            "kategori": "profesional",
+            "tipe": "single",
+            "soal": "Negara Kesatuan Republik Indonesia terdiri atas beraneka ragam budaya, bahasa, ras, agama, dan kepercayaan. Yang semuanya diikat dalam satu pedoman Bhinneka Tunggal Ikan dengan lambang negara Garuda Pancasila. Kedua hal tersebut diatur dalam Undang- Undang Negara nomor..",
+            "pilihan": [
+                "A. UU no 15 tahun 2006",
+                "B. UU no 17 tahun 2006",
+                "C. UU no 24 tahun 2009",
+                "D. UU no 38 tahun 2009",
+                "E. "
+            ],
+            "jawaban": "C",
+            "gambar": "",
+            "gambar_pilihan": []
+        },
+        {
+            "id": "profesional_d94927fc",
+            "kategori": "profesional",
+            "tipe": "single",
+            "soal": "Kekayaan sumber daya alam Indonesia telah dimanfaatkan untuk memenuhi kebutuhan bangsa Indonesia. Sebagian lainnya masih berupa potensi yang belum dimanfaatkan karena berbagai keterbatasan.\r\nSesuai perkembangan jaman langkah yang tepat bagi kita untuk mengolah potensi sumber daya yang ada yaitu...",
+            "pilihan": [
+                "A. Mengolah sumber daya yang ada dengan mendatangkan tenaga kerja asing",
+                "B. Mengekspor sumber daya yang masih berupa bahan mentah",
+                "C. Mengirim tenaga kerja Indonesia ke luar negeri untuk mendapatkan pembelajaran dan pelatihan",
+                "D. Mengelola sumber daya yang ada dengan teknologi canggih",
+                "E. "
+            ],
+            "jawaban": "C",
+            "gambar": "",
+            "gambar_pilihan": []
+        },
+        {
+            "id": "profesional_3c374e04",
+            "kategori": "profesional",
+            "tipe": "single",
+            "soal": "Lingkungan di sekitar kita terbagi atas 2 macam yaitu lingkungan alam dan lingkungan buatan. Dimana keduanya memiliki manfaat dan tujuan yang sama yaitu...",
+            "pilihan": [
+                "A. Untuk memenuhi kebutuhan manusia",
+                "B. Melestarikan lingkungan masyarakat",
+                "C. Sebagai sumber pengetahuan dan teknologi",
+                "D. Sebagai sumber kekayaan alam",
+                "E. "
+            ],
+            "jawaban": "A",
+            "gambar": "",
+            "gambar_pilihan": []
+        },
+        {
+            "id": "profesional_8c8e83f4",
+            "kategori": "profesional",
+            "tipe": "single",
+            "soal": "Dibawah ini yang bukan termasuk gejala alam biotik yaitu...",
+            "pilihan": [
+                "A. Metamorfosis",
+                "B. Fotosintesis",
+                "C. Penyerbukan",
+                "D. Erosi",
+                "E. "
+            ],
+            "jawaban": "D",
+            "gambar": "",
+            "gambar_pilihan": []
+        },
+        {
+            "id": "profesional_2213249b",
+            "kategori": "profesional",
+            "tipe": "single",
+            "soal": "Metamorfosis adalah suatu proses perkembangan biologi pada hewan yang melibatkan perubahan penampilan fisik setelah kelahiran atau penetasan. Dibawah ini adalah contoh serangga yang tidak mengalami metamorfosis yaitu...",
+            "pilihan": [
+                "A. Belalang",
+                "B. Nyamuk",
+                "C. Lalat",
+                "D. Semut",
+                "E. "
+            ],
+            "jawaban": "A",
+            "gambar": "",
+            "gambar_pilihan": []
+        },
+        {
+            "id": "profesional_4dc3b571",
+            "kategori": "profesional",
+            "tipe": "single",
+            "soal": "Katak mengalami metamorfosis sempurna. Dalam perkembangannya pada fase berudu, bernapas menggunakan...",
+            "pilihan": [
+                "A. Trakhea",
+                "B. Paru-paru",
+                "C. Insang",
+                "D. Kulit",
+                "E. "
+            ],
+            "jawaban": "C",
+            "gambar": "",
+            "gambar_pilihan": []
+        },
+        {
+            "id": "profesional_37c8ae38",
+            "kategori": "profesional",
+            "tipe": "single",
+            "soal": "Untuk menjaga kelestarian lingkungan salah satunya adalah dengan melakukan reboisasi atau penghijauan dengan tujuan...",
+            "pilihan": [
+                "A. Memperindah susunan kota",
+                "B. Menjaga tanah dan mencegah erosi",
+                "C. Memperoleh kayu yang berlimpah",
+                "D. Meningkatkan pendapatan",
+                "E. "
+            ],
+            "jawaban": "B",
+            "gambar": "",
+            "gambar_pilihan": []
+        },
+        {
+            "id": "profesional_ab3e508f",
+            "kategori": "profesional",
+            "tipe": "single",
+            "soal": "Limbah atau sampah terpisah menjadi sampah basah dan sampah kering. Hal yang paling tepat untuk mengatasi limbah sampah kering adalah...",
+            "pilihan": [
+                "A. Dibakar habis",
+                "B. Di daur ulang",
+                "C. Dikubur didalam tanah",
+                "D. Dibiarkan ditempat terbuka",
+                "E. "
+            ],
+            "jawaban": "B",
+            "gambar": "",
+            "gambar_pilihan": []
+        },
+        {
+            "id": "profesional_c2eb8223",
+            "kategori": "profesional",
+            "tipe": "single",
+            "soal": "Hasil pencerminan terhadap garis x dari bangun di bawah ini adalah \u2026.",
+            "pilihan": [
+                "A. ",
+                "B. ",
+                "C. ",
+                "D. "
+            ],
+            "jawaban": "B",
+            "gambar": "q_2da8ad3c76f963a9.png",
+            "gambar_pilihan": []
+        }
+    ]
+}

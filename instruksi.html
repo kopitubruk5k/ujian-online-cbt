@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Instruksi Ujian – Sistem Ujian CBT</title>
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    /* ── Instruksi Page Styles ── */
+    .instruksi-layout {
+      display: grid;
+      grid-template-columns: 1fr 340px;
+      gap: 2rem;
+      align-items: start;
+    }
+
+    /* Session Info Cards */
+    .sesi-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.25rem;
+      margin-bottom: 2rem;
+    }
+    .sesi-card {
+      background: white;
+      border: 1px solid #e2e8f0;
+      border-radius: 18px;
+      padding: 1.75rem;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .sesi-card:hover { transform: translateY(-3px); box-shadow: 0 8px 25px rgba(0,0,0,0.08); }
+    .sesi-card::after {
+      content: '';
+      position: absolute; top: 0; left: 0;
+      width: 100%; height: 4px;
+    }
+    .sesi-card.ped::after { background: linear-gradient(90deg, #2563eb, #4f46e5); }
+    .sesi-card.pro::after { background: linear-gradient(90deg, #059669, #06b6d4); }
+    .sesi-badge {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-size: 0.7rem; font-weight: 800; text-transform: uppercase;
+      letter-spacing: 0.06em; margin-bottom: 0.75rem;
+      padding: 4px 10px; border-radius: 50px;
+    }
+    .sesi-card.ped .sesi-badge { background: #eff6ff; color: #1d4ed8; }
+    .sesi-card.pro .sesi-badge { background: #ecfdf5; color: #065f46; }
+    .sesi-card h3 { font-size: 1.05rem; color: #0f172a; margin-bottom: 1rem; }
+    .sesi-stats {
+      display: flex; gap: 1rem;
+    }
+    .sesi-stat {
+      display: flex; flex-direction: column;
+      background: #f8fafc; border-radius: 10px;
+      padding: 0.6rem 1rem; border: 1px solid #e2e8f0;
+      min-width: 70px;
+    }
+    .sesi-stat-val { font-size: 1.5rem; font-weight: 800; color: #1e293b; line-height: 1; }
+    .sesi-stat-lbl { font-size: 0.65rem; font-weight: 700; color: #94a3b8; text-transform: uppercase; letter-spacing: 0.04em; margin-top: 2px; }
+
+    /* Rules Card */
+    .rules-card {
+      background: white;
+      border: 1px solid #e2e8f0;
+      border-radius: 18px;
+      padding: 2rem;
+      margin-bottom: 1.5rem;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+    }
+    .rules-card-title {
+      display: flex; align-items: center; gap: 10px;
+      font-size: 1rem; font-weight: 800; color: #0f172a;
+      margin-bottom: 1.5rem;
+    }
+    .rules-card-title span {
+      width: 36px; height: 36px; background: #eff6ff; border-radius: 10px;
+      display: flex; align-items: center; justify-content: center; font-size: 1rem;
+    }
+    .rule-item {
+      display: flex; gap: 12px; align-items: flex-start;
+      padding: 0.85rem 0; border-bottom: 1px solid #f1f5f9;
+    }
+    .rule-item:last-child { border-bottom: none; padding-bottom: 0; }
+    .rule-num {
+      width: 26px; height: 26px; border-radius: 50%;
+      background: linear-gradient(135deg, #2563eb, #4f46e5);
+      color: white; font-size: 0.72rem; font-weight: 800;
+      display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+    }
+    .rule-text { font-size: 0.88rem; color: #475569; line-height: 1.6; padding-top: 2px; }
+
+    /* Agree Box */
+    .agree-box {
+      background: linear-gradient(135deg, #eff6ff, #f5f3ff);
+      border: 1.5px solid rgba(37,99,235,0.2);
+      border-radius: 14px;
+      padding: 1.5rem;
+      margin-bottom: 1.25rem;
+    }
+    .agree-label {
+      display: flex; gap: 14px; align-items: flex-start; cursor: pointer;
+    }
+    .agree-label input[type="checkbox"] {
+      width: 20px; height: 20px; flex-shrink: 0;
+      margin-top: 2px; accent-color: #2563eb; cursor: pointer;
+    }
+    .agree-text { font-size: 0.88rem; color: #334155; line-height: 1.6; }
+
+    .btn-mulai {
+      width: 100%; padding: 1.1rem;
+      background: linear-gradient(135deg, #2563eb, #4f46e5);
+      color: white; border: none; border-radius: 14px;
+      font-size: 1.05rem; font-weight: 800; cursor: pointer;
+      box-shadow: 0 4px 15px rgba(37,99,235,0.3);
+      transition: transform 0.2s, box-shadow 0.2s, opacity 0.2s;
+    }
+    .btn-mulai:hover:not(:disabled) { transform: translateY(-2px); box-shadow: 0 8px 25px rgba(37,99,235,0.35); }
+    .btn-mulai:disabled { opacity: 0.45; cursor: not-allowed; }
+
+    /* Sidebar (kanan) */
+    .instruksi-sidebar { position: sticky; top: 100px; }
+    .peserta-summary {
+      background: linear-gradient(135deg, #0f172a, #1e3a8a);
+      border-radius: 18px; padding: 1.75rem; margin-bottom: 1.25rem; color: white;
+    }
+    .peserta-summary-label { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.08em; color: rgba(255,255,255,0.5); margin-bottom: 0.25rem; }
+    .peserta-summary-name { font-size: 1.2rem; font-weight: 800; margin-bottom: 1.25rem; }
+    .peserta-summary-row { display: flex; justify-content: space-between; font-size: 0.8rem; padding: 0.4rem 0; border-bottom: 1px solid rgba(255,255,255,0.08); }
+    .peserta-summary-row:last-child { border-bottom: none; }
+    .peserta-summary-row span:first-child { color: rgba(255,255,255,0.55); }
+    .peserta-summary-row span:last-child { font-weight: 700; color: white; }
+
+    .tips-card {
+      background: white; border: 1px solid #e2e8f0;
+      border-radius: 18px; padding: 1.75rem;
+    }
+    .tips-card h4 { font-size: 0.85rem; font-weight: 800; color: #0f172a; margin-bottom: 1rem; text-transform: uppercase; letter-spacing: 0.04em; }
+    .tip-item {
+      display: flex; gap: 10px; align-items: flex-start;
+      font-size: 0.82rem; color: #64748b; margin-bottom: 0.75rem; line-height: 1.5;
+    }
+    .tip-icon { font-size: 1rem; flex-shrink: 0; margin-top: 1px; }
+
+    /* ── Mobile Responsive ── */
+    @media (max-width: 768px) {
+      .instruksi-layout {
+        grid-template-columns: 1fr;
+        gap: 1.25rem;
+      }
+      .instruksi-sidebar { position: static; order: -1; }
+      .sesi-grid { grid-template-columns: 1fr; gap: 1rem; margin-bottom: 1.5rem; }
+      .rules-card { padding: 1.5rem; margin-bottom: 1.25rem; }
+      .peserta-summary { padding: 1.5rem; }
+      .tips-card { padding: 1.5rem; }
+      .btn-mulai { font-size: 0.95rem; padding: 1rem; }
+    }
+
+    @media (max-width: 480px) {
+      .sesi-stats { gap: 0.75rem; }
+      .sesi-stat-val { font-size: 1.25rem; }
+      .peserta-summary-name { font-size: 1.05rem; }
+      .rules-card { padding: 1.25rem; }
+      .agree-box { padding: 1.25rem; }
+    }
+  </style>
+</head>
+<body>
+<div class="bg-mesh"></div>
+
+<header class="site-header">
+  <div class="header-inner">
+    <div class="logo">
+      <div class="logo-text">
+        <h1>SISTEM UJIAN CBT</h1>
+        <span id="peserta-info">Peserta</span>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main class="main-container">
+
+  <!-- STEPPER -->
+  <div class="step-indicator" style="margin-bottom: 2.5rem;">
+    <div class="step done">
+      <div class="step-circle">✓</div>
+      <div class="step-label">Data Diri</div>
+    </div>
+    <div class="step-line done"></div>
+    <div class="step active">
+      <div class="step-circle">2</div>
+      <div class="step-label">Instruksi</div>
+    </div>
+    <div class="step-line"></div>
+    <div class="step">
+      <div class="step-circle">3</div>
+      <div class="step-label">Ujian</div>
+    </div>
+  </div>
+
+  <!-- PAGE TITLE -->
+  <div style="margin-bottom: 2rem;">
+    <h2 style="font-size: 1.75rem; color: #0f172a; margin-bottom: 0.35rem;">Instruksi &amp; Informasi Ujian</h2>
+    <p style="color: #64748b; font-size: 0.95rem;">Baca seluruh instruksi dengan teliti sebelum memulai ujian.</p>
+  </div>
+
+  <div class="instruksi-layout">
+
+    <!-- MAIN CONTENT -->
+    <div>
+      <!-- Sesi Info -->
+      <div class="sesi-grid">
+        <div class="sesi-card ped">
+          <div class="sesi-badge">📚 Sesi 1</div>
+          <h3>Tes Kompetensi Pedagogik</h3>
+          <div class="sesi-stats">
+            <div class="sesi-stat">
+              <div class="sesi-stat-val" id="jumlah-ped">–</div>
+              <div class="sesi-stat-lbl">Soal</div>
+            </div>
+            <div class="sesi-stat">
+              <div class="sesi-stat-val">60</div>
+              <div class="sesi-stat-lbl">Menit</div>
+            </div>
+          </div>
+        </div>
+        <div class="sesi-card pro">
+          <div class="sesi-badge">💼 Sesi 2</div>
+          <h3>Tes Kompetensi Profesional</h3>
+          <div class="sesi-stats">
+            <div class="sesi-stat">
+              <div class="sesi-stat-val" id="jumlah-pro">–</div>
+              <div class="sesi-stat-lbl">Soal</div>
+            </div>
+            <div class="sesi-stat">
+              <div class="sesi-stat-val">60</div>
+              <div class="sesi-stat-lbl">Menit</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Rules -->
+      <div class="rules-card">
+        <div class="rules-card-title">
+          <span>📋</span> Peraturan &amp; Ketentuan Ujian
+        </div>
+        <div class="rule-item">
+          <div class="rule-num">1</div>
+          <div class="rule-text">Ujian terdiri dari <strong>2 sesi berurutan</strong>: Kompetensi Pedagogik kemudian Kompetensi Profesional.</div>
+        </div>
+        <div class="rule-item">
+          <div class="rule-num">2</div>
+          <div class="rule-text">Setiap sesi memiliki batas waktu. Jika waktu habis, <strong>jawaban Anda otomatis tersimpan dengan aman</strong> — tidak perlu panik. Sistem akan menampilkan konfirmasi bahwa semua jawaban telah disimpan sebelum melanjutkan.</div>
+        </div>
+        <div class="rule-item">
+          <div class="rule-num">3</div>
+          <div class="rule-text">Setelah sesi selesai, Anda <strong>tidak dapat kembali</strong> ke sesi tersebut. Pastikan semua soal telah dikerjakan.</div>
+        </div>
+        <div class="rule-item">
+          <div class="rule-num">4</div>
+          <div class="rule-text">Setiap peserta hanya dapat mengerjakan ujian <strong>satu kali</strong>. Setelah ujian selesai, Anda tidak dapat mengulangi pengerjaan ujian.</div>
+        </div>
+        <div class="rule-item">
+          <div class="rule-num">5</div>
+          <div class="rule-text"><strong>Dilarang</strong> menutup tab, me-refresh halaman, atau menekan tombol 'Back' pada browser selama ujian berlangsung.</div>
+        </div>
+        <div class="rule-item">
+          <div class="rule-num">6</div>
+          <div class="rule-text">Pastikan koneksi internet Anda <strong>stabil</strong>. Jika terjadi kendala teknis, segera lapor ke pengawas.</div>
+        </div>
+        <div class="rule-item">
+          <div class="rule-num">7</div>
+          <div class="rule-text">Pengerjaan dilakukan secara <strong>jujur dan mandiri</strong>. Segala bentuk kecurangan akan mengakibatkan diskualifikasi otomatis.</div>
+        </div>
+      </div>
+
+      <!-- Agree & Start -->
+      <div class="agree-box">
+        <label class="agree-label">
+          <input type="checkbox" id="setuju">
+          <span class="agree-text">
+            Saya telah membaca dan memahami seluruh instruksi serta peraturan ujian. Saya siap mengikuti ujian dengan jujur dan mematuhi segala ketentuan yang berlaku.
+          </span>
+        </label>
+      </div>
+
+      <div style="margin-bottom: 1.5rem;">
+        <label style="display:block; font-size: 0.85rem; font-weight: 700; color: #0f172a; margin-bottom: 8px;">Token Ujian <span style="color:#ef4444;">*</span></label>
+        <input type="text" id="token-input" placeholder="Masukkan 5 Digit Token" style="width: 100%; padding: 1rem; border: 2px solid #e2e8f0; border-radius: 12px; font-size: 1.25rem; font-weight: 800; text-align: center; text-transform: uppercase; letter-spacing: 4px; color: #1e3a8a;" maxlength="5">
+        <div id="token-error" style="color: #ef4444; font-size: 0.8rem; font-weight: 600; margin-top: 8px; display: none; text-align: center;">Token tidak valid! Silakan tanya pengawas.</div>
+      </div>
+
+      <button id="btn-mulai" class="btn-mulai" disabled>
+        Mulai Ujian Sekarang →
+      </button>
+    </div>
+
+    <!-- SIDEBAR -->
+    <aside class="instruksi-sidebar">
+      <div class="peserta-summary">
+        <div class="peserta-summary-label">Peserta Ujian</div>
+        <div class="peserta-summary-name" id="sidebar-nama">–</div>
+        <div class="peserta-summary-row">
+          <span>NIK</span><span id="sidebar-nik">–</span>
+        </div>
+        <div class="peserta-summary-row">
+          <span>Pendidikan</span><span id="sidebar-pend">–</span>
+        </div>
+        <div class="peserta-summary-row">
+          <span>Posisi Dilamar</span><span id="sidebar-posisi">–</span>
+        </div>
+      </div>
+
+      <div class="tips-card">
+        <h4>Tips Sebelum Ujian</h4>
+        <div class="tip-item"><div class="tip-icon">💡</div>Gunakan browser Chrome atau Firefox terbaru untuk pengalaman terbaik.</div>
+        <div class="tip-item"><div class="tip-icon">🔋</div>Pastikan perangkat Anda terisi daya penuh selama ujian berlangsung.</div>
+        <div class="tip-item"><div class="tip-icon">🤫</div>Cari tempat yang tenang dan bebas gangguan.</div>
+        <div class="tip-item"><div class="tip-icon">⌨️</div>Gunakan tombol A–E untuk memilih jawaban dengan lebih cepat.</div>
+        <div class="tip-item"><div class="tip-icon">⏱</div>Kelola waktu dengan baik, tandai soal yang ragu-ragu untuk ditinjau kembali.</div>
+      </div>
+    </aside>
+
+  </div>
+</main>
+
+<script src="js/soal.js?v=4"></script>
+<script>
+  const peserta = JSON.parse(sessionStorage.getItem('peserta_ujian') || '{}');
+  if (!peserta.nama) {
+    window.location.href = 'data-diri.html';
+  } else {
+    document.getElementById('peserta-info').textContent = peserta.nama;
+    document.getElementById('sidebar-nama').textContent = peserta.nama;
+    document.getElementById('sidebar-nik').textContent = peserta.nik || '–';
+    document.getElementById('sidebar-pend').textContent = peserta.pendidikan || '–';
+    document.getElementById('sidebar-posisi').textContent = peserta.posisi || '–';
+  }
+
+  // Load jumlah soal after soal.js
+  window.addEventListener('DOMContentLoaded', async () => {
+    await syncSoalFromServer();
+    if (typeof SESI_CONFIG !== 'undefined') {
+      document.getElementById('jumlah-ped').textContent = SESI_CONFIG[0]?.soal?.length || '–';
+      document.getElementById('jumlah-pro').textContent = SESI_CONFIG[1]?.soal?.length || '–';
+    }
+  });
+
+  const checkbox = document.getElementById('setuju');
+  const btn = document.getElementById('btn-mulai');
+
+  checkbox.addEventListener('change', function() {
+    btn.disabled = !this.checked;
+  });
+
+  btn.addEventListener('click', async function() {
+    const tokenInput = document.getElementById('token-input').value.trim();
+    const errorEl = document.getElementById('token-error');
+    
+    if (tokenInput.length === 0) {
+      errorEl.textContent = 'Token harus diisi!';
+      errorEl.style.display = 'block';
+      return;
+    }
+
+    // Ubah teks tombol loading
+    const oriText = btn.innerHTML;
+    btn.innerHTML = '⏳ Memvalidasi Token...';
+    btn.disabled = true;
+
+    try {
+      const resp = await fetch('api_token.php', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ action: 'validate', token: tokenInput })
+      });
+      const data = await resp.json();
+
+      if (data.status !== 'success') {
+        errorEl.textContent = data.message || 'Token tidak valid!';
+        errorEl.style.display = 'block';
+        btn.innerHTML = oriText;
+        btn.disabled = false;
+        return;
+      }
+    } catch(e) {
+      errorEl.textContent = 'Gagal terhubung ke server. Cek koneksi.';
+      errorEl.style.display = 'block';
+      btn.innerHTML = oriText;
+      btn.disabled = false;
+      return;
+    }
+
+    errorEl.style.display = 'none';
+
+    // ── Cek apakah ujian sudah pernah diselesaikan ──
+    const EXAM_DONE_KEY = 'cbt_exam_completed';
+    try {
+      const completed = JSON.parse(localStorage.getItem(EXAM_DONE_KEY) || '[]');
+      const found = completed.find(e => e.nik === peserta.nik);
+      if (found) {
+        showExamDoneBlock(peserta, found);
+        return;
+      }
+    } catch(e) {}
+
+    peserta.waktu_mulai = new Date().toISOString();
+    sessionStorage.setItem('peserta_ujian', JSON.stringify(peserta));
+    window.location.href = 'ujian.html';
+  });
+
+  function showExamDoneBlock(peserta, entry) {
+    const waktu = new Date(entry.waktu).toLocaleDateString('id-ID', {
+      day: '2-digit', month: 'long', year: 'numeric', hour: '2-digit', minute: '2-digit'
+    });
+    const overlay = document.createElement('div');
+    overlay.style.cssText = 'position:fixed;inset:0;background:rgba(15,23,42,0.65);backdrop-filter:blur(8px);z-index:9999;display:flex;align-items:center;justify-content:center;animation:fadeIn 0.4s ease;';
+    overlay.innerHTML = `
+      <div style="background:white;border-radius:24px;padding:2.5rem;max-width:480px;width:90%;text-align:center;box-shadow:0 30px 80px rgba(0,0,0,0.2);animation:slideUp 0.4s cubic-bezier(0.34,1.56,0.64,1);position:relative;overflow:hidden;">
+        <div style="position:absolute;top:0;left:0;right:0;height:5px;background:linear-gradient(90deg,#f59e0b,#ef4444);"></div>
+        <div style="width:80px;height:80px;background:linear-gradient(135deg,#fef3c7,#fde68a);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 1.5rem;font-size:2.2rem;box-shadow:0 8px 24px rgba(245,158,11,0.2);">
+          🔒
+        </div>
+        <h2 style="font-family:'Outfit',sans-serif;font-size:1.5rem;font-weight:800;color:#0f172a;margin-bottom:0.75rem;">
+          Ujian Sudah Diselesaikan
+        </h2>
+        <p style="color:#64748b;font-size:0.9rem;line-height:1.7;margin-bottom:1.5rem;">
+          Anda sudah menyelesaikan ujian ini sebelumnya.<br>
+          Setiap peserta hanya dapat mengerjakan ujian <strong>satu kali</strong>.
+        </p>
+        <div style="background:#fffbeb;border:1px solid #fde68a;border-radius:12px;padding:1rem;margin-bottom:1.5rem;text-align:left;">
+          <div style="display:flex;justify-content:space-between;padding:5px 0;border-bottom:1px solid #fef3c7;">
+            <span style="color:#92400e;font-size:0.82rem;font-weight:600;">Peserta</span>
+            <span style="font-weight:700;color:#0f172a;font-size:0.85rem;">${entry.nama || peserta.nama}</span>
+          </div>
+          <div style="display:flex;justify-content:space-between;padding:5px 0;border-bottom:1px solid #fef3c7;">
+            <span style="color:#92400e;font-size:0.82rem;font-weight:600;">NIK</span>
+            <span style="font-weight:700;color:#0f172a;font-size:0.85rem;">${peserta.nik || '–'}</span>
+          </div>
+          <div style="display:flex;justify-content:space-between;padding:5px 0;">
+            <span style="color:#92400e;font-size:0.82rem;font-weight:600;">Diselesaikan</span>
+            <span style="font-weight:700;color:#0f172a;font-size:0.85rem;">${waktu}</span>
+          </div>
+        </div>
+        <p style="color:#94a3b8;font-size:0.82rem;margin-bottom:1.5rem;">
+          Jika Anda merasa ini adalah kesalahan, silakan hubungi admin/pengawas ujian.
+        </p>
+        <div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap;">
+          <a href="hasil.html" style="padding:0.85rem 2rem;background:linear-gradient(135deg,#2563eb,#4f46e5);color:white;border:none;border-radius:12px;font-weight:700;font-size:0.9rem;cursor:pointer;box-shadow:0 4px 16px rgba(37,99,235,0.3);text-decoration:none;display:inline-block;">
+            📊 Lihat Hasil Ujian
+          </a>
+          <a href="index.html" style="padding:0.85rem 2rem;background:transparent;color:#64748b;border:1px solid #e2e8f0;border-radius:12px;font-weight:600;font-size:0.85rem;cursor:pointer;text-decoration:none;display:inline-block;">
+            ← Kembali ke Beranda
+          </a>
+        </div>
+      </div>
+    `;
+    document.body.appendChild(overlay);
+  }
+</script>
+</body>
+</html>

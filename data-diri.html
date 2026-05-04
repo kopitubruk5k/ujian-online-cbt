@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Data Peserta – Sistem Ujian CBT</title>
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .datadiri-layout {
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: 2rem;
+      align-items: start;
+    }
+
+    /* Info Panel (kiri) */
+    .datadiri-info {
+      position: sticky;
+      top: 100px;
+    }
+    .info-panel {
+      background: linear-gradient(135deg, #1e3a8a 0%, #2563eb 100%);
+      border-radius: 20px;
+      padding: 2rem;
+      color: white;
+      margin-bottom: 1.25rem;
+    }
+    .info-panel h3 { font-size: 1.25rem; margin-bottom: 0.5rem; }
+    .info-panel p { font-size: 0.85rem; opacity: 0.8; line-height: 1.6; margin-bottom: 1.5rem; }
+    .info-steps { display: flex; flex-direction: column; gap: 0.75rem; }
+    .info-step {
+      display: flex; align-items: center; gap: 12px;
+      font-size: 0.82rem; opacity: 0.75;
+    }
+    .info-step.done { opacity: 1; }
+    .info-step-num {
+      width: 28px; height: 28px; border-radius: 50%;
+      background: rgba(255,255,255,0.15); border: 1px solid rgba(255,255,255,0.3);
+      display: flex; align-items: center; justify-content: center;
+      font-weight: 800; font-size: 0.75rem; flex-shrink: 0;
+    }
+    .info-step.active .info-step-num { background: white; color: #1e3a8a; }
+
+    .req-card {
+      background: white; border: 1px solid #e2e8f0;
+      border-radius: 16px; padding: 1.5rem;
+    }
+    .req-card h4 { font-size: 0.9rem; font-weight: 700; color: #1e293b; margin-bottom: 1rem; }
+    .req-item {
+      display: flex; align-items: flex-start; gap: 8px;
+      font-size: 0.82rem; color: #64748b; margin-bottom: 0.6rem; line-height: 1.4;
+    }
+    .req-item::before { content: '✓'; color: #22c55e; font-weight: 800; flex-shrink: 0; margin-top: 1px; }
+
+    /* Form Panel (kanan) */
+    .datadiri-form .card { padding: 2rem; }
+    .form-section-title {
+      font-size: 0.7rem; font-weight: 800; text-transform: uppercase;
+      letter-spacing: 0.08em; color: #94a3b8; margin: 1.5rem 0 1rem;
+      padding-top: 1.5rem; border-top: 1px solid #f1f5f9;
+    }
+    .form-section-title:first-child { margin-top: 0; padding-top: 0; border-top: none; }
+    .form-grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem 1.5rem;
+    }
+    .form-grid-2 .full { grid-column: span 2; }
+    .form-label { font-size: 0.85rem; font-weight: 700; color: #475569; display: block; margin-bottom: 6px; }
+    .form-label span { color: #e11d48; }
+    .form-input, .form-select {
+      width: 100%; padding: 0.85rem 1rem; border-radius: 10px;
+      border: 1.5px solid #e2e8f0; background: #fff;
+      font-size: 0.95rem; font-family: 'Inter', sans-serif;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+    .form-input:focus, .form-select:focus {
+      outline: none; border-color: #2563eb;
+      box-shadow: 0 0 0 4px rgba(37,99,235,0.1);
+    }
+    .form-input.error { border-color: #e11d48; }
+    .form-error { display: none; font-size: 0.75rem; color: #e11d48; margin-top: 4px; }
+    .form-error.show { display: block; }
+    .btn-submit {
+      width: 100%; padding: 1rem; font-size: 1rem; font-weight: 800;
+      background: linear-gradient(135deg, #2563eb, #4f46e5);
+      color: white; border: none; border-radius: 12px; cursor: pointer;
+      transition: transform 0.2s, box-shadow 0.2s;
+      box-shadow: 0 4px 15px rgba(37,99,235,0.3);
+      margin-top: 1.5rem;
+    }
+    .btn-submit:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(37,99,235,0.35); }
+
+    /* ── Mobile Responsive ── */
+    @media (max-width: 768px) {
+      .datadiri-layout {
+        grid-template-columns: 1fr;
+        gap: 1.25rem;
+      }
+      .datadiri-info { position: static; }
+      .datadiri-form .card { padding: 1.5rem; }
+      .form-grid-2 { grid-template-columns: 1fr; gap: 0; }
+      .form-grid-2 .full { grid-column: span 1; }
+      .info-panel { padding: 1.5rem; }
+    }
+
+    @media (max-width: 480px) {
+      .datadiri-form .card { padding: 1.25rem; }
+      .info-panel { padding: 1.25rem; }
+      .req-card { padding: 1.25rem; }
+    }
+  </style>
+</head>
+<body>
+<div class="bg-mesh"></div>
+
+<header class="site-header">
+  <div class="header-inner">
+    <div class="logo">
+      <div class="logo-text">
+        <h1>SISTEM UJIAN CBT</h1>
+        <span>Seleksi Masuk Kerja</span>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main class="main-container">
+
+  <!-- STEPPER -->
+  <div class="step-indicator" style="margin-bottom: 2rem;">
+    <div class="step active">
+      <div class="step-circle">1</div>
+      <div class="step-label">Data Diri</div>
+    </div>
+    <div class="step-line"></div>
+    <div class="step">
+      <div class="step-circle">2</div>
+      <div class="step-label">Instruksi</div>
+    </div>
+    <div class="step-line"></div>
+    <div class="step">
+      <div class="step-circle">3</div>
+      <div class="step-label">Ujian</div>
+    </div>
+  </div>
+
+  <div class="datadiri-layout">
+
+    <!-- LEFT: Info Panel -->
+    <aside class="datadiri-info">
+      <div class="info-panel">
+        <h3>Lengkapi Data Diri</h3>
+        <p>Isi formulir dengan data yang valid sesuai identitas resmi Anda. Data ini akan tercantum dalam laporan hasil ujian.</p>
+        <div class="info-steps">
+          <div class="info-step active">
+            <div class="info-step-num">1</div>
+            <span>Isi data diri lengkap</span>
+          </div>
+          <div class="info-step">
+            <div class="info-step-num">2</div>
+            <span>Baca instruksi ujian</span>
+          </div>
+          <div class="info-step">
+            <div class="info-step-num">3</div>
+            <span>Kerjakan soal ujian</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="req-card">
+        <h4>Yang perlu disiapkan</h4>
+        <div class="req-item">KTP atau identitas resmi lainnya</div>
+        <div class="req-item">Nomor HP aktif yang bisa dihubungi</div>
+        <div class="req-item">Alamat email yang valid</div>
+        <div class="req-item">Koneksi internet yang stabil</div>
+        <div class="req-item">Waktu luang minimal 2 jam</div>
+      </div>
+    </aside>
+
+    <!-- RIGHT: Form -->
+    <div class="datadiri-form">
+      <div class="card">
+        <form id="form-peserta" novalidate>
+
+          <div class="form-section-title">Identitas Diri</div>
+          <div class="form-grid-2">
+            <div class="form-group full">
+              <label class="form-label" for="nama">Nama Lengkap <span>*</span></label>
+              <input type="text" id="nama" class="form-input" placeholder="Sesuai KTP" autocomplete="name">
+              <span class="form-error" id="err-nama">Nama lengkap wajib diisi</span>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="nik">Nomor NIK / KTP <span>*</span></label>
+              <input type="text" id="nik" class="form-input" placeholder="16 digit NIK" maxlength="16" inputmode="numeric">
+              <span class="form-error" id="err-nik">NIK harus 16 digit angka</span>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="jk">Jenis Kelamin <span>*</span></label>
+              <select id="jk" class="form-select">
+                <option value="">-- Pilih --</option>
+                <option value="Laki-laki">Laki-laki</option>
+                <option value="Perempuan">Perempuan</option>
+              </select>
+              <span class="form-error" id="err-jk">Pilih jenis kelamin</span>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="tempat-lahir">Tempat Lahir <span>*</span></label>
+              <input type="text" id="tempat-lahir" class="form-input" placeholder="Kota">
+              <span class="form-error" id="err-tempat-lahir">Tempat lahir wajib diisi</span>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="tgl-lahir">Tanggal Lahir <span>*</span></label>
+              <input type="date" id="tgl-lahir" class="form-input" max="2006-01-01">
+              <span class="form-error" id="err-tgl-lahir">Tanggal lahir wajib diisi</span>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="pendidikan">Pendidikan Terakhir <span>*</span></label>
+              <select id="pendidikan" class="form-select">
+                <option value="">-- Pilih --</option>
+                <option value="SMA/SMK/MA">SMA / SMK / MA</option>
+                <option value="D3">D3 (Diploma)</option>
+                <option value="S1">S1 (Sarjana)</option>
+                <option value="S2">S2 (Magister)</option>
+                <option value="S3">S3 (Doktor)</option>
+              </select>
+              <span class="form-error" id="err-pendidikan">Pilih pendidikan terakhir</span>
+            </div>
+          </div>
+
+          <div class="form-section-title">Kontak & Posisi</div>
+          <div class="form-grid-2">
+            <div class="form-group">
+              <label class="form-label" for="hp">No. Handphone <span>*</span></label>
+              <input type="tel" id="hp" class="form-input" placeholder="08xxxxxxxxxx" inputmode="tel">
+              <span class="form-error" id="err-hp">Nomor HP wajib diisi (min 10 digit)</span>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="email">Alamat Email <span>*</span></label>
+              <input type="email" id="email" class="form-input" placeholder="contoh@email.com" autocomplete="email">
+              <span class="form-error" id="err-email">Masukkan email yang valid</span>
+            </div>
+            <div class="form-group full">
+              <label class="form-label" for="posisi">Posisi yang Dilamar <span>*</span></label>
+              <input type="text" id="posisi" class="form-input" placeholder="Contoh: Staff Administrasi, Dosen...">
+              <span class="form-error" id="err-posisi">Posisi yang dilamar wajib diisi</span>
+            </div>
+          </div>
+
+          <button type="submit" class="btn-submit">Lanjutkan ke Instruksi →</button>
+        </form>
+      </div>
+    </div>
+
+  </div>
+</main>
+
+<script>
+  document.getElementById('form-peserta').addEventListener('submit', function(e) {
+    e.preventDefault();
+    const fields = [
+      { id: 'nama', errId: 'err-nama', validate: v => v.trim().length >= 3 },
+      { id: 'nik', errId: 'err-nik', validate: v => /^\d{16}$/.test(v.trim()) },
+      { id: 'jk', errId: 'err-jk', validate: v => v !== '' },
+      { id: 'tempat-lahir', errId: 'err-tempat-lahir', validate: v => v.trim().length >= 2 },
+      { id: 'tgl-lahir', errId: 'err-tgl-lahir', validate: v => v !== '' },
+      { id: 'pendidikan', errId: 'err-pendidikan', validate: v => v !== '' },
+      { id: 'hp', errId: 'err-hp', validate: v => /^(\+62|08)\d{8,12}$/.test(v.replace(/\s/g, '')) },
+      { id: 'email', errId: 'err-email', validate: v => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v) },
+      { id: 'posisi', errId: 'err-posisi', validate: v => v.trim().length >= 3 },
+    ];
+    let valid = true;
+    fields.forEach(({ id, errId, validate }) => {
+      const input = document.getElementById(id);
+      const errEl = document.getElementById(errId);
+      const ok = validate(input.value);
+      input.classList.toggle('error', !ok);
+      errEl.classList.toggle('show', !ok);
+      if (!ok) valid = false;
+    });
+    if (!valid) {
+      document.querySelector('.form-input.error, .form-select.error')?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      return;
+    }
+    const peserta = {
+      nama: document.getElementById('nama').value.trim(),
+      nik: document.getElementById('nik').value.trim(),
+      jk: document.getElementById('jk').value,
+      tempat_lahir: document.getElementById('tempat-lahir').value.trim(),
+      tgl_lahir: document.getElementById('tgl-lahir').value,
+      pendidikan: document.getElementById('pendidikan').value,
+      hp: document.getElementById('hp').value.trim(),
+      email: document.getElementById('email').value.trim(),
+      posisi: document.getElementById('posisi').value.trim(),
+    };
+
+    // ── Cek apakah NIK sudah pernah menyelesaikan ujian ──
+    const EXAM_DONE_KEY = 'cbt_exam_completed';
+    try {
+      const completed = JSON.parse(localStorage.getItem(EXAM_DONE_KEY) || '[]');
+      const found = completed.find(e => e.nik === peserta.nik);
+      if (found) {
+        sessionStorage.setItem('peserta_ujian', JSON.stringify(peserta));
+        showExamDoneBlock(peserta, found);
+        return;
+      }
+    } catch(e) {}
+
+    sessionStorage.setItem('peserta_ujian', JSON.stringify(peserta));
+    window.location.href = 'instruksi.html';
+  });
+
+  document.getElementById('nik').addEventListener('input', function() {
+    this.value = this.value.replace(/\D/g, '').slice(0, 16);
+  });
+
+  // Background Sync: Mengirim hasil ujian tertunda jika ada
+  window.addEventListener('load', () => {
+    const unsentStr = localStorage.getItem('cbt_unsent_result');
+    if (unsentStr) {
+      fetch('api_hasil.php', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: unsentStr
+      }).then(r => r.json()).then(res => {
+        if (res.status === 'success') localStorage.removeItem('cbt_unsent_result');
+      }).catch(e => console.log('Background sync failed:', e));
+    }
+  });
+
+  function showExamDoneBlock(peserta, entry) {
+    const waktu = new Date(entry.waktu).toLocaleDateString('id-ID', {
+      day: '2-digit', month: 'long', year: 'numeric', hour: '2-digit', minute: '2-digit'
+    });
+    const overlay = document.createElement('div');
+    overlay.style.cssText = 'position:fixed;inset:0;background:rgba(15,23,42,0.65);backdrop-filter:blur(8px);z-index:9999;display:flex;align-items:center;justify-content:center;animation:fadeIn 0.4s ease;';
+    overlay.innerHTML = `
+      <div style="background:white;border-radius:24px;padding:2.5rem;max-width:480px;width:90%;text-align:center;box-shadow:0 30px 80px rgba(0,0,0,0.2);animation:slideUp 0.4s cubic-bezier(0.34,1.56,0.64,1);position:relative;overflow:hidden;">
+        <div style="position:absolute;top:0;left:0;right:0;height:5px;background:linear-gradient(90deg,#f59e0b,#ef4444);"></div>
+        <div style="width:80px;height:80px;background:linear-gradient(135deg,#fef3c7,#fde68a);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 1.5rem;font-size:2.2rem;box-shadow:0 8px 24px rgba(245,158,11,0.2);">
+          🔒
+        </div>
+        <h2 style="font-family:'Outfit',sans-serif;font-size:1.5rem;font-weight:800;color:#0f172a;margin-bottom:0.75rem;">
+          Ujian Sudah Diselesaikan
+        </h2>
+        <p style="color:#64748b;font-size:0.9rem;line-height:1.7;margin-bottom:1.5rem;">
+          NIK <strong>${peserta.nik}</strong> tercatat sudah menyelesaikan ujian.<br>
+          Setiap peserta hanya dapat mengerjakan ujian <strong>satu kali</strong>.
+        </p>
+        <div style="background:#fffbeb;border:1px solid #fde68a;border-radius:12px;padding:1rem;margin-bottom:1.5rem;text-align:left;">
+          <div style="display:flex;justify-content:space-between;padding:5px 0;border-bottom:1px solid #fef3c7;">
+            <span style="color:#92400e;font-size:0.82rem;font-weight:600;">Peserta</span>
+            <span style="font-weight:700;color:#0f172a;font-size:0.85rem;">${entry.nama || peserta.nama}</span>
+          </div>
+          <div style="display:flex;justify-content:space-between;padding:5px 0;border-bottom:1px solid #fef3c7;">
+            <span style="color:#92400e;font-size:0.82rem;font-weight:600;">NIK</span>
+            <span style="font-weight:700;color:#0f172a;font-size:0.85rem;">${peserta.nik}</span>
+          </div>
+          <div style="display:flex;justify-content:space-between;padding:5px 0;">
+            <span style="color:#92400e;font-size:0.82rem;font-weight:600;">Diselesaikan</span>
+            <span style="font-weight:700;color:#0f172a;font-size:0.85rem;">${waktu}</span>
+          </div>
+        </div>
+        <p style="color:#94a3b8;font-size:0.82rem;margin-bottom:1.5rem;">
+          Jika Anda merasa ini adalah kesalahan, silakan hubungi admin/pengawas ujian.
+        </p>
+        <div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap;">
+          <a href="hasil.html" style="padding:0.85rem 2rem;background:linear-gradient(135deg,#2563eb,#4f46e5);color:white;border:none;border-radius:12px;font-weight:700;font-size:0.9rem;cursor:pointer;box-shadow:0 4px 16px rgba(37,99,235,0.3);text-decoration:none;display:inline-block;">
+            📊 Lihat Hasil Ujian
+          </a>
+          <a href="index.html" style="padding:0.85rem 2rem;background:transparent;color:#64748b;border:1px solid #e2e8f0;border-radius:12px;font-weight:600;font-size:0.85rem;cursor:pointer;text-decoration:none;display:inline-block;">
+            ← Kembali ke Beranda
+          </a>
+        </div>
+      </div>
+    `;
+    document.body.appendChild(overlay);
+  }
+</script>
+</body>
+</html>

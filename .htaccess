@@ -1,0 +1,18 @@
+# Matikan rewrite WordPress di folder ini
+RewriteEngine Off
+
+# Set halaman default saat akses folder
+DirectoryIndex index.html
+
+# Proteksi file JSON agar tidak bisa diakses langsung via browser
+<FilesMatch "\.(json)$">
+    Order Allow,Deny
+    Deny from all
+</FilesMatch>
+
+# Proteksi folder uploads agar tidak bisa listing directory
+Options -Indexes
+
+# Set PHP settings
+php_value upload_max_filesize 10M
+php_value post_max_size 12M

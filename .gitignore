@@ -1,0 +1,20 @@
+# Log files
+api_debug.log
+*.log
+
+# Local data / hasil sementara
+hasil_peserta.json
+
+# Uploads folder (optional - uncomment if you don't want to push images)
+# uploads/
+
+# PHP environment config (jika ada file .env)
+.env
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/

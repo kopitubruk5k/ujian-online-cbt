@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ujian CBT – Sedang Berlangsung</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+  <style>
+    /* ── Mobile Bottom Nav Bar (only on small screens) ── */
+    .mobile-bottom-bar {
+      display: none;
+      position: fixed;
+      bottom: 0; left: 0; right: 0;
+      background: white;
+      border-top: 1px solid #e2e8f0;
+      padding: 0.6rem 1rem;
+      z-index: 200;
+      gap: 0.5rem;
+      align-items: center;
+      justify-content: space-between;
+      box-shadow: 0 -4px 16px rgba(0,0,0,0.08);
+    }
+    .mobile-timer-mini {
+      font-family: 'Outfit', sans-serif;
+      font-size: 1.05rem;
+      font-weight: 800;
+      color: #b91c1c;
+      background: #fef2f2;
+      border: 1px solid #fee2e2;
+      padding: 6px 12px;
+      border-radius: 8px;
+      min-width: 70px;
+      text-align: center;
+    }
+    .mobile-progress-mini {
+      font-size: 0.8rem;
+      color: #475569;
+      font-weight: 600;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 4px;
+      flex: 1;
+      padding: 0 0.5rem;
+    }
+    .mobile-progress-bar {
+      height: 5px;
+      background: #e2e8f0;
+      border-radius: 99px;
+      width: 100%;
+      overflow: hidden;
+    }
+    .mobile-progress-fill {
+      height: 100%;
+      background: linear-gradient(90deg, #2563eb, #4f46e5);
+      border-radius: 99px;
+      transition: width 0.4s ease;
+    }
+    .mobile-nav-btn {
+      font-size: 1.2rem;
+      padding: 0.5rem;
+      background: #f1f5f9;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: 800;
+      color: #475569;
+      line-height: 1;
+    }
+
+    @media (max-width: 768px) {
+      .mobile-bottom-bar { display: flex; }
+      /* Add padding-bottom to main so content isn't hidden under bottom bar */
+      .main-container.wide { padding-bottom: 5rem; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="bg-mesh"></div>
+<div class="glass-blob blob-1"></div>
+<div class="glass-blob blob-2"></div>
+
+<!-- HEADER -->
+<header class="site-header">
+  <div class="header-inner">
+    <div class="logo">
+      <div class="logo-text">
+        <h1>SISTEM UJIAN CBT</h1>
+        <span id="peserta-info">Memuat Data...</span>
+      </div>
+    </div>
+    <div class="header-meta">
+      <div class="status-indicator">
+        <div class="badge-dot"></div>
+        Ujian Berlangsung
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- TOAST -->
+<div class="toast-container" id="toast-container"></div>
+
+<!-- MAIN -->
+<main class="main-container wide">
+
+  <!-- STEP INDICATOR -->
+  <div class="step-indicator" style="margin-bottom: 1.5rem;">
+    <div class="step done">
+      <div class="step-circle">✓</div>
+      <div class="step-label">Data Diri</div>
+    </div>
+    <div class="step-line done"></div>
+    <div class="step done">
+      <div class="step-circle">✓</div>
+      <div class="step-label">Instruksi</div>
+    </div>
+    <div class="step-line done"></div>
+    <div class="step active">
+      <div class="step-circle">3</div>
+      <div class="step-label">Ujian</div>
+    </div>
+  </div>
+
+  <!-- EXAM HEADER BAR: Full Width, Outside Grid -->
+  <div class="exam-header-bar">
+    <div>
+      <div class="session-info-label" id="session-label">Memuat Sesi...</div>
+      <div class="session-info-title" id="session-name">Memuat Nama Sesi...</div>
+    </div>
+
+    <!-- Progress -->
+    <div class="progress-bar-wrap">
+      <div class="progress-label">
+        <span>Progres: <strong id="progress-answered">0</strong>/<strong id="progress-total">–</strong></span>
+      </div>
+      <div class="progress-bar">
+        <div class="progress-fill" id="progress-fill" style="width: 0%"></div>
+      </div>
+    </div>
+
+    <!-- Timer -->
+    <div class="timer-box" id="timer-box">
+      <div class="timer-display" id="timer-display">--:--</div>
+    </div>
+  </div>
+
+  <!-- EXAM LAYOUT: 3-Column Grid (starts aligned) -->
+  <div class="exam-layout">
+
+    <!-- LEFT SIDEBAR: Sesi + Status Jawaban -->
+    <aside class="exam-sidebar-left">
+      <div class="card" style="padding: 1.25rem;">
+        <div class="q-grid-title" style="margin-bottom: 0.75rem;">Sesi Ujian</div>
+        <div class="session-tabs" id="session-tabs">
+          <!-- Di-render secara dinamis oleh JS -->
+        </div>
+      </div>
+
+      <!-- Status Jawaban — dipindah ke bawah tab sesi -->
+      <div class="card" style="padding: 1.25rem; margin-top: 0.75rem;">
+        <div class="q-grid-title" style="margin-bottom: 0.75rem;">Status Jawaban</div>
+        <div class="submit-stats">
+          <div class="submit-stat">
+            <span class="lbl">Sudah Dijawab</span>
+            <span class="val val-answered" id="stat-answered">0</span>
+          </div>
+          <div class="submit-stat">
+            <span class="lbl">Ditandai</span>
+            <span class="val val-flagged" id="stat-flagged">0</span>
+          </div>
+          <div class="submit-stat">
+            <span class="lbl">Belum Dijawab</span>
+            <span class="val val-empty" id="stat-empty">0</span>
+          </div>
+        </div>
+      </div>
+    </aside>
+
+    <!-- MAIN EXAM AREA -->
+    <div class="exam-main">
+      <!-- Question Card -->
+      <div class="question-card" id="question-card">
+        <div>
+          <span class="q-number-badge" id="q-number">Soal – dari –</span>
+          <span class="q-category-tag" id="q-kategori">...</span>
+        </div>
+        <div class="question-text" id="question-text">
+          Memuat soal...
+        </div>
+        <img id="question-image" class="question-image" style="display: none;">
+        <div class="options-list" id="options-list">
+          <!-- Pilihan jawaban di-render oleh JS -->
+        </div>
+      </div>
+
+      <!-- Question Actions -->
+      <div class="q-actions">
+        <button class="btn-flag" id="btn-flag" onclick="toggleFlag()">🚩 Tandai</button>
+        <div class="q-nav-btns">
+          <button class="btn btn-outline btn-prev" id="btn-prev" onclick="prevSoal()">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+            Sebelumnya
+          </button>
+          <button class="btn btn-primary btn-next" id="btn-next" onclick="nextSoal()">
+            Berikutnya
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- RIGHT SIDEBAR: Navigasi Soal -->
+    <aside class="exam-sidebar-right">
+      <div class="card" style="padding: 1.25rem;">
+        <div class="q-grid-title">Navigasi Soal</div>
+        <div class="q-grid" id="q-grid"></div>
+        <div class="q-legend" style="margin-top: 0.75rem;">
+          <div class="q-legend-item"><div class="q-legend-dot dot-current"></div> Soal aktif</div>
+          <div class="q-legend-item"><div class="q-legend-dot dot-answered"></div> Sudah dijawab</div>
+          <div class="q-legend-item"><div class="q-legend-dot dot-flagged"></div> Ditandai</div>
+          <div class="q-legend-item"><div class="q-legend-dot dot-empty"></div> Belum dijawab</div>
+        </div>
+      </div>
+    </aside>
+
+  </div>
+</main>
+
+<!-- MODAL KONFIRMASI -->
+<div class="modal-overlay" id="modal-konfirmasi">
+  <div class="modal-box">
+    <div class="modal-title" id="modal-title">Selesaikan Sesi?</div>
+    <div class="modal-text" id="modal-text">Apakah Anda yakin?</div>
+    <div class="modal-actions">
+      <button class="btn btn-outline" onclick="hideModal('modal-konfirmasi')">← Kembali</button>
+      <button class="btn btn-success" id="modal-confirm" onclick="konfirmasiLanjut()">Lanjutkan →</button>
+    </div>
+  </div>
+</div>
+
+<script src="js/soal.js?v=4"></script>
+<script src="js/ujian.js?v=2"></script>
+
+<!-- MOBILE BOTTOM BAR -->
+<div class="mobile-bottom-bar" id="mobile-bottom-bar">
+  <button class="mobile-nav-btn" onclick="prevSoal()">◀</button>
+  <div class="mobile-progress-mini">
+    <span id="mobile-progress-text">0 / –</span>
+    <div class="mobile-progress-bar">
+      <div class="mobile-progress-fill" id="mobile-progress-fill" style="width:0%"></div>
+    </div>
+  </div>
+  <div class="mobile-timer-mini" id="mobile-timer">--:--</div>
+  <button class="mobile-nav-btn" onclick="nextSoal()">▶</button>
+</div>
+
+<script>
+  // Sync mobile bottom bar with main display
+  (function() {
+    const mobileTimer = document.getElementById('mobile-timer');
+    const mainTimer = document.getElementById('timer-display');
+    const mobileFill = document.getElementById('mobile-progress-fill');
+    const mainFill = document.getElementById('progress-fill');
+    const mobileProgressText = document.getElementById('mobile-progress-text');
+    const mainAnswered = document.getElementById('progress-answered');
+    const mainTotal = document.getElementById('progress-total');
+
+    if (mobileTimer && mainTimer) {
+      const observer = new MutationObserver(() => {
+        mobileTimer.textContent = mainTimer.textContent;
+        if (mobileFill && mainFill) {
+          mobileFill.style.width = mainFill.style.width;
+        }
+        if (mobileProgressText && mainAnswered && mainTotal) {
+          mobileProgressText.textContent = mainAnswered.textContent + ' / ' + mainTotal.textContent;
+        }
+      });
+      observer.observe(mainTimer, { childList: true, characterData: true, subtree: true });
+      if (mainFill) {
+        observer.observe(mainFill, { attributes: true, attributeFilter: ['style'] });
+      }
+    }
+  })();
+</script>
+</body>
+</html>

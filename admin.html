@@ -1,0 +1,1489 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard Admin – Bank Soal CBT</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Outfit:wght@400;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body style="background: #f8fafc;">
+<script>
+  if (sessionStorage.getItem('admin_logged_in') !== 'true') {
+    window.location.href = 'admin-login.html';
+  }
+</script>
+
+<div class="admin-layout">
+  
+  <!-- SIDEBAR -->
+  <aside class="admin-sidebar">
+    <div class="logo">
+      <div class="logo-text">
+        <h1 style="font-size: 1.25rem;">CBT ADMIN</h1>
+        <span style="font-size: 0.65rem;">Sistem Seleksi Digital</span>
+      </div>
+    </div>
+
+    <nav class="admin-nav">
+      <a href="#" class="admin-nav-item active" onclick="switchMainTab('dashboard', this)">
+        <span>📊</span> Dashboard
+      </a>
+      <a href="#" class="admin-nav-item" onclick="switchMainTab('soal', this)">
+        <span>📚</span> Bank Soal
+      </a>
+      <a href="#" class="admin-nav-item" onclick="switchMainTab('hasil', this)">
+        <span>🏆</span> Hasil Ujian
+      </a>
+      <a href="#" class="admin-nav-item" onclick="switchMainTab('peserta', this)">
+        <span>👤</span> Data Peserta
+      </a>
+      <a href="#" class="admin-nav-item" onclick="switchMainTab('token', this)">
+        <span>🔑</span> Pengaturan Token
+      </a>
+      <a href="index.html" class="admin-nav-item" style="margin-top: auto;">
+        <span>🏠</span> Ke Beranda
+      </a>
+      <a href="#" class="admin-nav-item" style="color:#e11d48;" onclick="logout()">
+        <span>🚪</span> Logout
+      </a>
+    </nav>
+  </aside>
+
+  <!-- MAIN CONTENT -->
+  <main class="admin-main">
+    
+    <!-- DASHBOARD VIEW -->
+    <div id="view-dashboard">
+      <div class="admin-header">
+        <h2>Ringkasan Sistem</h2>
+      </div>
+      
+      <div class="admin-stats">
+        <div class="stat-card">
+          <h4>Total Soal Pedagogik</h4>
+          <div class="val" id="stat-count-pedagogik">0</div>
+        </div>
+        <div class="stat-card">
+          <h4>Total Soal Profesional</h4>
+          <div class="val" id="stat-count-profesional">0</div>
+        </div>
+        <div class="stat-card">
+          <h4>Total Soal Keseluruhan</h4>
+          <div class="val" id="stat-count-total">0</div>
+        </div>
+      </div>
+
+      <div class="card" style="padding: 2rem; text-align: center;">
+        <h3>Selamat Datang di Panel Admin</h3>
+        <p style="color: var(--text-muted); margin-bottom: 2rem;">Gunakan menu di samping untuk mengelola bank soal ujian.</p>
+        <button class="btn btn-primary" onclick="switchMainTab('soal', document.querySelector('.admin-nav-item:nth-child(2)'))">Kelola Soal Sekarang</button>
+      </div>
+    </div>
+
+    <!-- SOAL VIEW -->
+    <div id="view-soal" style="display: none;">
+      <div class="admin-header">
+        <h2>Manajemen Bank Soal</h2>
+        <div style="display:flex;gap:0.6rem;align-items:center;flex-wrap:wrap;">
+          <button class="btn btn-outline" onclick="downloadTemplate()" style="font-size:0.82rem;padding:0.55rem 1rem;">📄 Template CSV</button>
+          <button class="btn" onclick="document.getElementById('csv-file-input').click()" style="background:linear-gradient(135deg,#059669,#0d9488);color:white;border:none;font-size:0.82rem;padding:0.55rem 1rem;border-radius:10px;font-weight:700;cursor:pointer;">📥 Import CSV</button>
+          <input type="file" id="csv-file-input" accept=".csv" style="display:none;" onchange="handleCSVImport(this)">
+          <button class="btn btn-primary" onclick="showAddModal()">+ Tambah Soal</button>
+        </div>
+      </div>
+
+      <div class="card" style="padding: 1.5rem; margin-bottom: 1.5rem;">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem;">
+          <div class="filter-tabs" style="margin: 0;">
+            <button class="filter-tab active" id="tab-pedagogik" onclick="switchCategory('pedagogik')">Pedagogik</button>
+            <button class="filter-tab" id="tab-profesional" onclick="switchCategory('profesional')">Profesional</button>
+          </div>
+          <div class="search-box" style="margin: 0; width: 300px;">
+            <span class="search-icon">🔍</span>
+            <input type="text" class="search-input" id="search-soal" placeholder="Cari pertanyaan..." onkeyup="searchTable()">
+          </div>
+        </div>
+
+        <div class="admin-table-wrap">
+          <table class="admin-table">
+            <thead>
+              <tr>
+                <th style="width: 50px;">No</th>
+                <th style="width: 130px;">Kategori</th>
+                <th>Pertanyaan</th>
+                <th style="width: 80px;">Kunci</th>
+                <th style="width: 140px; text-align: center;">Aksi</th>
+              </tr>
+            </thead>
+            <tbody id="soal-tbody"></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- HASIL UJIAN VIEW -->
+    <div id="view-hasil" style="display: none;">
+      <div class="admin-header">
+        <h2>Hasil Ujian Peserta</h2>
+        <div style="display:flex;gap:0.75rem;align-items:center;">
+          <button class="btn btn-outline" onclick="loadHasilData()">🔄 Refresh</button>
+          <a href="export_hasil.php?format=csv" target="_blank"
+             style="background:#16a34a;color:white;border:none;padding:0.6rem 1.25rem;border-radius:10px;font-size:0.85rem;font-weight:700;cursor:pointer;display:flex;align-items:center;gap:6px;text-decoration:none;">
+            ⬇ Export CSV
+          </a>
+          <a href="export_hasil.php?format=pdf" target="_blank"
+             style="background:linear-gradient(135deg,#dc2626,#b91c1c);color:white;border:none;padding:0.6rem 1.25rem;border-radius:10px;font-size:0.85rem;font-weight:700;cursor:pointer;display:flex;align-items:center;gap:6px;text-decoration:none;">
+            📄 Cetak / PDF
+          </a>
+        </div>
+      </div>
+      <div class="admin-stats" style="margin-bottom:1.5rem;">
+        <div class="stat-card"><h4>Total Peserta</h4><div class="val" id="stat-total-peserta">0</div></div>
+        <div class="stat-card"><h4>Rata-rata Pedagogik</h4><div class="val" id="stat-avg-ped" style="font-size:1.5rem;">–</div></div>
+        <div class="stat-card"><h4>Rata-rata Profesional</h4><div class="val" id="stat-avg-pro" style="font-size:1.5rem;">–</div></div>
+      </div>
+      <div class="card" style="padding:1.5rem;">
+        <div class="admin-table-wrap">
+          <table class="admin-table">
+            <thead>
+              <tr>
+                <th>No</th>
+                <th>Nama</th>
+                <th>Posisi Dilamar</th>
+                <th style="text-align:center;">Pedagogik</th>
+                <th style="text-align:center;">Profesional</th>
+                <th style="text-align:center;">Rata-rata</th>
+                <th>Waktu Selesai</th>
+                <th style="text-align:center;">Detail</th>
+                <th style="text-align:center;">Hapus</th>
+              </tr>
+            </thead>
+            <tbody id="hasil-tbody"><tr><td colspan="9" style="text-align:center;padding:2rem;color:#94a3b8;">Memuat data...</td></tr></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- DATA PESERTA VIEW -->
+    <div id="view-peserta" style="display: none;">
+      <div class="admin-header">
+        <h2>Data Diri Peserta</h2>
+        <button class="btn btn-outline" onclick="loadHasilData()">🔄 Refresh</button>
+      </div>
+      <div class="card" style="padding:1.5rem;">
+        <div class="admin-table-wrap">
+          <table class="admin-table">
+            <thead>
+              <tr>
+                <th>No</th>
+                <th>Nama Lengkap</th>
+                <th>NIK</th>
+                <th>Jenis Kelamin</th>
+                <th>Tgl Lahir</th>
+                <th>Pendidikan</th>
+                <th>No. HP</th>
+                <th>Email</th>
+                <th>Posisi Dilamar</th>
+                <th style="text-align:center;">Aksi</th>
+              </tr>
+            </thead>
+            <tbody id="peserta-tbody"><tr><td colspan="10" style="text-align:center;padding:2rem;color:#94a3b8;">Memuat data...</td></tr></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- TOKEN VIEW -->
+    <div id="view-token" style="display: none;">
+      <div class="admin-header">
+        <h2>Pengaturan Token Ujian</h2>
+      </div>
+      <div class="card" style="padding: 2.5rem; text-align: center; max-width: 500px; margin: 0 auto;">
+        <h3>Token Aktif Saat Ini</h3>
+        <p style="color: var(--text-muted); margin-bottom: 2rem;">Peserta wajib memasukkan token ini untuk memulai ujian. Tuliskan token ini di papan tulis ruangan.</p>
+        <div id="active-token-display" style="font-size: 3.5rem; font-family: 'Outfit', sans-serif; font-weight: 800; color: #2563eb; letter-spacing: 8px; background: #eff6ff; padding: 2rem; border-radius: 20px; margin-bottom: 2.5rem; border: 2px dashed #bfdbfe;">
+          MEMUAT...
+        </div>
+        <button class="btn btn-primary" onclick="generateNewToken()" style="width: 100%; font-size: 1.1rem; padding: 1.25rem;">🔄 Generate Token Baru</button>
+      </div>
+    </div>
+
+  </main>
+</div>
+
+<!-- MODAL DETAIL HASIL -->
+<div class="modal-overlay" id="modal-detail">
+  <div style="background:white; border-radius:24px; width:90%; max-width:680px; max-height:90vh; overflow-y:auto; box-shadow:0 30px 80px rgba(0,0,0,0.25); position:relative;">
+    <!-- Header -->
+    <div style="background:linear-gradient(135deg,#0f172a,#1e3a8a,#2563eb); padding:2rem 2rem 1.5rem; border-radius:24px 24px 0 0; position:relative;">
+      <button onclick="closeDetailModal()" style="position:absolute;top:1rem;right:1rem;background:rgba(255,255,255,0.15);border:none;color:white;width:32px;height:32px;border-radius:50%;cursor:pointer;font-size:1.1rem;">×</button>
+      <div style="font-size:0.7rem;font-weight:700;color:rgba(255,255,255,0.5);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:4px;">Detail Hasil Ujian</div>
+      <div style="font-size:1.4rem;font-weight:800;color:white;" id="d-nama">–</div>
+      <div style="font-size:0.85rem;color:rgba(255,255,255,0.6);margin-top:2px;" id="d-posisi">–</div>
+    </div>
+    <!-- Body -->
+    <div style="padding:2rem;">
+      <!-- Score Summary -->
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-bottom:2rem;">
+        <div style="background:#f8fafc;border:1px solid #e2e8f0;border-radius:14px;padding:1.25rem;text-align:center;">
+          <div style="font-size:0.65rem;font-weight:700;color:#94a3b8;text-transform:uppercase;letter-spacing:0.06em;margin-bottom:4px;">Rata-rata</div>
+          <div style="font-size:2.5rem;font-weight:800;color:#1e293b;line-height:1;" id="d-avg">–</div>
+        </div>
+        <div style="background:#eff6ff;border:1px solid #bfdbfe;border-radius:14px;padding:1.25rem;text-align:center;">
+          <div style="font-size:0.65rem;font-weight:700;color:#3b82f6;text-transform:uppercase;letter-spacing:0.06em;margin-bottom:4px;">Pedagogik</div>
+          <div style="font-size:2.5rem;font-weight:800;color:#1d4ed8;line-height:1;" id="d-ped-skor">–</div>
+        </div>
+        <div style="background:#ecfdf5;border:1px solid #a7f3d0;border-radius:14px;padding:1.25rem;text-align:center;">
+          <div style="font-size:0.65rem;font-weight:700;color:#10b981;text-transform:uppercase;letter-spacing:0.06em;margin-bottom:4px;">Profesional</div>
+          <div style="font-size:2.5rem;font-weight:800;color:#065f46;line-height:1;" id="d-pro-skor">–</div>
+        </div>
+      </div>
+
+      <!-- Detail Per Sesi -->
+      <div style="margin-bottom:1.5rem;">
+        <div style="font-size:0.75rem;font-weight:800;color:#475569;text-transform:uppercase;letter-spacing:0.05em;margin-bottom:1rem;">Detail Per Sesi</div>
+
+        <!-- Pedagogik -->
+        <div style="background:#f8fafc;border:1px solid #e2e8f0;border-radius:14px;padding:1.25rem;margin-bottom:0.75rem;">
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:0.75rem;">
+            <div>
+              <div style="font-size:0.8rem;font-weight:700;color:#1d4ed8;">📚 Sesi 1 – Tes Kompetensi Pedagogik</div>
+              <div style="font-size:0.75rem;color:#94a3b8;margin-top:2px;" id="d-ped-detail">– / – soal benar</div>
+            </div>
+            <div style="font-size:1.75rem;font-weight:800;color:#1d4ed8;" id="d-ped-val">–</div>
+          </div>
+          <div style="height:10px;background:#e2e8f0;border-radius:99px;overflow:hidden;">
+            <div id="d-ped-bar" style="height:100%;background:linear-gradient(90deg,#2563eb,#4f46e5);border-radius:99px;width:0%;transition:width 0.8s ease;"></div>
+          </div>
+        </div>
+
+        <!-- Profesional -->
+        <div style="background:#f8fafc;border:1px solid #e2e8f0;border-radius:14px;padding:1.25rem;">
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:0.75rem;">
+            <div>
+              <div style="font-size:0.8rem;font-weight:700;color:#065f46;">💼 Sesi 2 – Tes Kompetensi Profesional</div>
+              <div style="font-size:0.75rem;color:#94a3b8;margin-top:2px;" id="d-pro-detail">– / – soal benar</div>
+            </div>
+            <div style="font-size:1.75rem;font-weight:800;color:#065f46;" id="d-pro-val">–</div>
+          </div>
+          <div style="height:10px;background:#e2e8f0;border-radius:99px;overflow:hidden;">
+            <div id="d-pro-bar" style="height:100%;background:linear-gradient(90deg,#059669,#06b6d4);border-radius:99px;width:0%;transition:width 0.8s ease;"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Grafik Perbandingan (CSS Bar Chart) -->
+      <div style="background:#f8fafc;border:1px solid #e2e8f0;border-radius:14px;padding:1.5rem;margin-bottom:1.5rem;">
+        <div style="font-size:0.75rem;font-weight:800;color:#475569;text-transform:uppercase;letter-spacing:0.05em;margin-bottom:1.25rem;">📊 Grafik Perbandingan Skor</div>
+        <div style="display:flex;align-items:flex-end;gap:2rem;height:140px;justify-content:center;">
+          <div style="display:flex;flex-direction:column;align-items:center;gap:8px;width:80px;">
+            <div style="font-size:0.85rem;font-weight:800;color:#1d4ed8;" id="g-ped-lbl">0</div>
+            <div style="width:100%;background:#e2e8f0;border-radius:8px 8px 0 0;position:relative;flex:1;display:flex;align-items:flex-end;">
+              <div id="g-ped-bar" style="width:100%;background:linear-gradient(180deg,#3b82f6,#2563eb);border-radius:8px 8px 0 0;height:0%;transition:height 1s ease;"></div>
+            </div>
+            <div style="font-size:0.72rem;font-weight:700;color:#64748b;">Pedagogik</div>
+          </div>
+          <div style="display:flex;flex-direction:column;align-items:center;gap:8px;width:80px;">
+            <div style="font-size:0.85rem;font-weight:800;color:#065f46;" id="g-pro-lbl">0</div>
+            <div style="width:100%;background:#e2e8f0;border-radius:8px 8px 0 0;position:relative;flex:1;display:flex;align-items:flex-end;">
+              <div id="g-pro-bar" style="width:100%;background:linear-gradient(180deg,#34d399,#059669);border-radius:8px 8px 0 0;height:0%;transition:height 1s ease;"></div>
+            </div>
+            <div style="font-size:0.72rem;font-weight:700;color:#64748b;">Profesional</div>
+          </div>
+          <div style="display:flex;flex-direction:column;align-items:center;gap:8px;width:80px;">
+            <div style="font-size:0.85rem;font-weight:800;color:#475569;" id="g-avg-lbl">0</div>
+            <div style="width:100%;background:#e2e8f0;border-radius:8px 8px 0 0;position:relative;flex:1;display:flex;align-items:flex-end;">
+              <div id="g-avg-bar" style="width:100%;background:linear-gradient(180deg,#818cf8,#4f46e5);border-radius:8px 8px 0 0;height:0%;transition:height 1s ease 0.2s;"></div>
+            </div>
+            <div style="font-size:0.72rem;font-weight:700;color:#64748b;">Rata-rata</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Info Tambahan -->
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.75rem;">
+        <div style="background:#f8fafc;border:1px solid #e2e8f0;border-radius:10px;padding:0.875rem 1rem;">
+          <div style="font-size:0.65rem;font-weight:700;color:#94a3b8;text-transform:uppercase;margin-bottom:2px;">Waktu Selesai</div>
+          <div style="font-size:0.875rem;font-weight:600;color:#1e293b;" id="d-waktu">–</div>
+        </div>
+        <div style="background:#f8fafc;border:1px solid #e2e8f0;border-radius:10px;padding:0.875rem 1rem;">
+          <div style="font-size:0.65rem;font-weight:700;color:#94a3b8;text-transform:uppercase;margin-bottom:2px;">Pendidikan</div>
+          <div style="font-size:0.875rem;font-weight:600;color:#1e293b;" id="d-pend">–</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- MODAL IMPORT CSV -->
+<div class="modal-overlay" id="modal-import">
+  <div class="modal-box" style="max-width:860px;padding:0;max-height:90vh;display:flex;flex-direction:column;overflow:hidden;text-align:left;">
+    <!-- Header -->
+    <div style="display:flex;justify-content:space-between;align-items:center;padding:1rem 1.5rem;border-bottom:1px solid #e2e8f0;flex-shrink:0;">
+      <div>
+        <h3 style="margin:0;font-size:1rem;">📥 Import Soal dari CSV</h3>
+        <div style="font-size:0.75rem;color:#64748b;margin-top:2px;" id="import-file-name">Belum ada file dipilih</div>
+      </div>
+      <button onclick="closeImportModal()" style="background:#f1f5f9;border:none;font-size:1rem;cursor:pointer;color:#64748b;width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;">&times;</button>
+    </div>
+    <!-- Stats Bar -->
+    <div id="import-stats" style="display:none;padding:0.75rem 1.5rem;background:#f0fdf4;border-bottom:1px solid #bbf7d0;font-size:0.82rem;color:#166534;font-weight:600;flex-shrink:0;">
+      <span id="import-count">0</span> soal siap diimport &nbsp;|&nbsp;
+      <span id="import-errors-count" style="color:#dc2626;">0 error</span>
+    </div>
+    <!-- Preview Table -->
+    <div style="overflow:auto;flex:1;padding:1.25rem 1.5rem;">
+      <div id="import-error-box" style="display:none;background:#fef2f2;border:1px solid #fecaca;border-radius:8px;padding:0.75rem 1rem;margin-bottom:0.75rem;font-size:0.82rem;color:#b91c1c;"></div>
+      <table style="width:100%;border-collapse:collapse;font-size:0.82rem;" id="import-preview-table">
+        <thead>
+          <tr style="background:#f8fafc;border-bottom:2px solid #e2e8f0;">
+            <th style="padding:8px 10px;text-align:left;width:30px;">#</th>
+            <th style="padding:8px 10px;text-align:left;width:90px;">Sesi</th>
+            <th style="padding:8px 10px;text-align:left;width:90px;">Kategori</th>
+            <th style="padding:8px 10px;text-align:left;">Soal</th>
+            <th style="padding:8px 10px;text-align:center;width:60px;">Tipe</th>
+            <th style="padding:8px 10px;text-align:center;width:70px;">Kunci</th>
+            <th style="padding:8px 10px;text-align:center;width:60px;">Status</th>
+          </tr>
+        </thead>
+        <tbody id="import-tbody">
+          <tr><td colspan="7" style="text-align:center;padding:2rem;color:#94a3b8;">Upload file CSV untuk melihat preview soal.</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <!-- Footer -->
+    <div style="padding:0.875rem 1.5rem;border-top:1px solid #e2e8f0;display:flex;justify-content:space-between;align-items:center;flex-shrink:0;background:white;">
+      <div style="font-size:0.78rem;color:#64748b;line-height:1.5;">
+        💡 <strong>Format kolom:</strong> sesi; kategori; soal; opsi_a; opsi_b; opsi_c; opsi_d; opsi_e; tipe; jawaban<br>
+        📌 <strong>Jawaban multi:</strong> tulis <code>A;C;D</code> atau <code>A,C,D</code> di kolom jawaban — keduanya otomatis terdeteksi
+      </div>
+      <div style="display:flex;gap:0.75rem;">
+        <button class="btn btn-outline" onclick="closeImportModal()" style="font-size:0.85rem;padding:0.55rem 1rem;">Batal</button>
+        <button id="btn-do-import" class="btn" onclick="doImport()" style="background:linear-gradient(135deg,#059669,#0d9488);color:white;border:none;font-size:0.85rem;padding:0.55rem 1.25rem;border-radius:10px;font-weight:700;cursor:pointer;display:none;">
+          ✅ Import <span id="import-btn-count">0</span> Soal
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- MODAL TAMBAH SOAL -->
+<div class="modal-overlay" id="modal-soal">
+  <div class="modal-box" style="max-width: 760px; text-align: left; padding: 0; max-height: 88vh; display: flex; flex-direction: column; overflow: hidden;">
+    <!-- Sticky Header -->
+    <div style="display: flex; justify-content: space-between; align-items: center; padding: 1rem 1.5rem; border-bottom: 1px solid #e2e8f0; flex-shrink: 0;">
+      <h3 id="modal-soal-title" style="margin: 0; font-size: 1rem;">✏️ Tambah Soal Baru</h3>
+      <button onclick="closeModal()" style="background: #f1f5f9; border: none; font-size: 1rem; cursor: pointer; color: #64748b; width: 28px; height: 28px; border-radius: 50%; display: flex; align-items: center; justify-content: center; line-height:1;">&times;</button>
+    </div>
+    
+    <!-- Scrollable Body -->
+    <div style="overflow-y: auto; padding: 1.25rem 1.5rem; flex: 1;">
+    <form id="form-soal">
+      <input type="hidden" id="f-edit-index" value="">
+      <input type="hidden" id="f-edit-cat" value="">
+      <input type="hidden" id="f-remove-gambar" value="0">
+      <input type="hidden" id="f-remove-gambar-a" value="0">
+      <input type="hidden" id="f-remove-gambar-b" value="0">
+      <input type="hidden" id="f-remove-gambar-c" value="0">
+      <input type="hidden" id="f-remove-gambar-d" value="0">
+      <input type="hidden" id="f-remove-gambar-e" value="0">
+      <!-- Row 1: 3 kolom sejajar -->
+      <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 0.75rem; margin-bottom: 0.75rem;">
+        <div>
+          <label class="form-label" style="font-size:0.75rem; margin-bottom:4px;">Sesi Ujian</label>
+          <select id="f-sesi" class="form-select" style="padding: 0.6rem 0.75rem; font-size: 0.88rem;">
+            <option value="pedagogik">Pedagogik</option>
+            <option value="profesional">Profesional</option>
+          </select>
+        </div>
+        <div>
+          <label class="form-label" style="font-size:0.75rem; margin-bottom:4px;">Tipe Soal</label>
+          <select id="f-tipe" class="form-select" onchange="onTipeChange()" style="padding: 0.6rem 0.75rem; font-size: 0.88rem;">
+            <option value="single">📝 Tunggal</option>
+            <option value="multi">☑️ Multi Jawab</option>
+          </select>
+        </div>
+        <div>
+          <label class="form-label" style="font-size:0.75rem; margin-bottom:4px;">Sub-Kategori</label>
+          <input type="text" id="f-kategori" class="form-input" placeholder="Misal: Evaluasi" style="padding: 0.6rem 0.75rem; font-size: 0.88rem;">
+        </div>
+      </div>
+
+      <!-- Row 2: Pertanyaan -->
+      <div style="margin-bottom: 0.75rem;">
+        <label class="form-label" style="font-size:0.75rem; margin-bottom:4px;">Pertanyaan Soal</label>
+        <textarea id="f-soal" class="form-input" rows="2" placeholder="Masukkan teks pertanyaan..." style="padding: 0.6rem 0.75rem; font-size: 0.9rem; resize: vertical; min-height: 64px;"></textarea>
+      </div>
+        
+      <!-- Row 3: Upload Gambar (compact) -->
+      <div style="margin-bottom: 0.75rem;">
+        <label class="form-label" style="font-size:0.75rem; margin-bottom:4px;">Gambar Soal <span style="font-weight:400;color:#94a3b8;">(Opsional)</span></label>
+        <label class="upload-box" id="upload-box" style="min-height: 64px; padding: 0.75rem; flex-direction: row; gap: 10px; justify-content: flex-start;">
+          <input type="file" id="f-gambar" accept="image/*" onchange="previewImage(this)">
+          <span style="font-size: 1.2rem;">📁</span>
+          <div class="upload-label" id="upload-label" style="font-size:0.82rem;">Klik untuk pilih gambar atau seret file ke sini</div>
+        </label>
+        <div class="img-preview-container" id="preview-container">
+          <img src="" alt="Preview" class="img-preview" id="img-preview">
+          <button type="button" class="btn-remove-img" onclick="removeImage()">×</button>
+        </div>
+      </div>
+
+      <!-- Row 4: Opsi Jawaban (5 kolom + kunci) -->
+      <div>
+        <label class="form-label" style="font-size:0.75rem; margin-bottom:4px;">Opsi Jawaban & Kunci <span style="font-weight:400;color:#94a3b8;">(📷 = upload gambar opsi)</span></label>
+        <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 0.5rem; padding: 0.875rem; background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 10px;">
+          <div class="opt-img-row">
+            <input type="text" id="f-opt-a" class="form-input" placeholder="A. Opsi A" style="padding:0.55rem 0.75rem;font-size:0.85rem;">
+            <div class="opt-img-btn" id="opt-img-btn-a" title="Upload gambar opsi A">📷</div>
+          </div>
+          <div class="opt-img-row">
+            <input type="text" id="f-opt-b" class="form-input" placeholder="B. Opsi B" style="padding:0.55rem 0.75rem;font-size:0.85rem;">
+            <div class="opt-img-btn" id="opt-img-btn-b" title="Upload gambar opsi B">📷</div>
+          </div>
+          <div class="opt-img-row">
+            <input type="text" id="f-opt-c" class="form-input" placeholder="C. Opsi C" style="padding:0.55rem 0.75rem;font-size:0.85rem;">
+            <div class="opt-img-btn" id="opt-img-btn-c" title="Upload gambar opsi C">📷</div>
+          </div>
+          <div class="opt-img-row">
+            <input type="text" id="f-opt-d" class="form-input" placeholder="D. Opsi D" style="padding:0.55rem 0.75rem;font-size:0.85rem;">
+            <div class="opt-img-btn" id="opt-img-btn-d" title="Upload gambar opsi D">📷</div>
+          </div>
+          <div class="opt-img-row">
+            <input type="text" id="f-opt-e" class="form-input" placeholder="E. Opsi E (opsional)" style="padding:0.55rem 0.75rem;font-size:0.85rem;">
+            <div class="opt-img-btn" id="opt-img-btn-e" title="Upload gambar opsi E">📷</div>
+          </div>
+          <!-- Kunci tunggal -->
+          <div id="wrap-jawaban-single">
+            <select id="f-jawaban" class="form-select" style="padding:0.55rem 0.75rem;font-size:0.85rem;height:100%;">
+              <option value="" disabled selected>🔑 Kunci Jawaban</option>
+              <option value="A">Jawaban: A</option>
+              <option value="B">Jawaban: B</option>
+              <option value="C">Jawaban: C</option>
+              <option value="D">Jawaban: D</option>
+              <option value="E">Jawaban: E</option>
+            </select>
+          </div>
+          <!-- Kunci multi (checkbox) -->
+          <div id="wrap-jawaban-multi" style="display:none; align-items:center;">
+            <div style="font-size:0.72rem;font-weight:600;color:#92400e;background:#fef3c7;border:1px solid #fde68a;padding:4px 8px;border-radius:6px;margin-bottom:5px;">✅ Pilih jawaban benar:</div>
+            <div style="display:flex;gap:8px;flex-wrap:wrap;">
+              <label style="display:flex;align-items:center;gap:4px;cursor:pointer;font-size:0.85rem;font-weight:700;"><input type="checkbox" id="fj-a" value="A" style="accent-color:#f59e0b;"> A</label>
+              <label style="display:flex;align-items:center;gap:4px;cursor:pointer;font-size:0.85rem;font-weight:700;"><input type="checkbox" id="fj-b" value="B" style="accent-color:#f59e0b;"> B</label>
+              <label style="display:flex;align-items:center;gap:4px;cursor:pointer;font-size:0.85rem;font-weight:700;"><input type="checkbox" id="fj-c" value="C" style="accent-color:#f59e0b;"> C</label>
+              <label style="display:flex;align-items:center;gap:4px;cursor:pointer;font-size:0.85rem;font-weight:700;"><input type="checkbox" id="fj-d" value="D" style="accent-color:#f59e0b;"> D</label>
+              <label style="display:flex;align-items:center;gap:4px;cursor:pointer;font-size:0.85rem;font-weight:700;"><input type="checkbox" id="fj-e" value="E" style="accent-color:#f59e0b;"> E</label>
+            </div>
+          </div>
+        </div>
+
+        <!-- LaTeX Hint -->
+        <div style="margin-top:8px;padding:8px 12px;background:#f0f9ff;border:1px solid #bae6fd;border-radius:8px;font-size:0.72rem;color:#0369a1;line-height:1.5;">
+          💡 <strong>Rumus Matematika:</strong> Gunakan format LaTeX di teks soal/opsi. Contoh:
+          <code style="background:#e0f2fe;padding:1px 5px;border-radius:3px;">$\frac{1}{x}$</code> → pecahan,
+          <code style="background:#e0f2fe;padding:1px 5px;border-radius:3px;">$x^2$</code> → pangkat,
+          <code style="background:#e0f2fe;padding:1px 5px;border-radius:3px;">$\sqrt{x}$</code> → akar
+        </div>
+      </div>
+    </form>
+    </div><!-- end scrollable body -->
+
+    <!-- Sticky Footer Buttons -->
+    <div style="padding: 0.875rem 1.5rem; border-top: 1px solid #e2e8f0; display: flex; justify-content: flex-end; gap: 0.75rem; flex-shrink: 0; background: white;">
+      <button type="button" class="btn btn-outline" onclick="closeModal()" style="padding: 0.6rem 1.25rem; font-size: 0.88rem;">Batal</button>
+      <button type="submit" form="form-soal" class="btn btn-primary" style="padding: 0.6rem 1.5rem; font-size: 0.88rem;">&#128190; Simpan Soal</button>
+    </div>
+  </div>
+</div>
+
+<div class="toast-container" id="toast-container"></div>
+
+<script>
+  let activeCategory = 'pedagogik';
+  let allQuestions = { pedagogik: [], profesional: [] };
+
+  function showToast(msg, type = 'success') {
+    const container = document.getElementById('toast-container');
+    const toast = document.createElement('div');
+    toast.className = `toast toast-${type}`;
+    toast.innerHTML = `<span>${type === 'success' ? '✅' : '❌'}</span> ${msg}`;
+    container.appendChild(toast);
+    setTimeout(() => toast.classList.add('show'), 10);
+    setTimeout(() => {
+      toast.classList.remove('show');
+      setTimeout(() => toast.remove(), 300);
+    }, 3000);
+  }
+
+  async function loadData() {
+    try {
+      const resp = await fetch('api.php');
+      const data = await resp.json();
+      allQuestions.pedagogik = data.pedagogik || [];
+      allQuestions.profesional = data.profesional || [];
+      updateStats();
+      renderTable();
+    } catch (e) {
+      showToast("Gagal memuat data", "error");
+    }
+  }
+
+  function updateStats() {
+    document.getElementById('stat-count-pedagogik').textContent = allQuestions.pedagogik.length;
+    document.getElementById('stat-count-profesional').textContent = allQuestions.profesional.length;
+    document.getElementById('stat-count-total').textContent = allQuestions.pedagogik.length + allQuestions.profesional.length;
+  }
+
+  function renderTable() {
+    const tbody = document.getElementById('soal-tbody');
+    tbody.innerHTML = '';
+    const list = allQuestions[activeCategory];
+    if (list.length === 0) {
+      tbody.innerHTML = '<tr><td colspan="5" style="text-align:center; padding:3rem; color:#94a3b8;">Tidak ada soal.</td></tr>';
+      return;
+    }
+    list.forEach((q, i) => {
+      const isMulti = q.tipe === 'multi';
+      const jawabanDisplay = isMulti ? (Array.isArray(q.jawaban) ? q.jawaban.join(', ') : q.jawaban) : q.jawaban;
+      const tipeBadge = isMulti
+        ? '<span style="background:#fef3c7;color:#92400e;font-size:0.65rem;font-weight:700;padding:2px 7px;border-radius:20px;border:1px solid #fde68a;">MULTI</span>'
+        : '<span style="background:#eff6ff;color:#1d4ed8;font-size:0.65rem;font-weight:700;padding:2px 7px;border-radius:20px;border:1px solid #bfdbfe;">TUNGGAL</span>';
+      const tr = document.createElement('tr');
+
+      // Buat setiap cell secara terpisah agar onclick aman
+      const tdNo    = document.createElement('td'); tdNo.style.cssText = 'color:#94a3b8;font-weight:600;'; tdNo.textContent = i + 1;
+      const tdKat   = document.createElement('td'); tdKat.innerHTML = `<span class="badge ${activeCategory === 'pedagogik' ? 'badge-blue' : 'badge-purple'}">${q.kategori}</span>`;
+      const hasOptImg = q.gambar_pilihan && Object.keys(q.gambar_pilihan).length > 0;
+      const tdSoal  = document.createElement('td'); tdSoal.style.fontSize = '0.85rem'; tdSoal.textContent = q.soal.substring(0, 80) + (q.soal.length > 80 ? '...' : '') + (q.gambar ? ' 🖼️' : '') + (hasOptImg ? ' 📷' : '');
+      const tdKunci = document.createElement('td'); tdKunci.style.textAlign = 'center'; tdKunci.innerHTML = `${tipeBadge} <strong style="color:var(--primary);">${jawabanDisplay}</strong>`;
+
+      // Tombol Edit dan Hapus
+      const tdAksi = document.createElement('td'); tdAksi.style.textAlign = 'center';
+      
+      const btnEdit = document.createElement('button');
+      btnEdit.className = 'btn-edit';
+      btnEdit.style.cssText = 'background: #eab308; color: white; border: none; padding: 4px 8px; border-radius: 6px; cursor: pointer; margin-right: 4px; font-size: 0.75rem; font-weight: 600;';
+      btnEdit.textContent = 'Edit';
+      btnEdit.addEventListener('click', () => editSoal(activeCategory, i));
+      tdAksi.appendChild(btnEdit);
+
+      const btnHapus = document.createElement('button');
+      btnHapus.className = 'btn-delete';
+      btnHapus.textContent = 'Hapus';
+      btnHapus.addEventListener('click', () => deleteSoal(activeCategory, i, btnHapus));
+      tdAksi.appendChild(btnHapus);
+
+      tr.appendChild(tdNo);
+      tr.appendChild(tdKat);
+      tr.appendChild(tdSoal);
+      tr.appendChild(tdKunci);
+      tr.appendChild(tdAksi);
+      tbody.appendChild(tr);
+    });
+  }
+
+  function switchMainTab(tabId, el) {
+    document.querySelectorAll('.admin-nav-item').forEach(i => i.classList.remove('active'));
+    el.classList.add('active');
+    ['dashboard', 'soal', 'hasil', 'peserta', 'token'].forEach(id => {
+      const el = document.getElementById('view-' + id);
+      if (el) el.style.display = tabId === id ? 'block' : 'none';
+    });
+    if (tabId === 'hasil' || tabId === 'peserta') loadHasilData();
+    if (tabId === 'token') loadToken();
+  }
+
+  async function loadToken() {
+    try {
+      const resp = await fetch('api_token.php');
+      const data = await resp.json();
+      if (data.status === 'success') {
+        document.getElementById('active-token-display').textContent = data.token;
+      }
+    } catch (e) {
+      showToast("Gagal memuat token", "error");
+    }
+  }
+
+  async function generateNewToken() {
+    if (!confirm("Generate token baru? Peserta dengan token lama tidak akan bisa masuk lagi jika mereka belum memulai.")) return;
+    
+    try {
+      const resp = await fetch('api_token.php', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ action: 'generate' })
+      });
+      const data = await resp.json();
+      if (data.status === 'success') {
+        document.getElementById('active-token-display').textContent = data.token;
+        showToast("Token berhasil diperbarui!", "success");
+      } else {
+        showToast("Gagal generate token: " + data.message, "error");
+      }
+    } catch (e) {
+      showToast("Gagal memuat dari server", "error");
+    }
+  }
+
+  function switchCategory(cat) {
+    activeCategory = cat;
+    document.querySelectorAll('.filter-tab').forEach(b => b.classList.remove('active'));
+    document.getElementById(`tab-${cat}`).classList.add('active');
+    renderTable();
+  }
+
+  function searchTable() {
+    const query = document.getElementById('search-soal').value.toLowerCase();
+    const rows = document.querySelectorAll('#soal-tbody tr');
+    rows.forEach(r => r.style.display = r.innerText.toLowerCase().includes(query) ? '' : 'none');
+  }
+
+  function showAddModal() { 
+    document.getElementById('modal-soal-title').textContent = '✏️ Tambah Soal Baru';
+    document.getElementById('form-soal').reset();
+    document.getElementById('f-edit-index').value = '';
+    document.getElementById('f-edit-cat').value = '';
+    document.getElementById('f-remove-gambar').value = '0';
+    ['a','b','c','d','e'].forEach(l => { document.getElementById('f-remove-gambar-'+l).value = '0'; });
+    removeImage();
+    resetOptImages();
+    ['a','b','c','d','e'].forEach(l => { const el = document.getElementById('fj-' + l); if(el) el.checked = false; });
+    document.getElementById('f-tipe').value = 'single';
+    onTipeChange();
+    document.getElementById('modal-soal').classList.add('show'); 
+  }
+  function closeModal() { document.getElementById('modal-soal').classList.remove('show'); }
+
+  function previewImage(input) {
+    const label = document.getElementById('upload-label');
+    const container = document.getElementById('preview-container');
+    const preview = document.getElementById('img-preview');
+    const box = document.getElementById('upload-box');
+
+    if (input.files && input.files[0]) {
+      const reader = new FileReader();
+      reader.onload = function(e) {
+        preview.src = e.target.result;
+        container.style.display = 'block';
+        box.style.display = 'none';
+      }
+      reader.readAsDataURL(input.files[0]);
+    }
+  }
+
+  function removeImage() {
+    const input = document.getElementById('f-gambar');
+    const container = document.getElementById('preview-container');
+    const box = document.getElementById('upload-box');
+    const label = document.getElementById('upload-label');
+    
+    input.value = "";
+    container.style.display = 'none';
+    box.style.display = 'flex';
+    label.textContent = "Klik untuk pilih gambar atau seret file ke sini";
+
+    const editIndex = document.getElementById('f-edit-index');
+    if (editIndex && editIndex.value !== '') {
+        document.getElementById('f-remove-gambar').value = '1';
+    }
+  }
+
+  // Storage untuk file gambar opsi
+  const optionFiles = {};
+
+  // Buat 5 hidden file inputs permanen (tidak di-replace innerHTML)
+  ['a','b','c','d','e'].forEach(letter => {
+    const hiddenInput = document.createElement('input');
+    hiddenInput.type = 'file';
+    hiddenInput.accept = 'image/*';
+    hiddenInput.id = 'opt-file-' + letter;
+    hiddenInput.style.display = 'none';
+    hiddenInput.addEventListener('change', function() {
+      if (this.files && this.files[0]) {
+        optionFiles[letter] = this.files[0];
+        const btn = document.getElementById('opt-img-btn-' + letter);
+        btn.classList.add('has-image');
+        // Preview kecil
+        const reader = new FileReader();
+        reader.onload = function(e) {
+          btn.innerHTML = `<img src="${e.target.result}" class="opt-img-preview" style="width:100%;height:100%;object-fit:cover;border-radius:6px;">`;
+        };
+        reader.readAsDataURL(this.files[0]);
+      }
+    });
+    document.body.appendChild(hiddenInput);
+  });
+
+  // Klik pada tombol 📷 membuka file picker / hapus gambar
+  document.querySelectorAll('.opt-img-btn').forEach(btn => {
+    btn.addEventListener('click', function() {
+      const letter = this.id.replace('opt-img-btn-', '');
+      if (this.classList.contains('has-image') || this.dataset.existingImg) {
+          if (confirm('Hapus gambar untuk opsi ' + letter.toUpperCase() + '?')) {
+              delete optionFiles[letter];
+              document.getElementById('opt-file-' + letter).value = '';
+              this.classList.remove('has-image');
+              this.innerHTML = '📷';
+              delete this.dataset.existingImg;
+              document.getElementById('f-remove-gambar-' + letter).value = '1';
+          }
+      } else {
+          document.getElementById('opt-file-' + letter).click();
+      }
+    });
+  });
+
+  // Reset semua gambar opsi
+  function resetOptImages() {
+    ['a','b','c','d','e'].forEach(letter => {
+      delete optionFiles[letter];
+      const hiddenInput = document.getElementById('opt-file-' + letter);
+      if (hiddenInput) hiddenInput.value = '';
+      const btn = document.getElementById('opt-img-btn-' + letter);
+      if (btn) {
+        btn.classList.remove('has-image');
+        btn.innerHTML = '📷';
+        delete btn.dataset.existingImg;
+      }
+    });
+  }
+
+  function editSoal(cat, index) {
+      const q = allQuestions[cat][index];
+      
+      document.getElementById('modal-soal-title').textContent = '✏️ Edit Soal';
+      document.getElementById('form-soal').reset();
+      
+      document.getElementById('f-edit-index').value = index;
+      document.getElementById('f-edit-cat').value = cat;
+      document.getElementById('f-remove-gambar').value = '0';
+      ['a','b','c','d','e'].forEach(l => { document.getElementById('f-remove-gambar-'+l).value = '0'; });
+      
+      document.getElementById('f-sesi').value = cat;
+      document.getElementById('f-kategori').value = q.kategori;
+      document.getElementById('f-soal').value = q.soal;
+      document.getElementById('f-tipe').value = q.tipe;
+      onTipeChange();
+      
+      // Load options
+      ['a','b','c','d','e'].forEach((l, i) => {
+          const optStr = q.pilihan.find(p => p.startsWith(l.toUpperCase() + '. '));
+          document.getElementById('f-opt-' + l).value = optStr ? optStr.substring(3) : '';
+      });
+      
+      if (q.tipe === 'multi') {
+          ['a','b','c','d','e'].forEach(l => {
+              const el = document.getElementById('fj-' + l);
+              if(el) el.checked = Array.isArray(q.jawaban) && q.jawaban.includes(l.toUpperCase());
+          });
+      } else {
+          document.getElementById('f-jawaban').value = q.jawaban;
+      }
+      
+      // Load gambar soal
+      removeImage(); // reset first
+      if (q.gambar) {
+          document.getElementById('f-remove-gambar').value = '0';
+          document.getElementById('img-preview').src = 'uploads/' + q.gambar;
+          document.getElementById('preview-container').style.display = 'block';
+          document.getElementById('upload-box').style.display = 'none';
+      }
+      
+      // Load gambar opsi
+      resetOptImages();
+      if (q.gambar_pilihan) {
+          ['a','b','c','d','e'].forEach(l => {
+              const L = l.toUpperCase();
+              if (q.gambar_pilihan[L]) {
+                  const btn = document.getElementById('opt-img-btn-' + l);
+                  btn.classList.add('has-image');
+                  btn.dataset.existingImg = q.gambar_pilihan[L];
+                  btn.innerHTML = `<img src="uploads/${q.gambar_pilihan[L]}" class="opt-img-preview" style="width:100%;height:100%;object-fit:cover;border-radius:6px;">`;
+              }
+          });
+      }
+      
+      document.getElementById('modal-soal').classList.add('show');
+  }
+
+  async function deleteSoal(cat, index, btnEl) {
+    // Jika sudah dalam mode konfirmasi, lanjutkan hapus
+    if (btnEl && btnEl.dataset.confirming === 'true') {
+      btnEl.dataset.confirming = 'false';
+      btnEl.textContent = 'Hapus';
+      btnEl.style.background = '';
+      btnEl.style.color = '';
+      try {
+        const resp = await fetch(`api.php?cat=${cat}&index=${index}`, { method: 'DELETE' });
+        const res = await resp.json();
+        if (res.status === 'success') { showToast('Soal berhasil dihapus', 'success'); loadData(); }
+        else { showToast(res.message || 'Gagal menghapus', 'error'); }
+      } catch (e) { showToast('Gagal menghapus: ' + e.message, 'error'); }
+      return;
+    }
+    // Mode pertama klik: minta konfirmasi
+    if (btnEl) {
+      btnEl.dataset.confirming = 'true';
+      btnEl.textContent = 'Yakin?';
+      btnEl.style.background = '#b91c1c';
+      btnEl.style.color = 'white';
+      // Reset otomatis setelah 3 detik
+      setTimeout(() => {
+        if (btnEl.dataset.confirming === 'true') {
+          btnEl.dataset.confirming = 'false';
+          btnEl.textContent = 'Hapus';
+          btnEl.style.background = '';
+          btnEl.style.color = '';
+        }
+      }, 3000);
+    }
+  }
+
+  document.getElementById('form-soal').addEventListener('submit', async function(e) {
+    e.preventDefault();
+    const fd = new FormData();
+    const soal = document.getElementById('f-soal').value.trim();
+    const tipe = document.getElementById('f-tipe').value;
+
+    let jawaban;
+    if (tipe === 'multi') {
+      const checked = ['a','b','c','d','e']
+        .map(l => document.getElementById('fj-' + l))
+        .filter(cb => cb.checked)
+        .map(cb => cb.value);
+      if (checked.length < 2) { showToast("Pilih minimal 2 jawaban benar untuk tipe Multi Jawab", "error"); return; }
+      jawaban = JSON.stringify(checked);
+    } else {
+      jawaban = document.getElementById('f-jawaban').value;
+      if (!jawaban) { showToast("Pilih kunci jawaban", "error"); return; }
+    }
+
+    if (!soal) { showToast("Lengkapi pertanyaan", "error"); return; }
+
+    const editIndex = document.getElementById('f-edit-index').value;
+    const editCat = document.getElementById('f-edit-cat').value;
+    if (editIndex !== '') {
+        fd.append('edit_index', editIndex);
+        fd.append('edit_cat', editCat);
+    }
+    fd.append('remove_gambar', document.getElementById('f-remove-gambar').value);
+    ['a','b','c','d','e'].forEach(l => {
+        fd.append('remove_gambar_' + l, document.getElementById('f-remove-gambar-' + l).value);
+    });
+
+    fd.append('sesi', document.getElementById('f-sesi').value);
+    fd.append('kategori', document.getElementById('f-kategori').value.trim());
+    fd.append('soal', soal);
+    fd.append('tipe', tipe);
+    fd.append('jawaban', jawaban);
+
+    const allPilihan = [
+      { label: 'A', val: document.getElementById('f-opt-a').value },
+      { label: 'B', val: document.getElementById('f-opt-b').value },
+      { label: 'C', val: document.getElementById('f-opt-c').value },
+      { label: 'D', val: document.getElementById('f-opt-d').value },
+      { label: 'E', val: document.getElementById('f-opt-e').value },
+    ];
+    // Filter: A-D selalu masuk, E opsional (masuk jika ada teks ATAU gambar)
+    const pilihan = allPilihan
+      .filter((p, i) => {
+        const l = p.label.toLowerCase();
+        const existingImg = document.getElementById('opt-img-btn-' + l)?.dataset.existingImg;
+        return i < 4 || p.val.trim() !== '' || optionFiles[l] || existingImg;
+      })
+      .map(p => p.label + '. ' + p.val);
+    fd.append('pilihan', JSON.stringify(pilihan));
+
+    const img = document.getElementById('f-gambar').files[0];
+    if (img) fd.append('gambar', img);
+
+    // Upload gambar per pilihan jawaban (dari optionFiles storage)
+    ['a','b','c','d','e'].forEach(letter => {
+      if (optionFiles[letter]) {
+        fd.append('gambar_' + letter, optionFiles[letter]);
+      }
+    });
+
+    try {
+      const resp = await fetch('api.php', { method: 'POST', body: fd });
+      const res = await resp.json();
+      if (res.status === 'success') {
+        showToast("Tersimpan"); closeModal(); loadData(); this.reset();
+        removeImage();
+        resetOptImages();
+        // Reset checkbox & tipe
+        ['a','b','c','d','e'].forEach(l => { const el = document.getElementById('fj-' + l); if(el) el.checked = false; });
+        document.getElementById('f-tipe').value = 'single';
+        onTipeChange();
+      } else { showToast(res.message, "error"); }
+    } catch (e) { showToast("Gagal menyimpan", "error"); }
+  });
+
+  function onTipeChange() {
+    const tipe = document.getElementById('f-tipe').value;
+    const wrapSingle = document.getElementById('wrap-jawaban-single');
+    const wrapMulti = document.getElementById('wrap-jawaban-multi');
+    if (tipe === 'multi') {
+      wrapSingle.style.display = 'none';
+      wrapMulti.style.display = 'block';
+    } else {
+      wrapSingle.style.display = 'block';
+      wrapMulti.style.display = 'none';
+    }
+  }
+
+  function logout() {
+    sessionStorage.removeItem('admin_logged_in');
+    window.location.href = 'admin-login.html';
+  }
+
+  loadData();
+
+  // ── Hasil & Peserta ──────────────────────
+  let allHasil = [];
+
+  async function loadHasilData() {
+    try {
+      const resp = await fetch('api_hasil.php');
+      allHasil = await resp.json();
+      renderHasilTable();
+      renderPesertaTable();
+    } catch(e) { showToast('Gagal memuat data hasil', 'error'); }
+  }
+
+  function formatTglAdmin(iso) {
+    if (!iso) return '–';
+    const d = new Date(iso);
+    return d.toLocaleDateString('id-ID', { day:'2-digit', month:'short', year:'numeric' }) + ' ' +
+           d.toLocaleTimeString('id-ID', { hour:'2-digit', minute:'2-digit' });
+  }
+
+  function renderHasilTable() {
+    const tbody = document.getElementById('hasil-tbody');
+    if (!allHasil.length) {
+      tbody.innerHTML = '<tr><td colspan="9" style="text-align:center;padding:2rem;color:#94a3b8;">Belum ada data ujian.</td></tr>';
+      document.getElementById('stat-total-peserta').textContent = 0;
+      document.getElementById('stat-avg-ped').textContent = '–';
+      document.getElementById('stat-avg-pro').textContent = '–';
+      return;
+    }
+    document.getElementById('stat-total-peserta').textContent = allHasil.length;
+    let sumPed = 0, sumPro = 0;
+    allHasil.forEach(r => { sumPed += (r.hasil[0]?.skor || 0); sumPro += (r.hasil[1]?.skor || 0); });
+    document.getElementById('stat-avg-ped').textContent = Math.round(sumPed / allHasil.length);
+    document.getElementById('stat-avg-pro').textContent = Math.round(sumPro / allHasil.length);
+    tbody.innerHTML = '';
+    allHasil.forEach((r, i) => {
+      const pedObj = r.hasil[0] || { skor:0, benar:0, total:0 };
+      const proObj = r.hasil[1] || { skor:0, benar:0, total:0 };
+      const pedSalah = pedObj.total - pedObj.benar;
+      const proSalah = proObj.total - proObj.benar;
+      const avg = Math.round((pedObj.skor + proObj.skor) / 2);
+      const avgColor = avg >= 70 ? '#065f46' : avg >= 50 ? '#92400e' : '#991b1b';
+      const avgBg    = avg >= 70 ? '#d1fae5' : avg >= 50 ? '#fef3c7' : '#fee2e2';
+
+      const tr = document.createElement('tr');
+
+      // Kolom biasa via innerHTML (tidak ada event)
+      tr.innerHTML = `
+        <td style="color:#94a3b8;font-weight:600;">${i+1}</td>
+        <td><strong>${r.peserta?.nama || '–'}</strong></td>
+        <td><span class="badge badge-blue">${r.peserta?.posisi || '–'}</span></td>
+        <td style="text-align:center;">
+          <div style="font-size:1.1rem;font-weight:800;color:#1d4ed8;line-height:1;">${pedObj.skor}</div>
+          <div style="display:flex;gap:6px;justify-content:center;margin-top:4px;font-size:0.72rem;font-weight:700;">
+            <span style="background:#dcfce7;color:#15803d;padding:1px 7px;border-radius:20px;">✓ ${pedObj.benar}</span>
+            <span style="background:#fee2e2;color:#dc2626;padding:1px 7px;border-radius:20px;">✗ ${pedSalah}</span>
+            <span style="background:#f1f5f9;color:#64748b;padding:1px 7px;border-radius:20px;">∑ ${pedObj.total}</span>
+          </div>
+        </td>
+        <td style="text-align:center;">
+          <div style="font-size:1.1rem;font-weight:800;color:#065f46;line-height:1;">${proObj.skor}</div>
+          <div style="display:flex;gap:6px;justify-content:center;margin-top:4px;font-size:0.72rem;font-weight:700;">
+            <span style="background:#dcfce7;color:#15803d;padding:1px 7px;border-radius:20px;">✓ ${proObj.benar}</span>
+            <span style="background:#fee2e2;color:#dc2626;padding:1px 7px;border-radius:20px;">✗ ${proSalah}</span>
+            <span style="background:#f1f5f9;color:#64748b;padding:1px 7px;border-radius:20px;">∑ ${proObj.total}</span>
+          </div>
+        </td>
+        <td style="text-align:center;">
+          <span style="background:${avgBg};color:${avgColor};font-weight:800;font-size:1.1rem;padding:4px 14px;border-radius:20px;display:inline-block;">${avg}</span>
+        </td>
+        <td style="font-size:0.82rem;color:#64748b;">${formatTglAdmin(r.waktu_selesai)}</td>
+      `;
+
+      // Tombol Detail — addEventListener
+      const tdDetail = document.createElement('td'); tdDetail.style.textAlign = 'center';
+      const btnDetail = document.createElement('button');
+      btnDetail.style.cssText = 'background:linear-gradient(135deg,#2563eb,#4f46e5);color:white;border:none;border-radius:8px;padding:5px 14px;font-size:0.78rem;font-weight:700;cursor:pointer;';
+      btnDetail.textContent = 'Detail';
+      btnDetail.addEventListener('click', () => showDetail(r.id));
+      tdDetail.appendChild(btnDetail);
+
+      // Tombol Hapus — two-step confirmation
+      const tdHapus = document.createElement('td'); tdHapus.style.textAlign = 'center';
+      const btnHapus = document.createElement('button');
+      btnHapus.className = 'btn-delete';
+      btnHapus.textContent = 'Hapus';
+      btnHapus.addEventListener('click', () => deleteHasil(r.id, btnHapus));
+      tdHapus.appendChild(btnHapus);
+
+      tr.appendChild(tdDetail);
+      tr.appendChild(tdHapus);
+      tbody.appendChild(tr);
+    });
+  }
+
+  function renderPesertaTable() {
+    const tbody = document.getElementById('peserta-tbody');
+    if (!allHasil.length) {
+      tbody.innerHTML = '<tr><td colspan="10" style="text-align:center;padding:2rem;color:#94a3b8;">Belum ada data peserta.</td></tr>';
+      return;
+    }
+    tbody.innerHTML = '';
+    allHasil.forEach((r, i) => {
+      const p = r.peserta || {};
+      const tgl = p.tgl_lahir ? new Date(p.tgl_lahir).toLocaleDateString('id-ID', { day:'2-digit', month:'long', year:'numeric' }) : '–';
+      const tr = document.createElement('tr');
+
+      // Isi kolom biasa via innerHTML (tidak ada event handler di dalamnya)
+      tr.innerHTML = `
+        <td style="color:#94a3b8;font-weight:600;">${i+1}</td>
+        <td><strong>${p.nama || '–'}</strong></td>
+        <td style="font-size:0.82rem;">${p.nik || '–'}</td>
+        <td>${p.jk || '–'}</td>
+        <td style="font-size:0.82rem;">${p.tempat_lahir ? p.tempat_lahir + ', ' : ''}${tgl}</td>
+        <td><span class="badge badge-purple">${p.pendidikan || '–'}</span></td>
+        <td style="font-size:0.82rem;">${p.hp || '–'}</td>
+        <td style="font-size:0.82rem;">${p.email || '–'}</td>
+        <td>${p.posisi || '–'}</td>
+      `;
+
+      // Tombol Hapus — two-step confirmation
+      const tdAksi = document.createElement('td'); tdAksi.style.textAlign = 'center';
+      const btnHapus = document.createElement('button');
+      btnHapus.className = 'btn-delete';
+      btnHapus.textContent = 'Hapus';
+      btnHapus.addEventListener('click', () => deleteHasil(r.id, btnHapus));
+      tdAksi.appendChild(btnHapus);
+      tr.appendChild(tdAksi);
+
+      tbody.appendChild(tr);
+    });
+  }
+
+  async function deleteHasil(id, btnEl) {
+    // Jika sudah dalam mode konfirmasi, lanjutkan hapus
+    if (btnEl && btnEl.dataset.confirming === 'true') {
+      btnEl.dataset.confirming = 'false';
+      btnEl.textContent = 'Hapus';
+      btnEl.style.background = '';
+      btnEl.style.color = '';
+      try {
+        const resp = await fetch(`api_hasil.php?id=${id}`, { method: 'DELETE' });
+        const res = await resp.json();
+        if (res.status === 'ok' || res.status === 'success') {
+          showToast('Data berhasil dihapus', 'success');
+          loadHasilData();
+        } else {
+          showToast(res.message || 'Gagal menghapus', 'error');
+        }
+      } catch(e) { showToast('Gagal hapus: ' + e.message, 'error'); }
+      return;
+    }
+    // Klik pertama: tampilkan konfirmasi inline
+    if (btnEl) {
+      btnEl.dataset.confirming = 'true';
+      btnEl.textContent = 'Yakin?';
+      btnEl.style.background = '#b91c1c';
+      btnEl.style.color = 'white';
+      setTimeout(() => {
+        if (btnEl.dataset.confirming === 'true') {
+          btnEl.dataset.confirming = 'false';
+          btnEl.textContent = 'Hapus';
+          btnEl.style.background = '';
+          btnEl.style.color = '';
+        }
+      }, 3000);
+    }
+  }
+
+  function closeDetailModal() {
+    document.getElementById('modal-detail').classList.remove('show');
+  }
+
+  window.showDetail = function(id) {
+    const r = allHasil.find(x => x.id === id);
+    if (!r) { alert('Data tidak ditemukan: ' + id); return; }
+    const p = r.peserta || {};
+    const ped = r.hasil[0] || { skor:0, benar:0, total:0 };
+    const pro = r.hasil[1] || { skor:0, benar:0, total:0 };
+    const avg = Math.round((ped.skor + pro.skor) / 2);
+
+    document.getElementById('d-nama').textContent   = p.nama || '–';
+    document.getElementById('d-posisi').textContent = p.posisi || '–';
+    document.getElementById('d-avg').textContent    = avg;
+    document.getElementById('d-ped-skor').textContent = ped.skor;
+    document.getElementById('d-pro-skor').textContent = pro.skor;
+    document.getElementById('d-ped-val').textContent  = ped.skor;
+    document.getElementById('d-pro-val').textContent  = pro.skor;
+    document.getElementById('d-ped-detail').textContent = `${ped.benar} / ${ped.total} soal benar`;
+    document.getElementById('d-pro-detail').textContent = `${pro.benar} / ${pro.total} soal benar`;
+    document.getElementById('d-pend').textContent   = p.pendidikan || '–';
+    document.getElementById('d-waktu').textContent  = formatTglAdmin(r.waktu_selesai);
+
+    // Reset bars
+    ['d-ped-bar','d-pro-bar','g-ped-bar','g-pro-bar','g-avg-bar'].forEach(bid => {
+      const el = document.getElementById(bid);
+      if (el) { el.style.width = '0%'; el.style.height = '0%'; }
+    });
+    document.getElementById('g-ped-lbl').textContent = ped.skor;
+    document.getElementById('g-pro-lbl').textContent = pro.skor;
+    document.getElementById('g-avg-lbl').textContent = avg;
+
+    document.getElementById('modal-detail').classList.add('show');
+
+    requestAnimationFrame(() => {
+      setTimeout(() => {
+        document.getElementById('d-ped-bar').style.width = ped.skor + '%';
+        document.getElementById('d-pro-bar').style.width = pro.skor + '%';
+        document.getElementById('g-ped-bar').style.height = ped.skor + '%';
+        document.getElementById('g-pro-bar').style.height = pro.skor + '%';
+        document.getElementById('g-avg-bar').style.height = avg + '%';
+      }, 80);
+    });
+  };
+
+  // ── CSV IMPORT SYSTEM ─────────────────────────────────
+  let csvParsedData = []; // Soal hasil parse yang valid
+
+  function closeImportModal() {
+    document.getElementById('modal-import').classList.remove('show');
+    // Reset file input agar bisa upload ulang file yang sama
+    const fi = document.getElementById('csv-file-input');
+    if (fi) fi.value = '';
+  }
+
+  function handleCSVImport(input) {
+    if (!input.files || !input.files[0]) return;
+    const file = input.files[0];
+    document.getElementById('import-file-name').textContent = file.name + ' (' + (file.size / 1024).toFixed(1) + ' KB)';
+    document.getElementById('modal-import').classList.add('show');
+
+    const reader = new FileReader();
+    reader.onload = function(e) {
+      const text = e.target.result;
+      parseCSV(text);
+    };
+    reader.readAsText(file, 'UTF-8');
+  }
+
+  function parseCSV(text) {
+    // Normalisasi line endings
+    const lines = text.replace(/\r\n/g, '\n').replace(/\r/g, '\n').split('\n').filter(l => l.trim());
+    if (lines.length < 2) {
+      showImportError('File CSV kosong atau tidak memiliki data soal.');
+      return;
+    }
+
+    // ── Auto-detect delimiter: titik koma (;) vs koma (,) ──
+    // Excel Indonesia default: pakai ; sebagai pemisah
+    const headerLine = lines[0];
+    const semicolonCount = (headerLine.match(/;/g) || []).length;
+    const commaCount    = (headerLine.match(/,/g) || []).length;
+    const delim = semicolonCount > commaCount ? ';' : ',';
+
+    // ── Parse header ──
+    const rawHeader = parseCSVLine(headerLine, delim);
+    // Normalisasi: lowercase, trim, ganti spasi→_, hapus karakter non-alphanumeric kecuali _
+    const header = rawHeader.map(h =>
+      h.trim().toLowerCase()
+        .replace(/\s+/g, '_')        // spasi → _
+        .replace(/[^a-z0-9_]/g, '')  // buang karakter aneh
+    );
+
+    // Mapping alias kolom yang umum dipakai
+    const aliasMap = {
+      'opsi_a': ['opsi_a','a','pilihan_a','option_a'],
+      'opsi_b': ['opsi_b','b','pilihan_b','option_b'],
+      'opsi_c': ['opsi_c','c','pilihan_c','option_c'],
+      'opsi_d': ['opsi_d','d','pilihan_d','option_d'],
+      'opsi_e': ['opsi_e','e','pilihan_e','option_e'],
+      'sesi':   ['sesi','session','kategori_sesi'],
+      'kategori': ['kategori','label','sub_kategori','subkategori'],
+      'soal':   ['soal','pertanyaan','question'],
+      'jawaban': ['jawaban','kunci','kunci_jawaban','answer'],
+      'tipe':   ['tipe','type','jenis'],
+    };
+
+    // Buat mapping: nama_kolom_standar → index di header
+    const colIdx = {};
+    for (const [std, aliases] of Object.entries(aliasMap)) {
+      for (let i = 0; i < header.length; i++) {
+        if (aliases.includes(header[i])) {
+          if (!(std in colIdx)) colIdx[std] = i; // ambil yang pertama ditemukan
+        }
+      }
+    }
+
+    // Validasi kolom wajib
+    const requiredCols = ['sesi', 'kategori', 'soal', 'opsi_a', 'opsi_b', 'opsi_c', 'opsi_d', 'opsi_e', 'jawaban'];
+    const missingCols = requiredCols.filter(c => !(c in colIdx));
+    if (missingCols.length > 0) {
+      showImportError(
+        'Kolom wajib tidak ditemukan: <strong>' + missingCols.join(', ') + '</strong><br>' +
+        'Header terdeteksi: <code>' + header.join(' | ') + '</code><br>' +
+        'Delimiter terdeteksi: <strong>' + (delim === ';' ? 'titik koma (;)' : 'koma (,)') + '</strong><br>' +
+        'Download template CSV untuk melihat format yang benar.'
+      );
+      return;
+    }
+
+    // Fungsi ambil nilai kolom dari row
+    const get = (cols, key) => (cols[colIdx[key]] || '').trim();
+
+    // ── Parse setiap baris ──
+    const valid = [];
+    const errors = [];
+
+    for (let i = 1; i < lines.length; i++) {
+      if (!lines[i].trim()) continue;
+      const cols = parseCSVLine(lines[i], delim);
+
+      const rowSesi    = get(cols, 'sesi').toLowerCase();
+      const rowKat     = get(cols, 'kategori');
+      const rowSoal    = get(cols, 'soal');
+      const rowOpsiA   = get(cols, 'opsi_a');
+      const rowOpsiB   = get(cols, 'opsi_b');
+      const rowOpsiC   = get(cols, 'opsi_c');
+      const rowOpsiD   = get(cols, 'opsi_d');
+      const rowOpsiE   = get(cols, 'opsi_e');
+      const rowJawaban = get(cols, 'jawaban').toUpperCase().replace(/\s/g, '');
+      const rowTipeRaw = 'tipe' in colIdx ? get(cols, 'tipe').toLowerCase() : '';
+
+      // ── Smart multi-answer detection ──
+      // Kasus 1: jawaban dalam satu field, pisah koma/titik koma → "A,C,D" atau "A;C"
+      let jawabanArr = rowJawaban.split(/[,;|]/).map(x => x.trim()).filter(x => ['A','B','C','D','E'].includes(x));
+
+      // Kasus 2: delimiter file = ';' dan user tulis A;C;D tanpa kutip
+      // → tiap huruf jadi kolom terpisah mulai dari colIdx['jawaban']
+      if (jawabanArr.length < 2) {
+        const jawabanColStart = colIdx['jawaban'];
+        const extraLetters = [];
+        for (let c = jawabanColStart; c < cols.length; c++) {
+          const val = (cols[c] || '').trim().toUpperCase();
+          if (['A','B','C','D','E'].includes(val)) {
+            extraLetters.push(val);
+          } else if (val !== '' && c > jawabanColStart) {
+            break; // berhenti jika ada nilai bukan huruf A-E
+          }
+        }
+        if (extraLetters.length >= 2) jawabanArr = extraLetters;
+      }
+
+      const tipe = (rowTipeRaw === 'multi' || jawabanArr.length >= 2) ? 'multi' : 'single';
+
+      // Validasi
+      const rowErrors = [];
+      if (!['pedagogik','profesional'].includes(rowSesi))
+        rowErrors.push('sesi harus "pedagogik" atau "profesional" (terisi: "' + rowSesi + '")');
+      if (!rowKat)   rowErrors.push('kategori kosong');
+      if (!rowSoal)  rowErrors.push('teks soal kosong');
+      if (!rowOpsiA || !rowOpsiB || !rowOpsiC || !rowOpsiD)
+        rowErrors.push('opsi A–D wajib diisi');
+      if (!rowJawaban) rowErrors.push('jawaban/kunci kosong');
+
+      let jawabanFinal;
+      if (tipe === 'multi') {
+        const validLetters = jawabanArr.every(l => ['A','B','C','D','E'].includes(l));
+        if (!validLetters || jawabanArr.length < 2)
+          rowErrors.push('jawaban multi harus min. 2 huruf valid (A–E)');
+        jawabanFinal = [...new Set(jawabanArr)].sort(); // deduplicate & sort
+      } else {
+        const singleJw = rowJawaban.charAt(0); // ambil huruf pertama saja
+        if (!['A','B','C','D','E'].includes(singleJw))
+          rowErrors.push('jawaban tunggal harus A/B/C/D/E (terisi: "' + rowJawaban + '")');
+        jawabanFinal = singleJw;
+      }
+
+
+      if (rowErrors.length > 0) {
+        errors.push(`Baris ${i+1}: ${rowErrors.join('; ')}`);
+      } else {
+        valid.push({
+          sesi: rowSesi,
+          kategori: rowKat,
+          soal: rowSoal,
+          pilihan: ['A. '+rowOpsiA, 'B. '+rowOpsiB, 'C. '+rowOpsiC, 'D. '+rowOpsiD, ...(rowOpsiE ? ['E. '+rowOpsiE] : [])],
+          tipe,
+          jawaban: jawabanFinal,
+          _rowNum: i + 1
+        });
+      }
+    }
+
+    csvParsedData = valid;
+    renderImportPreview(valid, errors);
+  }
+
+  function parseCSVLine(line, delim = ',') {
+    // Parser CSV yang mendukung quoted fields, dengan delimiter custom
+    const result = [];
+    let cur = '', inQuote = false;
+    for (let i = 0; i < line.length; i++) {
+      const c = line[i];
+      if (c === '"') {
+        if (inQuote && line[i+1] === '"') { cur += '"'; i++; } // escaped quote
+        else { inQuote = !inQuote; }
+      } else if (c === delim && !inQuote) {
+        result.push(cur.trim()); cur = '';
+      } else {
+        cur += c;
+      }
+    }
+    result.push(cur.trim());
+    return result;
+  }
+
+  function showImportError(msg) {
+    const box = document.getElementById('import-error-box');
+    box.innerHTML = '❌ ' + msg;
+    box.style.display = 'block';
+    document.getElementById('import-stats').style.display = 'none';
+    document.getElementById('import-tbody').innerHTML = '<tr><td colspan="7" style="text-align:center;padding:1.5rem;color:#94a3b8;">Tidak ada data valid untuk ditampilkan.</td></tr>';
+    document.getElementById('btn-do-import').style.display = 'none';
+  }
+
+  function renderImportPreview(valid, errors) {
+    // Sembunyikan error box jika tidak ada error
+    const errBox = document.getElementById('import-error-box');
+    if (errors.length > 0) {
+      errBox.innerHTML = '⚠️ <strong>' + errors.length + ' baris bermasalah (dilewati):</strong><br>' + errors.slice(0, 5).join('<br>') + (errors.length > 5 ? '<br>...dan ' + (errors.length - 5) + ' lainnya.' : '');
+      errBox.style.display = 'block';
+    } else {
+      errBox.style.display = 'none';
+    }
+
+    // Update stats bar
+    const statsEl = document.getElementById('import-stats');
+    if (valid.length > 0 || errors.length > 0) {
+      document.getElementById('import-count').textContent = valid.length;
+      document.getElementById('import-errors-count').textContent = errors.length + ' error';
+      statsEl.style.display = 'block';
+    }
+
+    // Render preview table
+    const tbody = document.getElementById('import-tbody');
+    if (valid.length === 0) {
+      tbody.innerHTML = '<tr><td colspan="7" style="text-align:center;padding:1.5rem;color:#dc2626;font-weight:600;">Tidak ada soal valid yang bisa diimport.</td></tr>';
+      document.getElementById('btn-do-import').style.display = 'none';
+      return;
+    }
+
+    tbody.innerHTML = '';
+    valid.forEach((q, i) => {
+      const isMulti = q.tipe === 'multi';
+      const jawabanStr = Array.isArray(q.jawaban) ? q.jawaban.join(', ') : q.jawaban;
+      const tr = document.createElement('tr');
+      tr.style.borderBottom = '1px solid #f1f5f9';
+      tr.innerHTML = `
+        <td style="padding:6px 10px;color:#94a3b8;font-weight:600;">${i+1}</td>
+        <td style="padding:6px 10px;"><span class="badge ${q.sesi === 'pedagogik' ? 'badge-blue' : 'badge-purple'}">${q.sesi}</span></td>
+        <td style="padding:6px 10px;font-size:0.78rem;color:#475569;">${q.kategori}</td>
+        <td style="padding:6px 10px;max-width:250px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;" title="${q.soal}">${q.soal}</td>
+        <td style="padding:6px 10px;text-align:center;">
+          ${isMulti
+            ? '<span style="background:#fef3c7;color:#92400e;font-size:0.65rem;font-weight:700;padding:2px 7px;border-radius:20px;border:1px solid #fde68a;">MULTI</span>'
+            : '<span style="background:#eff6ff;color:#1d4ed8;font-size:0.65rem;font-weight:700;padding:2px 7px;border-radius:20px;border:1px solid #bfdbfe;">TUNGGAL</span>'}
+        </td>
+        <td style="padding:6px 10px;text-align:center;font-weight:800;color:var(--primary);">${jawabanStr}</td>
+        <td style="padding:6px 10px;text-align:center;"><span style="background:#dcfce7;color:#166534;font-size:0.7rem;font-weight:700;padding:2px 8px;border-radius:20px;">✓ OK</span></td>
+      `;
+      tbody.appendChild(tr);
+    });
+
+    // Tampilkan tombol import
+    document.getElementById('import-btn-count').textContent = valid.length;
+    document.getElementById('btn-do-import').style.display = 'inline-flex';
+  }
+
+  async function doImport() {
+    if (csvParsedData.length === 0) return;
+    const btn = document.getElementById('btn-do-import');
+    btn.textContent = '⏳ Mengimport...';
+    btn.disabled = true;
+
+    let success = 0, failed = 0;
+
+    for (const q of csvParsedData) {
+      try {
+        const fd = new FormData();
+        fd.append('sesi', q.sesi);
+        fd.append('kategori', q.kategori);
+        fd.append('soal', q.soal);
+        fd.append('pilihan', JSON.stringify(q.pilihan));
+        fd.append('tipe', q.tipe);
+        // Kirim jawaban sesuai tipe
+        if (q.tipe === 'multi') {
+          fd.append('jawaban', JSON.stringify(q.jawaban));
+        } else {
+          fd.append('jawaban', q.jawaban);
+        }
+        const resp = await fetch('api.php', { method: 'POST', body: fd });
+        const res = await resp.json();
+        if (res.status === 'success') success++;
+        else failed++;
+      } catch(e) { failed++; }
+    }
+
+    // Selesai
+    btn.disabled = false;
+    closeImportModal();
+    loadData();
+    if (failed > 0) {
+      showToast(`Import selesai: ${success} berhasil, ${failed} gagal`, 'error');
+    } else {
+      showToast(`✅ ${success} soal berhasil diimport!`, 'success');
+    }
+    csvParsedData = [];
+  }
+
+  // ── Download Template CSV ──────────────────────────────
+  function downloadTemplate() {
+    // File menggunakan titik koma (;) sebagai pemisah kolom — default Excel Indonesia
+    // PENTING: untuk jawaban multi, gunakan KOMA (A,C,D) bukan titik koma
+    //          karena titik koma sudah dipakai sebagai pemisah kolom
+    const sep = ';';
+    const header = ['sesi','kategori','soal','opsi_a','opsi_b','opsi_c','opsi_d','opsi_e','tipe','jawaban'].join(sep);
+    const rows = [
+      // Soal tunggal (tipe=single) → jawaban: 1 huruf saja
+      ['pedagogik','Teori Belajar','Teori belajar yang menekankan perubahan tingkah laku dari stimulus dan respon adalah...','Kognitivisme','Behaviorisme','Konstruktivisme','Humanisme','Sibernetik','single','B'],
+      ['pedagogik','Evaluasi','Tujuan penilaian formatif adalah untuk...','Menentukan nilai akhir','Memberikan umpan balik perbaikan','Menyeleksi siswa','Memberi sertifikat','Membandingkan sekolah','single','B'],
+      // Soal multi-jawab (tipe=multi) → jawaban: pisah KOMA: A,C,D (bukan titik koma!)
+      ['pedagogik','Warna','Mana saja yang merupakan warna primer (RYB)?','Merah','Hijau','Biru','Kuning','Ungu','multi','A,C'],
+      ['profesional','Kompetensi','Guru yang memiliki kemampuan memformulasikan materi secara mendalam disebut kompeten di bidang...','Pedagogik','Kepribadian','Sosial','Profesional','Manajerial','single','D'],
+      ['profesional','Kurikulum','Komponen kurikulum yang wajib ada antara lain... (pilih semua yang benar)','Tujuan','Isi/Materi','Strategi','Kepala Sekolah','Gedung','multi','A,B,C'],
+      // Isi soal Anda di bawah ini:
+      ['pedagogik','(isi kategori)','(isi teks soal di sini)','(opsi A)','(opsi B)','(opsi C)','(opsi D)','(opsi E)','single','A'],
+      ['profesional','(isi kategori)','(isi teks soal multi-jawab)','(opsi A)','(opsi B)','(opsi C)','(opsi D)','(opsi E)','multi','A,C'],
+    ];
+    const csvLines = [header, ...rows.map(r => r.join(sep))];
+    const csv = csvLines.join('\r\n');
+    const blob = new Blob(['\uFEFF' + csv], { type: 'text/csv;charset=utf-8;' }); // BOM agar Excel baca UTF-8
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url; a.download = 'template_soal_cbt.csv';
+    document.body.appendChild(a); a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+    showToast('Template CSV berhasil didownload!', 'success');
+  }
+
+
+</script>
+</body>
+</html>
